@@ -1,6 +1,7 @@
 package com.example.anaplb.appalpha;
 
-import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.example.anaplb.appalpha.model.Vocabulario;
 import com.example.anaplb.appalpha.model.VocabularioCidade;
@@ -9,62 +10,48 @@ import com.example.anaplb.appalpha.model.VocabularioCor;
 import com.example.anaplb.appalpha.model.VocabularioCozinha;
 import com.example.anaplb.appalpha.model.VocabularioFruta;
 import com.example.anaplb.appalpha.model.VocabularioNatureza;
-import com.example.anaplb.appalpha.transformandopalavra.ModificacaoCompletar;
-import com.example.anaplb.appalpha.transformandopalavra.ModificacaoForca;
-import com.example.anaplb.appalpha.transformandopalavra.ModificandoPalavras;
 
+/**
+ * Classe que retorna o objeto-tema dependendo da escolha do usuário
+ */
 public class TemaFactory {
 
-    public Vocabulario pegandoPalavra(Button button) {
+    /**
+     * A partir do id do image view que o usuário escolheu, retorna um objeto com o tema correspondente
+     * @param img tema escolhido
+     * @return um objeto Vocabulário do tema escolhido pelo jogador
+     */
+    public Vocabulario pegandoPalavra(ImageView img) {
         Vocabulario p = null;
 
-        switch(button.getId()) {
+        switch(img.getId()) {
 
-            case(R.id.button):
+            case(R.id.img_cidade):
                 p =  VocabularioCidade.getInstance();
                 break;
 
-            case(R.id.button2):
+            case(R.id.img_comida):
                 p = VocabularioComida.getInstance();
                 break;
 
-            case(R.id.button3):
+            case(R.id.img_cores):
                 p =  VocabularioCor.getInstance();
                 break;
 
-            case(R.id.button4):
+            case(R.id.img_cozinha):
                 p =  VocabularioCozinha.getInstance();
                 break;
 
-            case(R.id.button5):
+            case(R.id.img_frutas):
                 p =  VocabularioFruta.getInstance();
                 break;
 
-            case(R.id.button6):
+            case(R.id.img_natureza):
                 p =  VocabularioNatureza.getInstance();
                 break;
         }
 
         return p;
     }
-
-    /*public Vocabulario pegandoObjeto(Button bt, int id) {
-        Vocabulario v = pegandoPalavra(bt);
-        ModificandoPalavras mp = null;
-
-        switch (id) {
-            case 1:
-                mp = new ModificacaoCompletar(v.getPalavras());
-                break;
-
-            case 2:
-                mp = new ModificacaoForca(v.getPalavras());
-                break;
-        }
-
-        v.setModificador(mp);
-
-        return v;
-    }*/
 
 }

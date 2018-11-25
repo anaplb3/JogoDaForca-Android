@@ -27,7 +27,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:background="#fff569"
-        android:onClick="indoPraModo"
+        android:onClick="indoPraTema"
         android:text="Jogar"
         app:layout_constraintBottom_toTopOf="@+id/button11"
         app:layout_constraintEnd_toEndOf="parent"

@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.example.anaplb.appalpha.Som.Som;
 import com.example.anaplb.appalpha.model.CompiladoDaPalavra;
@@ -27,14 +29,14 @@ public class TemaActivity extends AppCompatActivity {
     }
 
 
-    public void botaoEscolha(Button b) {
+    public void botaoEscolha(ImageView img_button) {
         Intent intent = new Intent(TemaActivity.this, Forca.class);
 
         Log.i("botao", "botaoEscolha");
 
         TemaFactory factory = new TemaFactory();
 
-        Vocabulario p = factory.pegandoPalavra(b);
+        Vocabulario p = factory.pegandoPalavra(img_button);
 
         facade = new CuidandoDeTudo(p.getPalavras(), p.getAudios(), p.getImgs());
         Log.i("size", ""+p.retornandoNomes().size());
@@ -47,69 +49,44 @@ public class TemaActivity extends AppCompatActivity {
 
     }
 
-    public void botaoCidade(View v) {
-        Log.i("botao", "botaoCidade");
-        Button b = findViewById(R.id.button);
-        botaoEscolha(b);
-    }
-
-    public void botaoNatureza(View v) {
-        Log.i("botao", "botaoNatureza");
-
-        Button b = findViewById(R.id.button6);
-        botaoEscolha(b);
-    }
-
-    public void botaoCozinha(View v) {
-        Log.i("botao", "botaoCozinha");
-
-        Button b = findViewById(R.id.button4);
-        botaoEscolha(b);
-    }
-
-    public void botaoCor(View v) {
-        Log.i("botao", "botaoCor");
-
-        Button b = findViewById(R.id.button3);
-        botaoEscolha(b);
-    }
-
-    public void botaoFruta(View v) {
-        Log.i("botao", "botaoFruta");
-
-        Button b = findViewById(R.id.button5);
-        botaoEscolha(b);
-    }
-
-    public void botaoComida(View v) {
-        Log.i("botao", "botaoComida");
-
-        Button b = findViewById(R.id.button2);
-        botaoEscolha(b);
-    }
-
     public void imageButtonCidade(View v) {
+
         som.playSound(getApplicationContext(), R.raw.cidade);
+        ImageView img = findViewById(R.id.img_cidade);
+        botaoEscolha(img);
     }
 
     public void imageButtonNatureza(View v) {
         som.playSound(getApplicationContext(), R.raw.natureza);
+        ImageView img = findViewById(R.id.img_natureza);
+        botaoEscolha(img);
     }
 
     public void imageButtonComida(View v) {
+
         som.playSound(getApplicationContext(), R.raw.comida);
+        ImageView img = findViewById(R.id.img_comida);
+        botaoEscolha(img);
     }
 
     public void imageButtonCozinha(View v) {
         som.playSound(getApplicationContext(), R.raw.cozinha);
+        ImageView img = findViewById(R.id.img_cozinha);
+        botaoEscolha(img);
     }
 
     public void imageButtonCor(View v) {
+
         som.playSound(getApplicationContext(), R.raw.cores);
+        ImageView img = findViewById(R.id.img_cores);
+        botaoEscolha(img);
     }
 
     public void imageButtonFruta(View v) {
+
         som.playSound(getApplicationContext(), R.raw.frutas);
+        ImageView img = findViewById(R.id.img_frutas);
+        botaoEscolha(img);
     }
 
 }
