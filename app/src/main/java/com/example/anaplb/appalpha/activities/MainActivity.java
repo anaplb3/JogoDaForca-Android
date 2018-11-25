@@ -1,10 +1,12 @@
-package com.example.anaplb.appalpha;
+package com.example.anaplb.appalpha.activities;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.anaplb.appalpha.R;
 
 public class MainActivity extends AppCompatActivity {
 

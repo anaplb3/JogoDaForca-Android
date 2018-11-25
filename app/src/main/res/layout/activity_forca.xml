@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_purple"
-    tools:context=".Forca"
+    tools:context=".activities.ForcaActivity"
     tools:layout_editor_absoluteY="25dp">
 
     <ImageView

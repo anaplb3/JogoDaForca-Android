@@ -1,4 +1,4 @@
-package com.example.anaplb.appalpha;
+package com.example.anaplb.appalpha.activities;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -11,12 +11,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.anaplb.appalpha.CuidandoDaTela;
+import com.example.anaplb.appalpha.R;
 import com.example.anaplb.appalpha.Som.Som;
 import com.example.anaplb.appalpha.tratamento.TratandoPalavra;
 import com.example.anaplb.appalpha.tratamento.VazioException;
 
 
-public class Forca extends AppCompatActivity {
+public class ForcaActivity extends AppCompatActivity {
     final int CHUTE_NULO = 2;
     final int CHUTE_VALIDO = 1;
     final int CHUTE_REPETIDO = -1;

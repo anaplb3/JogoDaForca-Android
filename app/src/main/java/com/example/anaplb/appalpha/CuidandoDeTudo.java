@@ -6,9 +6,12 @@ import com.example.anaplb.appalpha.tratamento.TratandoPalavra;
 
 import java.util.ArrayList;
 
+/**
+ * Classe responsável por passar dados entre a activity tema e a activity forca
+ */
 public class CuidandoDeTudo {
-    Escolhendo escolhendo;
-    TratandoPalavra tratando;
+    private Escolhendo escolhendo;
+    private TratandoPalavra tratando;
 
     public CuidandoDeTudo(ArrayList<String> palavras, ArrayList<Integer> audios, ArrayList<Integer> imgs) {
         escolhendo = new Escolhendo(palavras, audios, imgs);

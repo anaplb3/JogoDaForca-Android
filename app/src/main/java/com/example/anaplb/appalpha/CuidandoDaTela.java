@@ -2,6 +2,9 @@ package com.example.anaplb.appalpha;
 
 import android.widget.ImageView;
 
+/**
+ * Responsável por ir atualizando a forca durante o jogo
+ */
 public class CuidandoDaTela {
     private ImageView forca;
 

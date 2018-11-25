@@ -3,6 +3,9 @@ package com.example.anaplb.appalpha;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Classe responsável por escolher uma palavra aleatória do tema escolhido pelo usuário
+ */
 public class Escolhendo {
     private ArrayList<String> palavras;
     private ArrayList<Integer> audios;

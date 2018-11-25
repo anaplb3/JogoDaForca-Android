@@ -8,7 +8,7 @@
     android:scrollbarAlwaysDrawHorizontalTrack="true"
     android:scrollbarAlwaysDrawVerticalTrack="true"
     android:scrollbars="horizontal|vertical"
-    tools:context=".TemaActivity"
+    tools:context=".activities.TemaActivity"
     tools:layout_editor_absoluteY="25dp">
 
     <ImageView

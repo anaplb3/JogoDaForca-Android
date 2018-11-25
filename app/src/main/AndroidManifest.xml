@@ -9,17 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
-        <activity android:name=".Forca" />
-        <activity android:name=".TemaActivity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.ForcaActivity" />
+        <activity android:name=".activities.TemaActivity" />
+        <activity android:name=".activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FinalActivity" />
+        <activity android:name=".activities.FinalActivity" />
         <activity android:name=".ModoActivity" />
         <activity android:name=".CompletarActivity" />
         <activity android:name=".ThemeActivity" />

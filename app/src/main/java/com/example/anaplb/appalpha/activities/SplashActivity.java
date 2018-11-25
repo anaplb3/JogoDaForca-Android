@@ -1,9 +1,11 @@
-package com.example.anaplb.appalpha;
+package com.example.anaplb.appalpha.activities;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.anaplb.appalpha.R;
 
 public class SplashActivity extends AppCompatActivity {
 

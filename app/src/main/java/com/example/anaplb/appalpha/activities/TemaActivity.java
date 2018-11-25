@@ -1,16 +1,16 @@
-package com.example.anaplb.appalpha;
+package com.example.anaplb.appalpha.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import com.example.anaplb.appalpha.CuidandoDeTudo;
+import com.example.anaplb.appalpha.R;
 import com.example.anaplb.appalpha.Som.Som;
-import com.example.anaplb.appalpha.model.CompiladoDaPalavra;
+import com.example.anaplb.appalpha.TemaFactory;
 import com.example.anaplb.appalpha.model.Vocabulario;
 
 
@@ -30,7 +30,7 @@ public class TemaActivity extends AppCompatActivity {
 
 
     public void botaoEscolha(ImageView img_button) {
-        Intent intent = new Intent(TemaActivity.this, Forca.class);
+        Intent intent = new Intent(TemaActivity.this, ForcaActivity.class);
 
         Log.i("botao", "botaoEscolha");
 
