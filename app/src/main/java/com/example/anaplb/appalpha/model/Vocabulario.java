@@ -1,5 +1,7 @@
 package com.example.anaplb.appalpha.model;
 
+import com.example.anaplb.appalpha.transformandopalavra.ModificandoPalavras;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -7,6 +9,7 @@ public abstract class Vocabulario implements Serializable{
     protected ArrayList<String> palavras;
     protected ArrayList<Integer> imgs;
     protected ArrayList<Integer> audios;
+    protected ModificandoPalavras mp;
 
     Vocabulario() {
         povoandoAtributos();
@@ -16,6 +19,14 @@ public abstract class Vocabulario implements Serializable{
         setPalavras();
         setImgs();
         setAudios();
+    }
+
+    public void setModificador(ModificandoPalavras mp) {
+        this.mp = mp;
+    }
+
+    public ModificandoPalavras getModificador() {
+        return mp;
     }
 
     private void setPalavras() {

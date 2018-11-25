@@ -8,27 +8,23 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.anaplb.appalpha.Som.Som;
-import com.example.anaplb.appalpha.model.CompiladoDaPalavra;
 import com.example.anaplb.appalpha.model.Vocabulario;
 
-
-public class TemaActivity extends AppCompatActivity {
+public class theme_Activity extends AppCompatActivity {
     Som som;
     CuidandoDeTudo facade;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tema);
+        setContentView(R.layout.activity_theme_);
 
         getLayoutInflater().inflate(R.layout.activity_tema, null);
         som = new Som();
-
     }
 
-
-    public void botaoEscolha(Button b) {
-        Intent intent = new Intent(TemaActivity.this, Forca.class);
+    private void botaoEscolha(Button b) {
+        Intent intent = new Intent(this, Forca.class);
 
         Log.i("botao", "botaoEscolha");
 
@@ -49,6 +45,8 @@ public class TemaActivity extends AppCompatActivity {
 
     public void botaoCidade(View v) {
         Log.i("botao", "botaoCidade");
+
+        som.playSound(getApplicationContext(), R.raw.cidade);
         Button b = findViewById(R.id.button);
         botaoEscolha(b);
     }
@@ -56,6 +54,7 @@ public class TemaActivity extends AppCompatActivity {
     public void botaoNatureza(View v) {
         Log.i("botao", "botaoNatureza");
 
+        som.playSound(getApplicationContext(), R.raw.natureza);
         Button b = findViewById(R.id.button6);
         botaoEscolha(b);
     }
@@ -63,6 +62,7 @@ public class TemaActivity extends AppCompatActivity {
     public void botaoCozinha(View v) {
         Log.i("botao", "botaoCozinha");
 
+        som.playSound(getApplicationContext(), R.raw.cozinha);
         Button b = findViewById(R.id.button4);
         botaoEscolha(b);
     }
@@ -70,6 +70,7 @@ public class TemaActivity extends AppCompatActivity {
     public void botaoCor(View v) {
         Log.i("botao", "botaoCor");
 
+        som.playSound(getApplicationContext(), R.raw.cores);
         Button b = findViewById(R.id.button3);
         botaoEscolha(b);
     }
@@ -77,6 +78,7 @@ public class TemaActivity extends AppCompatActivity {
     public void botaoFruta(View v) {
         Log.i("botao", "botaoFruta");
 
+        som.playSound(getApplicationContext(), R.raw.frutas);
         Button b = findViewById(R.id.button5);
         botaoEscolha(b);
     }
@@ -84,32 +86,9 @@ public class TemaActivity extends AppCompatActivity {
     public void botaoComida(View v) {
         Log.i("botao", "botaoComida");
 
+        som.playSound(getApplicationContext(), R.raw.comida);
         Button b = findViewById(R.id.button2);
         botaoEscolha(b);
-    }
-
-    public void imageButtonCidade(View v) {
-        som.playSound(getApplicationContext(), R.raw.cidade);
-    }
-
-    public void imageButtonNatureza(View v) {
-        som.playSound(getApplicationContext(), R.raw.natureza);
-    }
-
-    public void imageButtonComida(View v) {
-        som.playSound(getApplicationContext(), R.raw.comida);
-    }
-
-    public void imageButtonCozinha(View v) {
-        som.playSound(getApplicationContext(), R.raw.cozinha);
-    }
-
-    public void imageButtonCor(View v) {
-        som.playSound(getApplicationContext(), R.raw.cores);
-    }
-
-    public void imageButtonFruta(View v) {
-        som.playSound(getApplicationContext(), R.raw.frutas);
     }
 
 }

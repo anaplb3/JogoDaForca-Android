@@ -9,10 +9,13 @@ import com.example.anaplb.appalpha.model.VocabularioCor;
 import com.example.anaplb.appalpha.model.VocabularioCozinha;
 import com.example.anaplb.appalpha.model.VocabularioFruta;
 import com.example.anaplb.appalpha.model.VocabularioNatureza;
+import com.example.anaplb.appalpha.transformandopalavra.ModificacaoCompletar;
+import com.example.anaplb.appalpha.transformandopalavra.ModificacaoForca;
+import com.example.anaplb.appalpha.transformandopalavra.ModificandoPalavras;
 
 public class TemaFactory {
 
-    public Vocabulario pegandoObjeto(Button button) {
+    public Vocabulario pegandoPalavra(Button button) {
         Vocabulario p = null;
 
         switch(button.getId()) {
@@ -44,5 +47,24 @@ public class TemaFactory {
 
         return p;
     }
+
+    /*public Vocabulario pegandoObjeto(Button bt, int id) {
+        Vocabulario v = pegandoPalavra(bt);
+        ModificandoPalavras mp = null;
+
+        switch (id) {
+            case 1:
+                mp = new ModificacaoCompletar(v.getPalavras());
+                break;
+
+            case 2:
+                mp = new ModificacaoForca(v.getPalavras());
+                break;
+        }
+
+        v.setModificador(mp);
+
+        return v;
+    }*/
 
 }

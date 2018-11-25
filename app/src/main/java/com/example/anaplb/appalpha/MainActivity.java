@@ -1,6 +1,7 @@
 package com.example.anaplb.appalpha;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,10 +13,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
     }
 
-    public void indoPraOTema(View v) {
+    public void indoPraModo(View v) {
         Intent it = new Intent(getApplicationContext(), TemaActivity.class);
         startActivity(it);
         finish();

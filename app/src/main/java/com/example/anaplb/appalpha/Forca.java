@@ -13,15 +13,22 @@ import android.widget.Toast;
 
 import com.example.anaplb.appalpha.Som.Som;
 import com.example.anaplb.appalpha.tratamento.TratandoPalavra;
+import com.example.anaplb.appalpha.tratamento.TratandoTextView;
+import com.example.anaplb.appalpha.tratamento.VazioException;
+
 
 public class Forca extends AppCompatActivity {
+    final int CHUTE_NULO = 2;
+    final int CHUTE_VALIDO = 1;
+    final int CHUTE_REPETIDO = -1;
+    final int QTD_MAX_ERROS = 6;
+    CuidandoDaTela cuidandoDaForca;
     Integer audio;
     Integer idImagem;
     Som som;
     String chute;
     TratandoPalavra tratandoPalavra;
     int erros;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,76 +37,137 @@ public class Forca extends AppCompatActivity {
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         som = new Som();
+        Log.i("check", "check");
 
+
+        //Pegando dados do Tema
         Intent it = getIntent();
         String underscore = it.getStringExtra("under");
         String palavra = it.getStringExtra("palavra");
         idImagem = it.getIntExtra("img", 0);
         erros = it.getIntExtra("erros", 0);
-
         audio = it.getIntExtra("som", 0);
 
+        // Setando o underscore no objeto para que ele possa ser modificado ao longo do jogo
         tratandoPalavra = new TratandoPalavra(palavra);
         tratandoPalavra.setUnderscore(underscore);
 
-        Log.i("unders", underscore);
-
-        ImageView forca = findViewById(R.id.img_forca);
-        CuidandoDaTela cuidandoDaForca = new CuidandoDaTela(forca);
-
-        cuidandoDaForca.mudandoForca(erros);
-
+        // Setando o underscore no TextView da tela
         TextView txtUnderscore = findViewById(R.id.txt_underscore);
         txtUnderscore.setText(underscore);
 
+        // Setando o ImageView da forca no objeto para modificação ao longo do jogo
+        ImageView img_forca = findViewById(R.id.img_forca);
+        cuidandoDaForca = new CuidandoDaTela(img_forca);
+
+        // Setando imagem da palavra
         ImageView imgPalavra = findViewById(R.id.img_palavra);
         imgPalavra.setImageResource(idImagem);
 
+        //Logs pra ver se tudo tá funcionando
+        VazioException ve = new VazioException(underscore, palavra, idImagem, audio, erros);
+        ve.mostrandoGeral();
+
     }
 
+    /**
+     * Atualiza os dados da tela como a img da forca e o TextView com o underscore
+     * @param v view
+     */
+    public void atualizandoInformacoes(View v) {
+        // Pegando a resposta e verificando se houve erro
+        pegandoResposta();
+
+        // Atualiza a imagem da forca de acordo com a quantidade de erros
+        setandoAForca();
+
+        // Setando o text view com o novo underscore
+        setandoTxtUnderscore(tratandoPalavra.getUnderscore());
+
+        verificandoSeOJogoAcabou();
+    }
+
+    /**
+     * Atualiza a imagem da forca
+     */
+    private void setandoAForca() {
+        cuidandoDaForca.mudandoForca(erros);
+    }
+
+    /**
+     * Verifica se a quantidade máxima de erros foi atingida ou se o usuário já acertou a palavra
+     */
+    private void verificandoSeOJogoAcabou() {
+        if (this.erros == QTD_MAX_ERROS) {
+            Intent it = new Intent(this, FinalActivity.class);
+            it.putExtra("ganhou", false);
+            startEmActivity(it);
+        } else if (verificandoSeJaAcertou()) {
+            Intent it = new Intent(this, FinalActivity.class);
+            it.putExtra("ganhou", true);
+            startEmActivity(it);
+        }
+    }
+
+    /**
+     * Seta o text view com o underscore da palavra
+     *
+     * @param underscore underscore da palavra
+     */
+    private void setandoTxtUnderscore(String underscore) {
+        TextView txtUnderscore = findViewById(R.id.txt_underscore);
+        txtUnderscore.setText(underscore);
+    }
+
+    /**
+     * Toca o som da palavra
+     *
+     * @param v view
+     */
     public void escutandoPalavra(View v) {
         som.playSound(getApplicationContext(), audio);
     }
 
-    public void pegandoResposta(View v) {
-        Intent it;
+    /**
+     * Pega a resposta do usuário e verifica se houve acerto, resposta nulo ou repetida. A partir disso contabiliza a quantidade de erros
+     */
+    public void pegandoResposta() {
         EditText txt = findViewById(R.id.txt_chute);
         chute = txt.getText().toString().toLowerCase();
 
-        if (chute.isEmpty()) {
+        int res = tratandoPalavra.contandoErros(chute);
+
+        if (res == CHUTE_NULO) {
             Toast.makeText(getApplicationContext(), "Você não pode chutar nada!", Toast.LENGTH_LONG).show();
-            it = new Intent(this, Forca.class);
-            it = colocandoEmIntent(it);
-            startActivity(it);
-            finish();
+
+        } else if (res == CHUTE_VALIDO) {
+            this.erros += res;
+
+        } else if (res == CHUTE_REPETIDO) {
+            Toast.makeText(getApplicationContext(), "Você já chutou essa letra!", Toast.LENGTH_LONG).show();
+
         }
 
+        txt.getText().clear();
 
-        this.erros += tratandoPalavra.contandoErros(chute.charAt(0));
-
-        if (this.erros == 6) {
-            it = new Intent(this, FinalActivity.class);
-            it.putExtra("ganhou", false);
-        } else if (tratandoPalavra.checandoSeAcertouPalavra()) {
-            it = new Intent(this, FinalActivity.class);
-            it.putExtra("ganhou", true);
-        } else {
-            it = new Intent(this, Forca.class);
-            it = colocandoEmIntent(it);
-        }
-
-        startActivity(it);
-        finish();
     }
 
-    public Intent colocandoEmIntent(Intent it) {
-        it.putExtra("erros", erros);
-        it.putExtra("palavra", tratandoPalavra.getPalavra());
-        it.putExtra("som", audio);
-        it.putExtra("img", idImagem);
-        it.putExtra("under", tratandoPalavra.getUnderscore());
+    /**
+     * Verifica se o usuário já acertou a palavra
+     * @return um boolean informando de se acertou ou não
+     */
+    private boolean verificandoSeJaAcertou() {
 
-        return it;
+        return tratandoPalavra.checandoSeAcertouPalavra();
+    }
+
+    /**
+     * Método que dá start em activities
+     * @param it Intent que será dado o start
+     */
+    private void startEmActivity(Intent it) {
+        startActivity(it);
+        finish();
     }
 
 }

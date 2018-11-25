@@ -1,9 +1,11 @@
 package com.example.anaplb.appalpha;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class FinalActivity extends AppCompatActivity {
@@ -13,15 +15,20 @@ public class FinalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final);
 
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         Intent it = getIntent();
         boolean ganhou = it.getBooleanExtra("ganhou", true);
 
         TextView txt = findViewById(R.id.textView);
+        ImageView img = findViewById(R.id.imageView9);
 
         if(ganhou) {
-            txt.setText("Parabéns, você ganhou!");
+            img.setImageResource(R.drawable.meninafeliz);
+            txt.setText(R.string.venceu);
         } else {
-            txt.setText("Poxa, mais sorte na próxima!");
+            txt.setText(R.string.perdeu);
+            img.setImageResource(R.drawable.meninotriste);
         }
     }
 

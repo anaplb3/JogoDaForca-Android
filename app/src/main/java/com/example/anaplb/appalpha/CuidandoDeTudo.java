@@ -30,15 +30,15 @@ public class CuidandoDeTudo {
         return escolhendo.palavra();
     }
 
-    public String getUnderscore() {
+    private String getUnderscore() {
         return tratando.getUnderscore();
     }
 
-    public Integer getImagem() {
+    private Integer getImagem() {
         return escolhendo.imagem();
     }
 
-    public Integer getSom() {
+    private Integer getSom() {
         return escolhendo.audio();
     }
 }

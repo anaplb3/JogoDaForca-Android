@@ -19,7 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FinalActivity"></activity>
+        <activity android:name=".FinalActivity" />
+        <activity android:name=".ModoActivity" />
+        <activity android:name=".CompletarActivity" />
+        <activity android:name=".ThemeActivity" />
+        <activity android:name=".theme_Activity"></activity>
     </application>
 
 </manifest>
