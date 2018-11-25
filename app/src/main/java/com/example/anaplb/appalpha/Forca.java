@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import com.example.anaplb.appalpha.Som.Som;
 import com.example.anaplb.appalpha.tratamento.TratandoPalavra;
-import com.example.anaplb.appalpha.tratamento.TratandoTextView;
 import com.example.anaplb.appalpha.tratamento.VazioException;
 
 

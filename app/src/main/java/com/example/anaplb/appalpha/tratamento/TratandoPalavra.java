@@ -9,11 +9,9 @@ public class TratandoPalavra {
     private final int CHUTE_ERRADO = 0;
     private String palavra;
     private String underscore;
-    private int erros;
 
     public TratandoPalavra(String palavra) {
         this.palavra = palavra;
-        this.erros = 0;
     }
 
     public void setUnderscore() {
@@ -128,6 +126,7 @@ public class TratandoPalavra {
      * @return um inteiro indicando se o chute foi vazio, já existente ou errado
      */
     public int contandoErros(String chute) {
+        int erros = 0;
 
         int CHUTE_VAZIO = 2;
         //Verificando se chute é vazio
