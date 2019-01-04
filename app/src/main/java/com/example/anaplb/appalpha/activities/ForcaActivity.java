@@ -15,7 +15,6 @@ import com.example.anaplb.appalpha.CuidandoDaTela;
 import com.example.anaplb.appalpha.R;
 import com.example.anaplb.appalpha.Som.Som;
 import com.example.anaplb.appalpha.tratamento.TratandoPalavra;
-import com.example.anaplb.appalpha.tratamento.VazioException;
 
 
 public class ForcaActivity extends AppCompatActivity {
@@ -64,10 +63,6 @@ public class ForcaActivity extends AppCompatActivity {
         // Setando imagem da palavra
         ImageView imgPalavra = findViewById(R.id.img_palavra);
         imgPalavra.setImageResource(idImagem);
-
-        //Logs pra ver se tudo tá funcionando
-        VazioException ve = new VazioException(underscore, palavra, idImagem, audio, erros);
-        ve.mostrandoGeral();
 
     }
 
