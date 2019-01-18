@@ -19,7 +19,7 @@ public class VocabularioCozinha extends Vocabulario {
 
         nomes.add("colher");
         nomes.add("faca");
-        nomes.add("fogão");
+        nomes.add("fogao");
         nomes.add("garfo");
         nomes.add("geladeira");
         nomes.add("mesa");

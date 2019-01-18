@@ -1,8 +1,9 @@
 package com.example.anaplb.appalpha.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class Vocabulario {
+public abstract class Vocabulario implements Serializable {
     protected ArrayList<String> palavras;
     protected ArrayList<Integer> imgs;
     protected ArrayList<Integer> audios;

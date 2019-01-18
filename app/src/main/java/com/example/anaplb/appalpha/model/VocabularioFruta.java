@@ -24,7 +24,7 @@ public class VocabularioFruta extends Vocabulario {
         nomes.add("abacaxi");
         nomes.add("banana");
         nomes.add("goiaba");
-        nomes.add("maçã");
+        nomes.add("maça");
         nomes.add("manga");
         nomes.add("melancia");
         nomes.add("morango");
