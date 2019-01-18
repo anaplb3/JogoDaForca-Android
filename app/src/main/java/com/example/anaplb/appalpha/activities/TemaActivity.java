@@ -43,6 +43,7 @@ public class TemaActivity extends AppCompatActivity {
 
 
         intent = facade.colocandoEmIntent(intent);
+        intent.putExtra("pontuacao", 0);
         intent.putExtra("erros", 0);
         intent.putExtra("progresso", 0);
         intent.putExtra("objeto", p);

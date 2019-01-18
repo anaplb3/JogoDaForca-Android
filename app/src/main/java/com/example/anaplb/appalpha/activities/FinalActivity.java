@@ -20,18 +20,53 @@ public class FinalActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         Intent it = getIntent();
-        boolean ganhou = it.getBooleanExtra("ganhou", true);
+
 
         TextView txt = findViewById(R.id.textView);
         ImageView img = findViewById(R.id.imageView9);
+        int pontuacao = it.getIntExtra("pontuacao", 0);
 
-        if(ganhou) {
+        pontuacao(img, pontuacao);
+
+
+        /*if(ganhou) {
             img.setImageResource(R.drawable.meninafeliz);
             txt.setText(R.string.venceu);
         } else {
             txt.setText(R.string.perdeu);
             img.setImageResource(R.drawable.meninotriste);
+        }*/
+    }
+
+    public void pontuacao(ImageView img, int pontuacao) {
+
+        switch (pontuacao) {
+
+            case 0:
+                img.setImageResource(R.drawable.zero);
+                break;
+
+            case 1:
+                img.setImageResource(R.drawable.um);
+                break;
+
+            case 2:
+                img.setImageResource(R.drawable.dois);
+                break;
+
+            case 3:
+                img.setImageResource(R.drawable.tres);
+                break;
+
+            case 4:
+                img.setImageResource(R.drawable.quatro);
+                break;
+
+            case 5:
+                img.setImageResource(R.drawable.cinco);
+                break;
         }
+
     }
 
     public void jogarNovamente(View v) {

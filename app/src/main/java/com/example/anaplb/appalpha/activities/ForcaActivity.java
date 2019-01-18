@@ -34,6 +34,7 @@ public class ForcaActivity extends AppCompatActivity {
     int progresso;
     String palavra;
     Vocabulario vocabulario;
+    int pontuacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,7 @@ public class ForcaActivity extends AppCompatActivity {
         audio = it.getIntExtra("som", 0);
         progresso = it.getIntExtra("progresso", 0);
         vocabulario = (Vocabulario) it.getSerializableExtra("objeto");
+        pontuacao = it.getIntExtra("pontuacao", 0);
 
         // Setando o underscore no objeto para que ele possa ser modificado ao longo do jogo
         tratandoPalavra = new TratandoPalavra(palavra);
@@ -105,14 +107,13 @@ public class ForcaActivity extends AppCompatActivity {
 
         if (this.erros == QTD_MAX_ERROS) {
 
-            it.putExtra("ganhou", false);
             it.putExtra("progresso", progresso +=1 );
             it.putExtra("palavraUsada", palavra);
             it.putExtra("objeto", vocabulario);
             startEmActivity(it);
         } else if (verificandoSeJaAcertou()) {
 
-            it.putExtra("ganhou", true);
+            it.putExtra("pontuacao", pontuacao += 1);
             it.putExtra("progresso", progresso +=1 );
             it.putExtra("palavraUsada", palavra);
             it.putExtra("objeto", vocabulario);
