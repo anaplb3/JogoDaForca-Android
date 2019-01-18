@@ -33,12 +33,12 @@ public class ProgressoActivity extends AppCompatActivity {
 
         Log.i("progresso", "" + progresso);
 
-        //Alterando imagem e texto de progresso
+        //Alterando imagem, texto e som do progresso
         ImageView imagemProgresso = findViewById(R.id.imageView);
         TextView txt = findViewById(R.id.textView5);
 
         CuidandoTelaProgresso tela = new CuidandoTelaProgresso(imagemProgresso, txt);
-        tela.atualizandoProgresso(progresso);
+        tela.atualizandoProgresso(progresso, getApplicationContext());
 
 
     }
