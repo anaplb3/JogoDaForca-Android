@@ -14,6 +14,8 @@ import android.widget.Toast;
 import com.example.anaplb.appalpha.CuidandoDaTela;
 import com.example.anaplb.appalpha.R;
 import com.example.anaplb.appalpha.Som.Som;
+import com.example.anaplb.appalpha.desafios.Progresso;
+import com.example.anaplb.appalpha.model.Vocabulario;
 import com.example.anaplb.appalpha.tratamento.TratandoPalavra;
 
 
@@ -29,6 +31,9 @@ public class ForcaActivity extends AppCompatActivity {
     String chute;
     TratandoPalavra tratandoPalavra;
     int erros;
+    int progresso;
+    String palavra;
+    Vocabulario vocabulario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +48,12 @@ public class ForcaActivity extends AppCompatActivity {
         //Pegando dados do Tema
         Intent it = getIntent();
         String underscore = it.getStringExtra("under");
-        String palavra = it.getStringExtra("palavra");
+        palavra = it.getStringExtra("palavra");
         idImagem = it.getIntExtra("img", 0);
         erros = it.getIntExtra("erros", 0);
         audio = it.getIntExtra("som", 0);
+        progresso = it.getIntExtra("progresso", 0);
+        vocabulario = (Vocabulario) it.getSerializableExtra("objeto");
 
         // Setando o underscore no objeto para que ele possa ser modificado ao longo do jogo
         tratandoPalavra = new TratandoPalavra(palavra);
@@ -94,13 +101,21 @@ public class ForcaActivity extends AppCompatActivity {
      * Verifica se a quantidade máxima de erros foi atingida ou se o usuário já acertou a palavra
      */
     private void verificandoSeOJogoAcabou() {
+        Intent it = new Intent(this, ProgressoActivity.class);
+
         if (this.erros == QTD_MAX_ERROS) {
-            Intent it = new Intent(this, FinalActivity.class);
+
             it.putExtra("ganhou", false);
+            it.putExtra("progresso", progresso +=1 );
+            it.putExtra("palavraUsada", palavra);
+            it.putExtra("objeto", vocabulario);
             startEmActivity(it);
         } else if (verificandoSeJaAcertou()) {
-            Intent it = new Intent(this, FinalActivity.class);
+
             it.putExtra("ganhou", true);
+            it.putExtra("progresso", progresso +=1 );
+            it.putExtra("palavraUsada", palavra);
+            it.putExtra("objeto", vocabulario);
             startEmActivity(it);
         }
     }

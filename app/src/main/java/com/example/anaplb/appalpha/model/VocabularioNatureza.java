@@ -19,7 +19,7 @@ public class VocabularioNatureza extends Vocabulario {
         ArrayList<String> nomes = new ArrayList<>();
 
         nomes.add("abelha");
-        nomes.add("árvore");
+        nomes.add("arvore");
         nomes.add("bode");
         nomes.add("flor");
         nomes.add("galo");

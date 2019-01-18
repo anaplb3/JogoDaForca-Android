@@ -24,8 +24,8 @@ public class VocabularioComida extends Vocabulario {
         nomes.add("batata");
         nomes.add("bolo");
         nomes.add("carne");
-        nomes.add("feijão");
-        nomes.add("macarrão");
+        nomes.add("feijao");
+        nomes.add("macarrao");
         nomes.add("ovo");
         nomes.add("peixe");
         nomes.add("sorvete");
