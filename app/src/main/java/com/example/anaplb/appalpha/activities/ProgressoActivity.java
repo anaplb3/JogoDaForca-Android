@@ -18,6 +18,7 @@ public class ProgressoActivity extends AppCompatActivity {
     int progresso;
     String palavraUsada;
     Vocabulario vocab;
+    int pontuacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +31,16 @@ public class ProgressoActivity extends AppCompatActivity {
         progresso = it.getIntExtra("progresso", 0);
         palavraUsada = it.getStringExtra("palavraUsada");
         vocab = (Vocabulario) it.getSerializableExtra("objeto");
+        pontuacao = it.getIntExtra("pontuacao", 0);
 
         Log.i("progresso", "" + progresso);
 
-        //Alterando imagem e texto de progresso
+        //Alterando imagem, texto e som do progresso
         ImageView imagemProgresso = findViewById(R.id.imageView);
         TextView txt = findViewById(R.id.textView5);
 
         CuidandoTelaProgresso tela = new CuidandoTelaProgresso(imagemProgresso, txt);
-        tela.atualizandoProgresso(progresso);
+        tela.atualizandoProgresso(progresso, getApplicationContext());
 
 
     }
@@ -56,6 +58,7 @@ public class ProgressoActivity extends AppCompatActivity {
         it = cdt.colocandoEmIntent(it);
 
         it.putExtra("erros", 0);
+        it.putExtra("pontuacao", pontuacao);
         it.putExtra("progresso", progresso);
         it.putExtra("objeto", vocab);
 
@@ -68,6 +71,7 @@ public class ProgressoActivity extends AppCompatActivity {
     public void indoParaPontuacao() {
 
         Intent it = new Intent(getApplicationContext(), FinalActivity.class);
+        it.putExtra("pontuacao", pontuacao);
         startActivity(it);
 
     }
