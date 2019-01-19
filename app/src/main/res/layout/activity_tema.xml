@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/back"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_maincolor"
@@ -130,6 +131,7 @@
         android:text="Comida"
         android:textColor="@android:color/white"
         android:textSize="24sp"
+        app:fontFamily="casual"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="@+id/img_comida"
         app:layout_constraintHorizontal_bias="1.0"
@@ -145,6 +147,7 @@
         android:text="Cores"
         android:textColor="@android:color/white"
         android:textSize="24sp"
+        app:fontFamily="casual"
         app:layout_constraintBottom_toBottomOf="@+id/img_cores"
         app:layout_constraintEnd_toEndOf="@+id/img_cores"
         app:layout_constraintHorizontal_bias="0.0"
@@ -160,6 +163,7 @@
         android:text="Natureza"
         android:textColor="@android:color/white"
         android:textSize="24sp"
+        app:fontFamily="casual"
         app:layout_constraintBottom_toBottomOf="@+id/img_natureza"
         app:layout_constraintEnd_toEndOf="@+id/img_natureza"
         app:layout_constraintHorizontal_bias="0.0"
@@ -175,6 +179,7 @@
         android:text="Frutas"
         android:textColor="@android:color/white"
         android:textSize="24sp"
+        app:fontFamily="casual"
         app:layout_constraintBottom_toBottomOf="@+id/img_frutas"
         app:layout_constraintEnd_toEndOf="@+id/img_frutas"
         app:layout_constraintHorizontal_bias="0.0"
@@ -190,10 +195,44 @@
         android:text="Cozinha"
         android:textColor="@android:color/white"
         android:textSize="24sp"
+        app:fontFamily="casual"
         app:layout_constraintBottom_toBottomOf="@+id/img_cozinha"
         app:layout_constraintEnd_toEndOf="@+id/img_cozinha"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/img_cozinha" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/background_text_item_themes_menu_black_transparent"
+        android:gravity="center_horizontal|center_vertical"
+        android:padding="4dp"
+        android:text="Cidade"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:fontFamily="casual"
+        app:layout_constraintBottom_toBottomOf="@+id/img_cidade"
+        app:layout_constraintEnd_toEndOf="@+id/img_cidade"
+        app:layout_constraintStart_toStartOf="@+id/img_cidade" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/background_maincolor_dark"
+        android:gravity="center"
+        android:text="Temas"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:fontFamily="casual"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline3"
@@ -222,38 +261,5 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.12522046" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Temas"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:fontFamily="casual"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/background_text_item_themes_menu_black_transparent"
-        android:gravity="center_horizontal|center_vertical"
-        android:padding="4dp"
-        android:text="Cidade"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/img_cidade"
-        app:layout_constraintEnd_toEndOf="@+id/img_cidade"
-        app:layout_constraintStart_toStartOf="@+id/img_cidade" />
 
 </android.support.constraint.ConstraintLayout>

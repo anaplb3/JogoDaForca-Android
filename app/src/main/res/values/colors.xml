@@ -3,8 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="background_maincolor">#b75fe7</color>
-    <color name="background_maincolor_dark">#7e36a5</color>
+    <color name="background_maincolor">#B75FE7</color>
+    <color name="background_maincolor_dark">#7E36A5</color>
     <color name="background_text_item_themes_menu_black_transparent">#AF000000</color>
 
 </resources>
