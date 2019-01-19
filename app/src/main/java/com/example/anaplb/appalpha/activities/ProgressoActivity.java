@@ -3,7 +3,6 @@ package com.example.anaplb.appalpha.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,9 +13,11 @@ import com.example.anaplb.appalpha.desafios.CuidandoTelaProgresso;
 import com.example.anaplb.appalpha.desafios.Progresso;
 import com.example.anaplb.appalpha.model.Vocabulario;
 
+import java.util.ArrayList;
+
 public class ProgressoActivity extends AppCompatActivity {
     int progresso;
-    String palavraUsada;
+    ArrayList<String> palavrasUsadas;
     Vocabulario vocab;
     int pontuacao;
 
@@ -29,11 +30,11 @@ public class ProgressoActivity extends AppCompatActivity {
         //Pegando informações da activity anterior
         Intent it = getIntent();
         progresso = it.getIntExtra("progresso", 0);
-        palavraUsada = it.getStringExtra("palavraUsada");
+        palavrasUsadas = it.getStringArrayListExtra("palavrasUsadas");
+
         vocab = (Vocabulario) it.getSerializableExtra("objeto");
         pontuacao = it.getIntExtra("pontuacao", 0);
 
-        Log.i("progresso", "" + progresso);
 
         //Alterando imagem, texto e som do progresso
         ImageView imagemProgresso = findViewById(R.id.imageView);
@@ -50,7 +51,7 @@ public class ProgressoActivity extends AppCompatActivity {
      */
     public void voltandoParaDesafio() {
 
-        Progresso progress = new Progresso(vocab, palavraUsada);
+        Progresso progress = new Progresso(vocab, palavrasUsadas);
 
         CuidandoDeTudo cdt = progress.procurandoNovaPalavra();
 
@@ -58,6 +59,7 @@ public class ProgressoActivity extends AppCompatActivity {
         it = cdt.colocandoEmIntent(it);
 
         it.putExtra("erros", 0);
+        it.putExtra("palavrasUsadas", palavrasUsadas);
         it.putExtra("pontuacao", pontuacao);
         it.putExtra("progresso", progresso);
         it.putExtra("objeto", vocab);

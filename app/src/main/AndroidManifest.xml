@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.FinalActivity" />
-        <activity android:name=".SobreActivity" />
+        <activity android:name=".activities.SobreActivity" />
         <activity android:name=".activities.ProgressoActivity"></activity>
     </application>
 

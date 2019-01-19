@@ -13,6 +13,8 @@ import com.example.anaplb.appalpha.Som.Som;
 import com.example.anaplb.appalpha.TemaFactory;
 import com.example.anaplb.appalpha.model.Vocabulario;
 
+import java.util.ArrayList;
+
 
 public class TemaActivity extends AppCompatActivity {
     Som som;
@@ -41,9 +43,11 @@ public class TemaActivity extends AppCompatActivity {
         facade = new CuidandoDeTudo(p.getPalavras(), p.getAudios(), p.getImgs());
         Log.i("size", ""+p.retornandoNomes().size());
 
+        ArrayList<String> palavrasUsadas = new ArrayList<>();
 
         intent = facade.colocandoEmIntent(intent);
         intent.putExtra("pontuacao", 0);
+        intent.putExtra("palavrasUsadas", palavrasUsadas);
         intent.putExtra("erros", 0);
         intent.putExtra("progresso", 0);
         intent.putExtra("objeto", p);
