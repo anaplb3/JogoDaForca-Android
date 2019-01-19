@@ -3,16 +3,18 @@ package com.example.anaplb.appalpha.desafios;
 import com.example.anaplb.appalpha.CuidandoDeTudo;
 import com.example.anaplb.appalpha.model.Vocabulario;
 
+import java.util.ArrayList;
+
 /**
  * Classe responsável por procurar uma nova palavra para o desafio
  */
 public class Progresso {
-    Vocabulario vocab;
-    String palavraUsada;
+    private Vocabulario vocab;
+    private ArrayList<String> palavrasUsadas;
 
-    public Progresso(Vocabulario v, String palavraUsada) {
+    public Progresso(Vocabulario v, ArrayList<String> palavrasUsadas) {
         this.vocab = v;
-        this.palavraUsada = palavraUsada;
+        this.palavrasUsadas = palavrasUsadas;
     }
 
 
@@ -20,17 +22,19 @@ public class Progresso {
 
         CuidandoDeTudo cdt = new CuidandoDeTudo(vocab.getPalavras(), vocab.getAudios(), vocab.getImgs());
 
-        if(cdt.getPalavra().equals(palavraUsada)) {
-            while( cdt.getPalavra().equals(palavraUsada) ) {
+        for(String palavraUsada: palavrasUsadas) {
 
-                cdt = new CuidandoDeTudo(vocab.getPalavras(), vocab.getAudios(), vocab.getImgs());
+            if(cdt.getPalavra().equals(palavraUsada)) {
+
+                while( cdt.getPalavra().equals(palavraUsada) ) {
+
+                    cdt = new CuidandoDeTudo(vocab.getPalavras(), vocab.getAudios(), vocab.getImgs());
+                }
             }
         }
 
         return cdt;
+
     }
-
-
-
 
 }

@@ -18,6 +18,8 @@ import com.example.anaplb.appalpha.desafios.Progresso;
 import com.example.anaplb.appalpha.model.Vocabulario;
 import com.example.anaplb.appalpha.tratamento.TratandoPalavra;
 
+import java.util.ArrayList;
+
 
 public class ForcaActivity extends AppCompatActivity {
     final int CHUTE_NULO = 2;
@@ -35,6 +37,7 @@ public class ForcaActivity extends AppCompatActivity {
     String palavra;
     Vocabulario vocabulario;
     int pontuacao;
+    ArrayList<String> palavrasUsadas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +59,7 @@ public class ForcaActivity extends AppCompatActivity {
         progresso = it.getIntExtra("progresso", 0);
         vocabulario = (Vocabulario) it.getSerializableExtra("objeto");
         pontuacao = it.getIntExtra("pontuacao", 0);
+        palavrasUsadas = it.getStringArrayListExtra("palavrasUsadas");
 
         // Setando o underscore no objeto para que ele possa ser modificado ao longo do jogo
         tratandoPalavra = new TratandoPalavra(palavra);
@@ -105,17 +109,22 @@ public class ForcaActivity extends AppCompatActivity {
     private void verificandoSeOJogoAcabou() {
         Intent it = new Intent(this, ProgressoActivity.class);
 
+
+
         if (this.erros == QTD_MAX_ERROS) {
 
+            palavrasUsadas.add(palavra);
             it.putExtra("progresso", progresso +=1 );
-            it.putExtra("palavraUsada", palavra);
+            it.putExtra("pontuacao", pontuacao);
+            it.putExtra("palavrasUsadas", palavrasUsadas);
             it.putExtra("objeto", vocabulario);
             startEmActivity(it);
         } else if (verificandoSeJaAcertou()) {
 
+            palavrasUsadas.add(palavra);
             it.putExtra("pontuacao", pontuacao += 1);
             it.putExtra("progresso", progresso +=1 );
-            it.putExtra("palavraUsada", palavra);
+            it.putExtra("palavrasUsadas", palavrasUsadas);
             it.putExtra("objeto", vocabulario);
             startEmActivity(it);
         }

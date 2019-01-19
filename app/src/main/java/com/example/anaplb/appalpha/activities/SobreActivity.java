@@ -1,7 +1,9 @@
-package com.example.anaplb.appalpha;
+package com.example.anaplb.appalpha.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.anaplb.appalpha.R;
 
 public class SobreActivity extends AppCompatActivity {
 
