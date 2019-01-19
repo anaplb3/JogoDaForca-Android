@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AppAlpha</string>
+    <string name="app_name">Jogo da Forca</string>
     <string name="venceu">Parabéns, você ganhou!</string>
     <string name="perdeu">Poxa, mais sorte na próxima!</string>
     <string name="hint_da_forca">Digite!</string>
