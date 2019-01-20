@@ -78,6 +78,7 @@ public class ForcaActivity extends AppCompatActivity {
 
         carregarTeclado();
 
+        Log.i("palavra da forca", palavra);
     }
 
     /**

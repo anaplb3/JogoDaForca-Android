@@ -17,19 +17,21 @@ public class Progresso {
         this.palavrasUsadas = palavrasUsadas;
     }
 
-
+    /**
+     * Compara a palavra escolhida para o próximo desafio com o array de palavras usadas, caso ela já tenha sido utilizada escolhe outra
+     *
+     * @return Um objeto com palavra, audio e imagem escolhido
+     */
     public CuidandoDeTudo procurandoNovaPalavra() {
 
         CuidandoDeTudo cdt = new CuidandoDeTudo(vocab.getPalavras(), vocab.getAudios(), vocab.getImgs());
 
-        for(String palavraUsada: palavrasUsadas) {
+        if (palavrasUsadas.contains(cdt.getPalavra())) {
 
-            if(cdt.getPalavra().equals(palavraUsada)) {
+            while (palavrasUsadas.contains(cdt.getPalavra())) {
 
-                while( cdt.getPalavra().equals(palavraUsada) ) {
+                cdt = new CuidandoDeTudo(vocab.getPalavras(), vocab.getAudios(), vocab.getImgs());
 
-                    cdt = new CuidandoDeTudo(vocab.getPalavras(), vocab.getAudios(), vocab.getImgs());
-                }
             }
         }
 
