@@ -48,7 +48,7 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:background="#fff569"
+        android:background="@drawable/yellow_rounded_backgroud"
         android:onClick="jogarNovamente"
         android:radius="5dp"
         android:shape="oval"
