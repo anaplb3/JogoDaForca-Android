@@ -88,7 +88,7 @@ public class ForcaActivity extends AppCompatActivity {
 
         if(resultado == tratandoPalavra.CHUTE_CERTO){
             btnClicado.setBackgroundResource(R.drawable.greem_rounded_backgroud);
-        }else{
+        }else if(resultado == tratandoPalavra.CHUTE_ERRADO){
             btnClicado.setBackgroundResource(R.drawable.red_rounded_backgroud);
         }
     }
