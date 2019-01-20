@@ -81,10 +81,24 @@ public class ForcaActivity extends AppCompatActivity {
         Log.i("palavra da forca", palavra);
     }
 
+    public void feedbackColorButtonLeter(String letraClicada, Button btnClicado){
+        int resultado = tratandoPalavra.checandoSeAcertou(letraClicada);
+
+        if(resultado == tratandoPalavra.CHUTE_CERTO){
+            btnClicado.setBackgroundResource(R.drawable.greem_rounded_backgroud);
+        }else if(resultado == tratandoPalavra.CHUTE_ERRADO){
+            btnClicado.setBackgroundResource(R.drawable.red_rounded_backgroud);
+        }
+    }
+
     /**
      * Atualiza os dados da tela como a img da forca e o TextView com o underscore
      */
-    public void atualizandoInformacoes(String letraClicada) {
+    public void atualizandoInformacoes(String letraClicada, Button btnClicado) {
+
+        // Mudando cor do botão
+        feedbackColorButtonLeter(letraClicada, btnClicado);
+
         // Pegando a resposta e verificando se houve erro
         pegandoResposta(letraClicada);
 
@@ -93,6 +107,7 @@ public class ForcaActivity extends AppCompatActivity {
 
         // Setando o text view com o novo underscore
         setandoTxtUnderscore(tratandoPalavra.getUnderscore());
+
 
         verificandoSeOJogoAcabou();
     }
@@ -223,182 +238,182 @@ public class ForcaActivity extends AppCompatActivity {
         a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("a");
+                atualizandoInformacoes("a", a);
             }
         });
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("b");
+                atualizandoInformacoes("b", b);
             }
         });
 
         c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("c");
+                atualizandoInformacoes("c", c);
             }
         });
 
         d.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("d");
+                atualizandoInformacoes("d", d);
             }
         });
 
         e.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("e");
+                atualizandoInformacoes("e", e);
             }
         });
 
         f.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("f");
+                atualizandoInformacoes("f", f);
             }
         });
 
         g.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("g");
+                atualizandoInformacoes("g", g);
             }
         });
 
         h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("h");
+                atualizandoInformacoes("h", h);
             }
         });
 
         i.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("i");
+                atualizandoInformacoes("i", i);
             }
         });
 
         j.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("j");
+                atualizandoInformacoes("j", j);
             }
         });
 
         k.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("k");
+                atualizandoInformacoes("k", k);
             }
         });
 
         l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("l");
+                atualizandoInformacoes("l", l);
             }
         });
 
         m.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("m");
+                atualizandoInformacoes("m", m);
             }
         });
 
         n.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("n");
+                atualizandoInformacoes("n", n);
             }
         });
 
         o.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("o");
+                atualizandoInformacoes("o", o);
             }
         });
 
         p.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("p");
+                atualizandoInformacoes("p", p);
             }
         });
 
         q.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("q");
+                atualizandoInformacoes("q", q);
             }
         });
 
         r.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("r");
+                atualizandoInformacoes("r", r);
             }
         });
 
         s.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("s");
+                atualizandoInformacoes("s", s);
             }
         });
 
         t.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("t");
+                atualizandoInformacoes("t", t);
             }
         });
 
         u.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("u");
+                atualizandoInformacoes("u", u);
             }
         });
 
         v.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                atualizandoInformacoes("v");
+            public void onClick(View v1) {
+                atualizandoInformacoes("v", v);
             }
         });
 
         w.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("w");
+                atualizandoInformacoes("w", w);
             }
         });
 
         x.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("x");
+                atualizandoInformacoes("x", x);
             }
         });
 
         y.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("y");
+                atualizandoInformacoes("y", y);
             }
         });
 
         z.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atualizandoInformacoes("z");
+                atualizandoInformacoes("z", z);
             }
         });
 
