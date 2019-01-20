@@ -46,10 +46,7 @@ public class ForcaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forca);
 
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         som = new Som();
-        Log.i("check", "check");
-
 
         //Pegando dados do Tema
         Intent it = getIntent();
