@@ -88,10 +88,8 @@ public class ForcaActivity extends AppCompatActivity {
 
         if(resultado == tratandoPalavra.CHUTE_CERTO){
             btnClicado.setBackgroundResource(R.drawable.greem_rounded_backgroud);
-            Toast.makeText(getApplicationContext(),"ACERTOU", Toast.LENGTH_LONG).show();
         }else{
             btnClicado.setBackgroundResource(R.drawable.red_rounded_backgroud);
-            Toast.makeText(getApplicationContext(),"ERROU", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -99,6 +97,10 @@ public class ForcaActivity extends AppCompatActivity {
      * Atualiza os dados da tela como a img da forca e o TextView com o underscore
      */
     public void atualizandoInformacoes(String letraClicada, Button btnClicado) {
+
+        // Mudando cor do botão
+        feedbackColorButtonLeter(letraClicada, btnClicado);
+
         // Pegando a resposta e verificando se houve erro
         pegandoResposta(letraClicada);
 
@@ -108,8 +110,6 @@ public class ForcaActivity extends AppCompatActivity {
         // Setando o text view com o novo underscore
         setandoTxtUnderscore(tratandoPalavra.getUnderscore());
 
-        // Mudando cor do botão
-        feedbackColorButtonLeter(letraClicada, btnClicado);
 
         verificandoSeOJogoAcabou();
     }
