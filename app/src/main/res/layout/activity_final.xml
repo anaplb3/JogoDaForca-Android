@@ -67,7 +67,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:background="#fff569"
+        android:background="@drawable/yellow_rounded_backgroud"
         android:onClick="sair"
         android:text="Sair"
         app:layout_constraintBottom_toBottomOf="parent"
