@@ -6,7 +6,8 @@ import android.util.Log;
  * Classe que faz as modificações no underscore e verifica acertos ou erros
  */
 public class TratandoPalavra {
-    private final int CHUTE_ERRADO = 0;
+    public final int CHUTE_ERRADO = 0;
+    public final int CHUTE_CERTO = 1;
     private String palavra;
     private String underscore;
 
@@ -44,8 +45,7 @@ public class TratandoPalavra {
      * @param chute chute do usuário
      * @return um int indicando se houve acerto ou erro
      */
-    private int checandoSeAcertou(String chute) {
-        int chute_certo = 1;
+    public int checandoSeAcertou(String chute) {
         int resultado;
 
         String under = novaPalavra(chute.charAt(0));
@@ -55,7 +55,7 @@ public class TratandoPalavra {
 
             Log.i("checando", "entrou");
             underscore = under;
-            resultado = chute_certo;
+            resultado = CHUTE_CERTO;
 
         } else {
             resultado = CHUTE_ERRADO;
