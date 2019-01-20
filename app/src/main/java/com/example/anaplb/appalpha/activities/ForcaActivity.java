@@ -24,8 +24,8 @@ import java.util.ArrayList;
 
 public class ForcaActivity extends AppCompatActivity {
 
-    final int CHUTE_NULO = 2;
-    final int CHUTE_VALIDO = 1;
+    final int CHUTE_CERTO = 0;
+    final int CHUTE_ERRADO = 1;
     final int CHUTE_REPETIDO = -1;
     final int QTD_MAX_ERROS = 6;
     CuidandoDaTela cuidandoDaForca;
@@ -81,12 +81,14 @@ public class ForcaActivity extends AppCompatActivity {
         Log.i("palavra da forca", palavra);
     }
 
-    public void feedbackColorButtonLeter(String letraClicada, Button btnClicado){
-        int resultado = tratandoPalavra.checandoSeAcertou(letraClicada);
+    public void feedbackColorButtonLeter(String letraClicada, Button btnClicado) {
+        int resultado = tratandoPalavra.contandoErros(letraClicada);
 
-        if(resultado == tratandoPalavra.CHUTE_CERTO){
+        if (resultado == CHUTE_CERTO) {
             btnClicado.setBackgroundResource(R.drawable.greem_rounded_backgroud);
-        }else if(resultado == tratandoPalavra.CHUTE_ERRADO){
+        } else if (resultado == CHUTE_REPETIDO) {
+            Toast.makeText(getApplicationContext(), "Você já chutou essa letra!", Toast.LENGTH_SHORT).show();
+        } else {
             btnClicado.setBackgroundResource(R.drawable.red_rounded_backgroud);
         }
     }
@@ -126,11 +128,10 @@ public class ForcaActivity extends AppCompatActivity {
         Intent it = new Intent(this, ProgressoActivity.class);
 
 
-
         if (this.erros == QTD_MAX_ERROS) {
 
             palavrasUsadas.add(palavra);
-            it.putExtra("progresso", progresso +=1 );
+            it.putExtra("progresso", progresso += 1);
             it.putExtra("pontuacao", pontuacao);
             it.putExtra("palavrasUsadas", palavrasUsadas);
             it.putExtra("objeto", vocabulario);
@@ -139,7 +140,7 @@ public class ForcaActivity extends AppCompatActivity {
 
             palavrasUsadas.add(palavra);
             it.putExtra("pontuacao", pontuacao += 1);
-            it.putExtra("progresso", progresso +=1 );
+            it.putExtra("progresso", progresso += 1);
             it.putExtra("palavrasUsadas", palavrasUsadas);
             it.putExtra("objeto", vocabulario);
             startEmActivity(it);
@@ -173,21 +174,20 @@ public class ForcaActivity extends AppCompatActivity {
 
         int res = tratandoPalavra.contandoErros(chute);
 
-        if (res == CHUTE_NULO) {
-            Toast.makeText(getApplicationContext(), "Você não pode chutar nada!", Toast.LENGTH_LONG).show();
+        Log.i("bug underscore", tratandoPalavra.getUnderscore());
 
-        } else if (res == CHUTE_VALIDO) {
+        Log.i("bug", "" + res);
+
+        // Verifica se o usuário errou o chute para poder adicionar nos erros e mudar a imagem da forca
+        if (res == CHUTE_ERRADO) {
             this.erros += res;
-
-        } else if (res == CHUTE_REPETIDO) {
-            Toast.makeText(getApplicationContext(), "Você já chutou essa letra!", Toast.LENGTH_LONG).show();
-
         }
 
     }
 
     /**
      * Verifica se o usuário já acertou a palavra
+     *
      * @return um boolean informando de se acertou ou não
      */
     private boolean verificandoSeJaAcertou() {
@@ -197,6 +197,7 @@ public class ForcaActivity extends AppCompatActivity {
 
     /**
      * Método que dá start em activities
+     *
      * @param it Intent que será dado o start
      */
     private void startEmActivity(Intent it) {
@@ -207,7 +208,7 @@ public class ForcaActivity extends AppCompatActivity {
     /**
      * Recupera os botões do teclado e os escuta para que a cada novo clique seja enviado a respectiva letra para ser testada
      */
-    private void carregarTeclado(){
+    private void carregarTeclado() {
         final Button a = findViewById(R.id.A);
         final Button b = findViewById(R.id.B);
         final Button c = findViewById(R.id.C);

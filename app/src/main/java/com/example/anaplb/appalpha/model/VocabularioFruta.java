@@ -24,7 +24,6 @@ public class VocabularioFruta extends Vocabulario {
         nomes.add("abacaxi");
         nomes.add("banana");
         nomes.add("goiaba");
-        nomes.add("maça");
         nomes.add("manga");
         nomes.add("melancia");
         nomes.add("morango");
@@ -41,7 +40,6 @@ public class VocabularioFruta extends Vocabulario {
         imgs.add(R.drawable.abacaxi);
         imgs.add(R.drawable.banana);
         imgs.add(R.drawable.goiaba);
-        imgs.add(R.drawable.maca);
         imgs.add(R.drawable.manga);
         imgs.add(R.drawable.melancia);
         imgs.add(R.drawable.morango);
@@ -59,7 +57,6 @@ public class VocabularioFruta extends Vocabulario {
         audio.add(R.raw.abacaxi);
         audio.add(R.raw.banana);
         audio.add( R.raw.goiaba);
-        audio.add(R.raw.maca);
         audio.add(R.raw.manga);
         audio.add(R.raw.melancia);
         audio.add(R.raw.morango);

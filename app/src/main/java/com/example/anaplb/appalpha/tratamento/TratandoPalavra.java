@@ -6,8 +6,8 @@ import android.util.Log;
  * Classe que faz as modificações no underscore e verifica acertos ou erros
  */
 public class TratandoPalavra {
-    public final int CHUTE_ERRADO = 0;
-    public final int CHUTE_CERTO = 1;
+    private final int CHUTE_ERRADO = 0;
+    private final int CHUTE_CERTO = 1;
     private String palavra;
     private String underscore;
 
@@ -108,11 +108,9 @@ public class TratandoPalavra {
      * @return boolean indicando se já foi chutada antes
      */
     private boolean checandoSeJaExiste(char chute) {
-        char[] vetor = arrayDeChars(underscore);
 
         for (int i = 0; i < underscore.length(); i++) {
             if (chute == underscore.charAt(i)) {
-                vetor[i] = underscore.charAt(i);
                 return true;
             }
         }
@@ -126,32 +124,18 @@ public class TratandoPalavra {
      * @return um inteiro indicando se o chute foi vazio, já existente ou errado
      */
     public int contandoErros(String chute) {
+
         int erros = 0;
 
-        int CHUTE_VAZIO = 2;
-        //Verificando se chute é vazio
-        if (chute.isEmpty()) {
 
-            return CHUTE_VAZIO;
-
-        } else {
-            //Verificando se letra já foi chutada
-            if (checandoSeJaExiste(chute.charAt(0))) {
-
-                return -1;
-
-              //Verificando se o chute foi errado;
-            } else if (checandoSeAcertou(chute) == CHUTE_ERRADO) {
-
-                erros ++;
-
-            }
+        if(checandoSeJaExiste(chute.charAt(0))) {
+            return -1;
+        } else if (checandoSeAcertou(chute) == CHUTE_ERRADO){
+            erros ++;
         }
-        return erros;
-    }
 
-    public String getPalavra() {
-        return palavra;
+        return erros;
+
     }
 
     public String getUnderscore() {

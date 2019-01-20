@@ -30,4 +30,9 @@ public class MainActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
+
+    public void indoParaSobre(View v) {
+        Intent it = new Intent(getApplicationContext(), SobreActivity.class);
+        startActivity(it);
+    }
 }
