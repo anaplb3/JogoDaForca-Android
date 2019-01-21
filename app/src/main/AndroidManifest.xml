@@ -11,19 +11,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.MainActivity" />
-        <activity android:name=".activities.ForcaActivity" />
-        <activity android:name=".activities.TemaActivity" />
-        <activity android:name=".activities.SplashActivity">
+        <activity android:name=".activities.MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.ForcaActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.TemaActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.FinalActivity" />
-        <activity android:name=".activities.SobreActivity" />
-        <activity android:name=".activities.ProgressoActivity"></activity>
+        <activity android:name=".activities.FinalActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.SobreActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.ProgressoActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
