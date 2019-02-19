@@ -1,13 +1,11 @@
 package com.example.anaplb.appalpha.activities;
 
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,7 +13,6 @@ import android.widget.Toast;
 import com.example.anaplb.appalpha.CuidandoDaTela;
 import com.example.anaplb.appalpha.R;
 import com.example.anaplb.appalpha.Som.Som;
-import com.example.anaplb.appalpha.desafios.Progresso;
 import com.example.anaplb.appalpha.model.Vocabulario;
 import com.example.anaplb.appalpha.tratamento.TratandoPalavra;
 
@@ -66,7 +63,7 @@ public class ForcaActivity extends AppCompatActivity {
 
         // Setando o underscore no TextView da tela
         TextView txtUnderscore = findViewById(R.id.txt_underscore);
-        txtUnderscore.setText(underscore);
+        txtUnderscore.setText(dandoEspacos(underscore));
 
         // Setando o ImageView da forca no objeto para modificação ao longo do jogo
         ImageView img_forca = findViewById(R.id.img_forca);
@@ -154,7 +151,23 @@ public class ForcaActivity extends AppCompatActivity {
      */
     private void setandoTxtUnderscore(String underscore) {
         TextView txtUnderscore = findViewById(R.id.txt_underscore);
-        txtUnderscore.setText(underscore);
+        txtUnderscore.setText(dandoEspacos(underscore));
+    }
+
+    /**
+     * Dá um espaço entre as letras para o usuário poder ver quantas letras a palavra tem
+     * @param underscore underscore da palavra a ser acertada
+     * @return o underscore com as letras espaçadas
+     */
+    private String dandoEspacos(String underscore) {
+        StringBuilder novaString = new StringBuilder();
+
+        for(int i = 0; i < underscore.length(); i++) {
+            novaString.append(underscore.charAt(i)) ;
+            novaString.append(" ");
+        }
+
+        return novaString.toString();
     }
 
     /**
