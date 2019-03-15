@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.anaplb.appalpha.CuidandoDaTela;
 import com.example.anaplb.appalpha.R;
 import com.example.anaplb.appalpha.Som.Som;
+import com.example.anaplb.appalpha.cronometro.Cronometro;
 import com.example.anaplb.appalpha.model.Vocabulario;
 import com.example.anaplb.appalpha.tratamento.TratandoPalavra;
 
@@ -37,6 +38,7 @@ public class ForcaActivity extends AppCompatActivity {
     Vocabulario vocabulario;
     int pontuacao;
     ArrayList<String> palavrasUsadas;
+    Cronometro cronometro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +77,13 @@ public class ForcaActivity extends AppCompatActivity {
 
         carregarTeclado();
 
+        // Iniciando cronômetro
+        cronometro = new Cronometro(findViewById(R.id.cronometro));
+        cronometro.comecandoCronometro();
+
         Log.i("palavra da forca", palavra);
     }
+
 
     public void feedbackColorButtonLeter(String letraClicada, Button btnClicado) {
         int resultado = tratandoPalavra.contandoErros(letraClicada);
@@ -132,6 +139,7 @@ public class ForcaActivity extends AppCompatActivity {
             it.putExtra("pontuacao", pontuacao);
             it.putExtra("palavrasUsadas", palavrasUsadas);
             it.putExtra("objeto", vocabulario);
+            it.putExtra("tempo", cronometro.parandoCronometroEPegandoTempo());
             startEmActivity(it);
         } else if (verificandoSeJaAcertou()) {
 
@@ -140,6 +148,7 @@ public class ForcaActivity extends AppCompatActivity {
             it.putExtra("progresso", progresso += 1);
             it.putExtra("palavrasUsadas", palavrasUsadas);
             it.putExtra("objeto", vocabulario);
+            it.putExtra("tempo", cronometro.parandoCronometroEPegandoTempo());
             startEmActivity(it);
         }
     }

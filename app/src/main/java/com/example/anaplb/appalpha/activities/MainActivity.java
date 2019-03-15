@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.anaplb.appalpha.R;
+import com.example.anaplb.appalpha.cronometro.Cronometro;
 
 public class MainActivity extends AppCompatActivity {
 
