@@ -46,11 +46,13 @@ public class TemaActivity extends AppCompatActivity {
         ArrayList<String> palavrasUsadas = new ArrayList<>();
 
         intent = facade.colocandoEmIntent(intent);
-        intent.putExtra("pontuacao", 0);
         intent.putExtra("palavrasUsadas", palavrasUsadas);
         intent.putExtra("erros", 0);
         intent.putExtra("progresso", 0);
+        intent.putExtra("tempo", 0);
         intent.putExtra("objeto", p);
+        intent.putExtra("somaErros", 0);
+
         startActivity(intent);
 
 

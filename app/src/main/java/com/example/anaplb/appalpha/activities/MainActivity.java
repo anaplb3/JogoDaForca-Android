@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.anaplb.appalpha.R;
+import com.example.anaplb.appalpha.cronometro.Cronometro;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +18,11 @@ public class MainActivity extends AppCompatActivity {
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+    }
+
+    public void indoParaRecordes(View v) {
+        Intent it = new Intent(getApplicationContext(), RecordesActivity.class);
+        startActivity(it);
     }
 
     public void indoPraTema(View v) {
