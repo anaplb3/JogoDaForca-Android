@@ -18,7 +18,7 @@ public class Recordes implements RecordesDao{
     public Recordes(Context context) {
         DbHelper db = new DbHelper(context);
         escreve = db.getWritableDatabase();
-        ler = db.getWritableDatabase();
+        ler = db.getReadableDatabase();
     }
 
     @Override
@@ -30,6 +30,7 @@ public class Recordes implements RecordesDao{
             cv.put("pontuacao", pontuacao);
 
             escreve.insert(DbHelper.nomeTabela, null, cv);
+            Log.i("insert info", "os dados entraram");
         } catch(Exception e) {
             Log.i("insert info", "deu merda hein "+ e.getMessage());
         }
@@ -48,15 +49,21 @@ public class Recordes implements RecordesDao{
         int indiceNome = cursor.getColumnIndex("nome");
         int indicePontuacao = cursor.getColumnIndex("pontuacao");
 
-        while(cursor != null) {
-            nome = cursor.getString(indiceNome);
-            pontuacao = cursor.getDouble(indicePontuacao);
 
-            r1 = new Recordista(nome, pontuacao);
-            recordistas.add(r1);
+        if(cursor.moveToFirst() && cursor.getCount() >= 1) {
+            Log.i("info insert", "entrou no if");
+            do {
+                nome = cursor.getString(indiceNome);
+                pontuacao = cursor.getDouble(indicePontuacao);
+
+                r1 = new Recordista(nome, pontuacao);
+                recordistas.add(r1);
+            } while(cursor.moveToNext());
         }
 
         Collections.sort(recordistas);
+
+        cursor.close();
 
         return recordistas;
     }

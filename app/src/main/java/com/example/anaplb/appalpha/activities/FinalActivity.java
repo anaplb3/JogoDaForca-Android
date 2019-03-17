@@ -4,19 +4,27 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.anaplb.appalpha.R;
+import com.example.anaplb.appalpha.dbhelper.Recordes;
+import com.example.anaplb.appalpha.model.Recordista;
+
+import java.util.ArrayList;
 
 public class FinalActivity extends AppCompatActivity {
     private static final int pontuacaoInicial = 1000;
+    Recordes recorde;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final);
+
+        recorde = new Recordes(getApplicationContext());
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
@@ -33,6 +41,26 @@ public class FinalActivity extends AppCompatActivity {
 
         txt.setText(String.format("Sua pontuação final foi: %s", pontuacaoFinal));
 
+        inserindoNoBanco(pontuacaoFinal, "ana");
+        inserindoNoBanco(566.9, "joao");
+        lendoDoBanco();
+
+    }
+
+    public void inserindoNoBanco(double pontuacao, String nome) {
+
+        recorde.cadastrarNovoRecorde(pontuacao, nome);
+    }
+
+    public void lendoDoBanco() {
+        ArrayList<Recordista> re = new ArrayList<>();
+
+        re = recorde.getRecordistas();
+
+        for(Recordista r: re) {
+            Log.i("nome", r.getNome());
+            Log.i("pontuacao", ""+r.getPontuacao());
+        }
     }
 
     /**
