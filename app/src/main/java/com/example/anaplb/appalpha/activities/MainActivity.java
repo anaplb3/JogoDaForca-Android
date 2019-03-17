@@ -20,6 +20,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void indoParaRecordes(View v) {
+        Intent it = new Intent(getApplicationContext(), RecordesActivity.class);
+        startActivity(it);
+    }
+
     public void indoPraTema(View v) {
         Intent it = new Intent(getApplicationContext(), TemaActivity.class);
         startActivity(it);

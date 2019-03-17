@@ -52,6 +52,7 @@ public class TemaActivity extends AppCompatActivity {
         intent.putExtra("tempo", 0);
         intent.putExtra("objeto", p);
         intent.putExtra("somaErros", 0);
+
         startActivity(intent);
 
 

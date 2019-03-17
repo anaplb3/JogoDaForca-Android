@@ -5,6 +5,7 @@ import android.media.MediaPlayer;
 
 public class Som {
     private static Som som;
+    private MediaPlayer mediaPlayer;
 
     public static Som getInstance() {
         if(som == null) {
@@ -17,7 +18,10 @@ public class Som {
 
     public void playSound(Context context, int songId) {
 
-        MediaPlayer mediaPlayer = MediaPlayer.create(context, songId );
+        mediaPlayer = MediaPlayer.create(context, songId );
         mediaPlayer.start();
+
     }
+
+
 }

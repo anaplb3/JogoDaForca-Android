@@ -6,10 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.anaplb.appalpha.R;
+import com.example.anaplb.appalpha.Som.Som;
 import com.example.anaplb.appalpha.dbhelper.Recordes;
 import com.example.anaplb.appalpha.model.Recordista;
 
@@ -18,11 +21,16 @@ import java.util.ArrayList;
 public class FinalActivity extends AppCompatActivity {
     private static final int pontuacaoInicial = 1000;
     Recordes recorde;
+    double pontuacaoFinal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final);
+
+        Som som = new Som();
+
+        som.playSound(getApplicationContext(), R.raw.applause);
 
         recorde = new Recordes(getApplicationContext());
 
@@ -35,32 +43,41 @@ public class FinalActivity extends AppCompatActivity {
 
         // Pegando informações da activity anterior
         double tempo = it.getDoubleExtra("tempo", 0);
-        double pontuacaoFinal = retornaPontuacao(tempo, it.getIntExtra("somaErros", 0));
+        pontuacaoFinal = retornaPontuacao(tempo, it.getIntExtra("somaErros", 0));
 
         pontuacao(img, pontuacaoFinal);
 
         txt.setText(String.format("Sua pontuação final foi: %s", pontuacaoFinal));
 
-        inserindoNoBanco(pontuacaoFinal, "ana");
-        inserindoNoBanco(566.9, "joao");
-        lendoDoBanco();
-
     }
 
+    /**
+     * Pega o nome do jogador para colocar no recorde
+     */
+    public void pegandoNome() {
+        EditText txt_nome = findViewById(R.id.edit_nome);
+        String nome = txt_nome.getText().toString();
+
+        inserindoNoBanco(pontuacaoFinal, nome);
+    }
+
+    /**
+     * Através do botão no xml salva a pontuacao do jogador
+     * @param v
+     */
+    public void cadastrandoRecorde(View v) {
+        pegandoNome();
+        Toast.makeText(getApplicationContext(), "Recorde salvo com sucesso!", Toast.LENGTH_LONG).show();
+    }
+
+    /**
+     * Cadastra pontuação do jogador
+     * @param pontuacao pontuação do jogador
+     * @param nome nome do jogador
+     */
     public void inserindoNoBanco(double pontuacao, String nome) {
 
         recorde.cadastrarNovoRecorde(pontuacao, nome);
-    }
-
-    public void lendoDoBanco() {
-        ArrayList<Recordista> re = new ArrayList<>();
-
-        re = recorde.getRecordistas();
-
-        for(Recordista r: re) {
-            Log.i("nome", r.getNome());
-            Log.i("pontuacao", ""+r.getPontuacao());
-        }
     }
 
     /**
@@ -89,7 +106,7 @@ public class FinalActivity extends AppCompatActivity {
             img.setImageResource(R.drawable.dois);
         } else if(pontuacao <= 600.0) {
             img.setImageResource(R.drawable.tres);
-        } else if(pontuacao <= 800.0) {
+        } else if(pontuacao < 900.0) {
             img.setImageResource(R.drawable.quatro);
         } else {
             img.setImageResource(R.drawable.cinco);
