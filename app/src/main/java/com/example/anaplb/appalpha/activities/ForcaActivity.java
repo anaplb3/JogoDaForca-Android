@@ -36,9 +36,10 @@ public class ForcaActivity extends AppCompatActivity {
     int progresso;
     String palavra;
     Vocabulario vocabulario;
-    int pontuacao;
     ArrayList<String> palavrasUsadas;
     Cronometro cronometro;
+    double tempo;
+    int somaErros;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +54,12 @@ public class ForcaActivity extends AppCompatActivity {
         palavra = it.getStringExtra("palavra");
         idImagem = it.getIntExtra("img", 0);
         erros = it.getIntExtra("erros", 0);
+        somaErros = it.getIntExtra("somaErros", 0);
         audio = it.getIntExtra("som", 0);
         progresso = it.getIntExtra("progresso", 0);
         vocabulario = (Vocabulario) it.getSerializableExtra("objeto");
-        pontuacao = it.getIntExtra("pontuacao", 0);
         palavrasUsadas = it.getStringArrayListExtra("palavrasUsadas");
+        tempo = it.getDoubleExtra("tempo", 0);
 
         // Setando o underscore no objeto para que ele possa ser modificado ao longo do jogo
         tratandoPalavra = new TratandoPalavra(palavra);
@@ -82,6 +84,7 @@ public class ForcaActivity extends AppCompatActivity {
         cronometro.comecandoCronometro();
 
         Log.i("palavra da forca", palavra);
+        Log.i("tempo inicial", ""+tempo);
     }
 
 
@@ -133,22 +136,29 @@ public class ForcaActivity extends AppCompatActivity {
 
 
         if (this.erros == QTD_MAX_ERROS) {
+            tempo += cronometro.parandoCronometroEPegandoTempo();
+
+            Log.i("tempo do if", ""+tempo);
 
             palavrasUsadas.add(palavra);
             it.putExtra("progresso", progresso += 1);
-            it.putExtra("pontuacao", pontuacao);
             it.putExtra("palavrasUsadas", palavrasUsadas);
             it.putExtra("objeto", vocabulario);
-            it.putExtra("tempo", cronometro.parandoCronometroEPegandoTempo());
+            it.putExtra("somaErros", somaErros+= erros);
+            it.putExtra("tempo", tempo);
             startEmActivity(it);
         } else if (verificandoSeJaAcertou()) {
 
+            tempo += cronometro.parandoCronometroEPegandoTempo();
+
+            Log.i("tempo do if", ""+tempo);
+
             palavrasUsadas.add(palavra);
-            it.putExtra("pontuacao", pontuacao += 1);
             it.putExtra("progresso", progresso += 1);
             it.putExtra("palavrasUsadas", palavrasUsadas);
             it.putExtra("objeto", vocabulario);
-            it.putExtra("tempo", cronometro.parandoCronometroEPegandoTempo());
+            it.putExtra("somaErros", somaErros+= erros);
+            it.putExtra("tempo", tempo);
             startEmActivity(it);
         }
     }
