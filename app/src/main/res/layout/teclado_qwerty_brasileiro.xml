@@ -237,9 +237,18 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/null1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/yellow_rounded_backgroud"
+            android:textSize="18sp" />
+
+        <Button
             android:id="@+id/Z"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
             android:onClick="letterClick"
@@ -310,6 +319,15 @@
             android:background="@drawable/yellow_rounded_backgroud"
             android:onClick="letterClick"
             android:text="M"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/null2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/yellow_rounded_backgroud"
             android:textSize="18sp" />
 
     </LinearLayout>
