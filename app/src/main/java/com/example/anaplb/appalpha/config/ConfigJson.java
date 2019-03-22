@@ -1,6 +1,6 @@
 package com.example.anaplb.appalpha.config;
 
-public class configJson extends JsonManager {
+public class ConfigJson extends JsonManager {
     @Override
     public String getDiretory() {
         return "configs/";
