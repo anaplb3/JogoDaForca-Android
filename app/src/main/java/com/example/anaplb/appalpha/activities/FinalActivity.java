@@ -65,7 +65,9 @@ public class FinalActivity extends AppCompatActivity {
      */
     public void cadastrandoRecorde(View v) {
         pegandoNome();
-        Toast.makeText(getApplicationContext(), "Recorde salvo com sucesso!", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Recorde salvo com sucesso!", Toast.LENGTH_SHORT).show();
+
+        sair();
     }
 
     /**
@@ -117,13 +119,7 @@ public class FinalActivity extends AppCompatActivity {
         }
     }
 
-    public void jogarNovamente(View v) {
-        Intent it = new Intent(getApplicationContext(), TemaActivity.class);
-        startActivity(it);
-        finish();
-    }
-
-    public void sair(View v) {
+    public void sair() {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
         finish();
