@@ -103,7 +103,7 @@
 
         <include
             android:id="@+id/teclado_alfabetico_pt"
-            layout="@layout/teclado_alfabetico_brasileiro"
+            layout="@layout/teclado_qwerty_brasileiro"
             tools:layout_editor_absoluteX="0dp" />
     </LinearLayout>
 
