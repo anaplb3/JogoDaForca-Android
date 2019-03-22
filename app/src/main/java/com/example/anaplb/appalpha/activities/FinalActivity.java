@@ -4,19 +4,15 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.anaplb.appalpha.R;
 import com.example.anaplb.appalpha.Som.Som;
 import com.example.anaplb.appalpha.dbhelper.Recordes;
-import com.example.anaplb.appalpha.model.Recordista;
 
-import java.util.ArrayList;
 
 public class FinalActivity extends AppCompatActivity {
     private static final int pontuacaoInicial = 1000;
@@ -61,6 +57,7 @@ public class FinalActivity extends AppCompatActivity {
         inserindoNoBanco(pontuacaoFinal, nome);
     }
 
+
     /**
      * Através do botão no xml salva a pontuacao do jogador
      * @param v
@@ -88,7 +85,13 @@ public class FinalActivity extends AppCompatActivity {
      */
     public double retornaPontuacao(double tempo, int erros) {
 
-        return pontuacaoInicial - ( (erros * 10) + (tempo * 100) );
+        double pontuacao = pontuacaoInicial - ( (erros * 10) + (tempo * 100) );
+
+        if(pontuacao < 0) {
+            return 0;
+        } else {
+            return pontuacao;
+        }
     }
 
     /**
