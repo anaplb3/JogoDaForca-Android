@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.anaplb.appalpha.R;
 
+import org.json.JSONObject;
+
 public class ConfigActivity extends AppCompatActivity {
 
     @Override
