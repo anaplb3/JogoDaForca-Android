@@ -11,6 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".activities.ConfigActivity"></activity>
         <activity
             android:name=".activities.MainActivity"
             android:screenOrientation="portrait" />
@@ -38,7 +39,7 @@
         <activity
             android:name=".activities.ProgressoActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.RecordesActivity"></activity>
+        <activity android:name=".activities.RecordesActivity" />
     </application>
 
 </manifest>
