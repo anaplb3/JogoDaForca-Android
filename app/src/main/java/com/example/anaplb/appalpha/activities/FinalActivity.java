@@ -91,7 +91,7 @@ public class FinalActivity extends AppCompatActivity {
         double pontuacao = pontuacaoInicial - ( (erros * 10) + (tempo * 100) );
 
         if(pontuacao < 0) {
-            return 0;
+            return 10;
         } else {
             return pontuacao;
         }
