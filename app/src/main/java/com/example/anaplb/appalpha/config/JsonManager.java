@@ -1,22 +1,22 @@
 package com.example.anaplb.appalpha.config;
 
-import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.os.Environment;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import android.provider.ContactsContract;
 import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStreamWriter;
 
 public abstract class JsonManager {
 
@@ -43,34 +43,21 @@ public abstract class JsonManager {
     }
 
     public void writeJsonObject(Context appContext, JSONObject jsonObject){
-        File directory = Environment.getExternalStoragePublicDirectory("AppAlpha/"+getDiretory());
-        if(!directory.exists()){
-            directory.mkdir();
-        }
+        FileOutputStream outputStream = null;
+        BufferedWriter write = null;
 
-        File archive = new File(directory+"/"+getJsonFileName());
-        Log.i("Json", directory+"/"+getJsonFileName());
-        if(!archive.exists()){
-            try {
-                archive.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-                Log.i("Json","Erro ao salvar arquivo JSON");
-            }
-        }
-
-        FileWriter writeFile = null;
-
-        try{
-            writeFile = new FileWriter(archive);
-            //Escreve no arquivo conteudo do Objeto JSON
-            writeFile.write(jsonObject.toString());
-            writeFile.close();
-        }catch (IOException e) {
+        try {
+            outputStream = appContext.openFileOutput(getJsonFileName(), Context.MODE_PRIVATE);
+            write = new BufferedWriter(new OutputStreamWriter(outputStream));
+            write.write(jsonObject.toString());
+            Log.i("Json", "configs.json atualizado.");
+            write.flush();
+            write.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
-
-        Log.i("Json", "JSON SALVO COM SUCESSO!");
     }
 
     public abstract String getDiretory();

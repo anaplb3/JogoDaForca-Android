@@ -116,7 +116,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Visualização:"
-                        android:textSize="18sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textView31"
@@ -126,7 +126,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
-                        android:textSize="24sp"
+                        android:textSize="20sp"
                         app:fontFamily="casual" />
 
                 </LinearLayout>

@@ -3,6 +3,8 @@ package com.example.anaplb.appalpha.activities;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        //getWriteExternalStoragePermission();
+        //getReadExternalStoragePermission();
 
     }
 
@@ -47,5 +52,43 @@ public class MainActivity extends AppCompatActivity {
     public void goToConfigScreen(View view){
         Intent it = new Intent(getApplicationContext(), ConfigActivity.class);
         startActivity(it);
+    }
+
+    /**
+     * Verifica se a permissão para gravar no armazenamento externo está ativa, caso não, pede permissão ao usuário.
+     */
+    public void getWriteExternalStoragePermission(){
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+
+            } else {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        1);
+            }
+        }
+    }
+
+    /**
+     * Verifica se a permissão para ler do armazenamento externo está ativa, caso não, pede permissão ao usuário.
+     */
+    public void getReadExternalStoragePermission(){
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.READ_EXTERNAL_STORAGE)) {
+
+            } else {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        1);
+            }
+        }
     }
 }
