@@ -1,13 +1,15 @@
 package com.example.anaplb.appalpha.activities;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
 import com.example.anaplb.appalpha.R;
-import com.example.anaplb.appalpha.cronometro.Cronometro;
+import com.example.anaplb.appalpha.config.AppConfig;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void indoParaSobre(View v) {
         Intent it = new Intent(getApplicationContext(), SobreActivity.class);
+        startActivity(it);
+    }
+
+    public void goToConfigScreen(View view){
+        Intent it = new Intent(getApplicationContext(), ConfigActivity.class);
         startActivity(it);
     }
 }

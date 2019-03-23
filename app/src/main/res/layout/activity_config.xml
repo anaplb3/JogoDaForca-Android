@@ -24,6 +24,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/purple_right_rounded_backgroud"
+                android:onClick="backToMainScreen"
                 android:padding="4dp"
                 app:layout_constraintBottom_toTopOf="@+id/guideline8"
                 app:layout_constraintStart_toStartOf="@+id/guideline18"
@@ -115,7 +116,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Visualização:"
-                        android:textSize="12sp" />
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/textView31"
@@ -125,7 +126,8 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
-                        android:textSize="24sp" />
+                        android:textSize="24sp"
+                        app:fontFamily="casual" />
 
                 </LinearLayout>
 
