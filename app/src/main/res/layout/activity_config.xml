@@ -69,11 +69,11 @@
                 android:padding="4dp">
 
                 <RadioGroup
+                    android:id="@+id/rgLetterType"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
-                    android:background="@drawable/white_rounded_backgroud"
-                    android:checkedButton="@+id/rb_casual">
+                    android:background="@drawable/white_rounded_backgroud">
 
                     <RadioButton
                         android:id="@+id/rb_casual"
@@ -130,6 +130,66 @@
                         app:fontFamily="casual" />
 
                 </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/yellow_mustard"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/otherConfigs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/background_maincolor_dark"
+                android:gravity="center"
+                android:text="Outros ajustes"
+                android:textColor="@android:color/white"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:fontFamily="casual" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="4dp">
+
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="As letras devem ser:"
+                    android:textSize="18sp" />
+
+                <RadioGroup
+                    android:id="@+id/rgLetterCase"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/white_rounded_backgroud"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rb_uppercase"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Maiúsculas" />
+
+                    <RadioButton
+                        android:id="@+id/rb_lowercase"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Minúsculas" />
+
+                </RadioGroup>
 
             </LinearLayout>
         </LinearLayout>

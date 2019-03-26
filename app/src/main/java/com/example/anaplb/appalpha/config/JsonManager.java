@@ -9,18 +9,50 @@ import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public abstract class JsonManager {
 
     public JSONObject getJsonOnjectOfArchive(Context appContext){
+        FileInputStream inputStream = null;
+        BufferedReader reader = null;
+        JSONObject jsonObj = null;
+
+        try {
+            inputStream = appContext.openFileInput(getJsonFileName());
+            reader = new BufferedReader(new InputStreamReader(inputStream));
+            String json = reader.readLine();
+            if(json.isEmpty()){
+                jsonObj = fillUsingAssets(appContext);
+            }else{
+                jsonObj = new JSONObject(json);
+            }
+
+            Log.i("Json", "configs.json lido.");
+            Log.i("Json", "Json Obj encontrado: " + json);
+            reader.close();
+        } catch (FileNotFoundException e) {
+            Log.i("Json", "Json Obj lido do assets");
+            jsonObj = fillUsingAssets(appContext);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return  jsonObj;
+
+    }
+
+    public JSONObject fillUsingAssets(Context appContext){
         AssetManager assetManager = appContext.getAssets();
         InputStream is = null;
         String jsonConf = null;
@@ -33,7 +65,6 @@ public abstract class JsonManager {
             is.close();
             jsonConf = new String(buffer);
             jsonObg = new JSONObject(jsonConf);
-            Log.i("Json",jsonObg.toString());
 
         } catch (IOException | JSONException e) {
             e.printStackTrace();
@@ -60,7 +91,7 @@ public abstract class JsonManager {
         }
     }
 
-    public abstract String getDiretory();
+    protected abstract String getDiretory();
 
-    public abstract String getJsonFileName();
+    protected abstract String getJsonFileName();
 }
