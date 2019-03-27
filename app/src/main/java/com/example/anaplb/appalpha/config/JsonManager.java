@@ -2,8 +2,6 @@ package com.example.anaplb.appalpha.config;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.os.Environment;
-import android.provider.ContactsContract;
 import android.util.Log;
 
 import org.json.JSONException;
