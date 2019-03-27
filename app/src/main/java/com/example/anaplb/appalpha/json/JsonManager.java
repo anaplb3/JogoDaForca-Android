@@ -1,4 +1,4 @@
-package com.example.anaplb.appalpha.config;
+package com.example.anaplb.appalpha.json;
 
 import android.content.Context;
 import android.content.res.AssetManager;

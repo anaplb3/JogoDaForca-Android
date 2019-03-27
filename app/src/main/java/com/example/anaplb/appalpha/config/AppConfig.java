@@ -4,17 +4,19 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.anaplb.appalpha.json.JsonManager;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class AppConfig extends JsonManager {
     private static AppConfig instance;
-    public final static String CASUAL = "Casual";
-    public final static String CURSIVA = "Cursiva";
-    public final static String BASTAO = "Bastão";
-    public final static String IMPRENSA = "Imprensa";
-    public final static String UPPER = "Maiúsculas";
-    public final static String LOWER = "Minúsculas";
+    public final static String CASUAL = "casual";
+    public final static String CURSIVA = "cursiva";
+    public final static String BASTAO = "bastão";
+    public final static String IMPRENSA = "imprensa";
+    public final static String UPPER = "maiúsculas";
+    public final static String LOWER = "minúsculas";
     private String currentLetterType;
     private String currentLetterCase;
     private JSONObject jsonObjConfig;
@@ -52,7 +54,7 @@ public class AppConfig extends JsonManager {
     }
 
     public void setCurrentLetterType(String currentLetterType) {
-        this.currentLetterType = currentLetterType;
+        this.currentLetterType = currentLetterType.toLowerCase();
     }
 
     public String getCurrentLetterCase() {
@@ -60,7 +62,7 @@ public class AppConfig extends JsonManager {
     }
 
     public void setCurrentLetterCase(String currentLetterCase) {
-        this.currentLetterCase = currentLetterCase;
+        this.currentLetterCase = currentLetterCase.toLowerCase();
     }
 
     public void saveAllChange(Context appContext){
