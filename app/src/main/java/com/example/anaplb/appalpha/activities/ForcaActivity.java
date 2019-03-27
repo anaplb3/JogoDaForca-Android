@@ -78,7 +78,7 @@ public class ForcaActivity extends AppCompatActivity {
         imgPalavra.setImageResource(idImagem);
 
         // Iniciando cronômetro
-        cronometro = new Cronometro(findViewById(R.id.cronometro));
+        cronometro = new Cronometro(findViewById(R.id.cronometro), getApplicationContext(), audio);
         cronometro.comecandoCronometro();
 
         Log.i("palavra da forca", palavra);

@@ -31,7 +31,7 @@ public class CuidandoTelaProgresso {
 
             case 2:
                 imgProgresso.setImageResource(R.drawable.progresso2);
-                txt.setText("Mais um pra conta! Parabéns?");
+                txt.setText("Mais um pra conta! Parabéns!");
                 som.playSound(context, R.raw.conta);
 
                 break;
