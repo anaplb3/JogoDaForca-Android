@@ -7,7 +7,7 @@
     android:background="@android:color/holo_purple"
     tools:context=".activities.RecordesActivity">
 
-    <TextView
+    <com.example.anaplb.appalpha.config.AlphaTextView
         android:id="@+id/textView20"
         android:layout_width="171dp"
         android:layout_height="0dp"
@@ -19,7 +19,6 @@
         android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="Recordes"
-        android:textAllCaps="true"
         android:textColor="@android:color/white"
         android:textSize="30sp"
         app:fontFamily="sans-serif"
@@ -27,7 +26,8 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline18"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        app:textAllCaps="false" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline8"
@@ -74,7 +74,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="74dp" />
 
-    <TextView
+    <com.example.anaplb.appalpha.config.AlphaTextView
         android:id="@+id/textView22"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -86,16 +86,16 @@
         android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="Colocação"
-        android:textAllCaps="true"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         app:fontFamily="sans-serif"
         app:layout_constraintBottom_toTopOf="@+id/guideline22"
         app:layout_constraintEnd_toStartOf="@+id/guideline20"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline21" />
+        app:layout_constraintTop_toTopOf="@+id/guideline21"
+        app:textAllCaps="false" />
 
-    <TextView
+    <com.example.anaplb.appalpha.config.AlphaTextView
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -107,7 +107,6 @@
         android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="    Nome    "
-        android:textAllCaps="true"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         app:fontFamily="sans-serif"
@@ -115,9 +114,10 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline23"
         app:layout_constraintStart_toStartOf="@+id/guideline20"
         app:layout_constraintTop_toTopOf="@+id/guideline21"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        app:textAllCaps="false" />
 
-    <TextView
+    <com.example.anaplb.appalpha.config.AlphaTextView
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -129,14 +129,14 @@
         android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="Pontuação"
-        android:textAllCaps="true"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         app:fontFamily="sans-serif"
         app:layout_constraintBottom_toTopOf="@+id/guideline22"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline23"
-        app:layout_constraintTop_toTopOf="@+id/guideline21" />
+        app:layout_constraintTop_toTopOf="@+id/guideline21"
+        app:textAllCaps="false" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline20"
@@ -166,7 +166,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="271dp" />
 
-    <TextView
+    <com.example.anaplb.appalpha.config.AlphaTextView
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -177,15 +177,15 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="1º"
-        android:textAllCaps="true"
         android:textSize="30sp"
         app:fontFamily="sans-serif"
         app:layout_constraintBottom_toTopOf="@+id/guideline24"
         app:layout_constraintEnd_toStartOf="@+id/guideline20"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline22" />
+        app:layout_constraintTop_toTopOf="@+id/guideline22"
+        app:textAllCaps="false" />
 
-    <TextView
+    <com.example.anaplb.appalpha.config.AlphaTextView
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -196,15 +196,15 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="2º"
-        android:textAllCaps="true"
         android:textSize="30sp"
         app:fontFamily="sans-serif"
         app:layout_constraintBottom_toTopOf="@+id/guideline25"
         app:layout_constraintEnd_toStartOf="@+id/guideline20"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline24" />
+        app:layout_constraintTop_toTopOf="@+id/guideline24"
+        app:textAllCaps="false" />
 
-    <TextView
+    <com.example.anaplb.appalpha.config.AlphaTextView
         android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -215,15 +215,15 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="3º"
-        android:textAllCaps="true"
         android:textSize="30sp"
         app:fontFamily="sans-serif"
         app:layout_constraintBottom_toTopOf="@+id/guideline26"
         app:layout_constraintEnd_toStartOf="@+id/guideline20"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline25" />
+        app:layout_constraintTop_toTopOf="@+id/guideline25"
+        app:textAllCaps="false" />
 
-    <TextView
+    <com.example.anaplb.appalpha.config.AlphaTextView
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -234,16 +234,16 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="4º"
-        android:textAllCaps="true"
         android:textSize="30sp"
         app:fontFamily="sans-serif"
         app:layout_constraintBottom_toTopOf="@+id/guideline27"
         app:layout_constraintEnd_toStartOf="@+id/guideline20"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline26"
-        app:layout_constraintVertical_bias="0.437" />
+        app:layout_constraintVertical_bias="0.437"
+        app:textAllCaps="false" />
 
-    <TextView
+    <com.example.anaplb.appalpha.config.AlphaTextView
         android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -254,13 +254,13 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="5º"
-        android:textAllCaps="true"
         android:textSize="30sp"
         app:fontFamily="sans-serif"
         app:layout_constraintBottom_toTopOf="@+id/guideline28"
         app:layout_constraintEnd_toStartOf="@+id/guideline20"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline27" />
+        app:layout_constraintTop_toTopOf="@+id/guideline27"
+        app:textAllCaps="false" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline24"
@@ -297,7 +297,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="550dp" />
 
-    <TextView
+    <com.example.anaplb.appalpha.config.AlphaTextView
         android:id="@+id/primeiro_nome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -308,15 +308,15 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="sem pontuação"
-        android:textAllCaps="true"
         android:textSize="18sp"
         app:fontFamily="sans-serif"
         app:layout_constraintBottom_toTopOf="@+id/guideline24"
         app:layout_constraintEnd_toStartOf="@+id/guideline23"
         app:layout_constraintStart_toStartOf="@+id/guideline20"
-        app:layout_constraintTop_toTopOf="@+id/guideline22" />
+        app:layout_constraintTop_toTopOf="@+id/guideline22"
+        app:textAllCaps="false" />
 
-    <TextView
+    <com.example.anaplb.appalpha.config.AlphaTextView
         android:id="@+id/segundo_nome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -327,15 +327,15 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="sem pontuação"
-        android:textAllCaps="true"
         android:textSize="18sp"
         app:fontFamily="sans-serif"
         app:layout_constraintBottom_toTopOf="@+id/guideline25"
         app:layout_constraintEnd_toStartOf="@+id/guideline23"
         app:layout_constraintStart_toStartOf="@+id/guideline20"
-        app:layout_constraintTop_toTopOf="@+id/guideline24" />
+        app:layout_constraintTop_toTopOf="@+id/guideline24"
+        app:textAllCaps="false" />
 
-    <TextView
+    <com.example.anaplb.appalpha.config.AlphaTextView
         android:id="@+id/terceiro_nome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -346,15 +346,15 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="sem pontuação"
-        android:textAllCaps="true"
         android:textSize="18sp"
         app:fontFamily="sans-serif"
         app:layout_constraintBottom_toTopOf="@+id/guideline26"
         app:layout_constraintEnd_toStartOf="@+id/guideline23"
         app:layout_constraintStart_toStartOf="@+id/guideline20"
-        app:layout_constraintTop_toTopOf="@+id/guideline25" />
+        app:layout_constraintTop_toTopOf="@+id/guideline25"
+        app:textAllCaps="false" />
 
-    <TextView
+    <com.example.anaplb.appalpha.config.AlphaTextView
         android:id="@+id/quarto_nome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -365,15 +365,15 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="sem pontuação"
-        android:textAllCaps="true"
         android:textSize="18sp"
         app:fontFamily="sans-serif"
         app:layout_constraintBottom_toTopOf="@+id/guideline27"
         app:layout_constraintEnd_toStartOf="@+id/guideline23"
         app:layout_constraintStart_toStartOf="@+id/guideline20"
-        app:layout_constraintTop_toTopOf="@+id/guideline26" />
+        app:layout_constraintTop_toTopOf="@+id/guideline26"
+        app:textAllCaps="false" />
 
-    <TextView
+    <com.example.anaplb.appalpha.config.AlphaTextView
         android:id="@+id/quinto_nome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -384,15 +384,15 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="sem pontuação"
-        android:textAllCaps="true"
         android:textSize="18sp"
         app:fontFamily="sans-serif"
         app:layout_constraintBottom_toTopOf="@+id/guideline28"
         app:layout_constraintEnd_toStartOf="@+id/guideline23"
         app:layout_constraintStart_toStartOf="@+id/guideline20"
-        app:layout_constraintTop_toTopOf="@+id/guideline27" />
+        app:layout_constraintTop_toTopOf="@+id/guideline27"
+        app:textAllCaps="false" />
 
-    <TextView
+    <com.example.anaplb.appalpha.config.AlphaTextView
         android:id="@+id/primeiro_lugar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -403,7 +403,6 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="0.0"
-        android:textAllCaps="true"
         android:textSize="18sp"
         app:fontFamily="sans-serif"
         app:layout_constraintBottom_toTopOf="@+id/guideline24"
@@ -411,9 +410,10 @@
         app:layout_constraintHorizontal_bias="0.637"
         app:layout_constraintStart_toEndOf="@+id/primeiro_nome"
         app:layout_constraintTop_toTopOf="@+id/guideline22"
-        app:layout_constraintVertical_bias="0.432" />
+        app:layout_constraintVertical_bias="0.432"
+        app:textAllCaps="false" />
 
-    <TextView
+    <com.example.anaplb.appalpha.config.AlphaTextView
         android:id="@+id/segundo_lugar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -424,7 +424,6 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="0.0"
-        android:textAllCaps="true"
         android:textSize="18sp"
         app:fontFamily="sans-serif"
         app:layout_constraintBottom_toTopOf="@+id/guideline25"
@@ -432,9 +431,10 @@
         app:layout_constraintHorizontal_bias="0.647"
         app:layout_constraintStart_toEndOf="@+id/segundo_nome"
         app:layout_constraintTop_toTopOf="@+id/guideline24"
-        app:layout_constraintVertical_bias="0.516" />
+        app:layout_constraintVertical_bias="0.516"
+        app:textAllCaps="false" />
 
-    <TextView
+    <com.example.anaplb.appalpha.config.AlphaTextView
         android:id="@+id/terceiro_lugar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -445,16 +445,16 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="0.0"
-        android:textAllCaps="true"
         android:textSize="18sp"
         app:fontFamily="sans-serif"
         app:layout_constraintBottom_toTopOf="@+id/guideline26"
         app:layout_constraintEnd_toStartOf="@+id/guideline18"
         app:layout_constraintHorizontal_bias="0.553"
         app:layout_constraintStart_toStartOf="@+id/guideline23"
-        app:layout_constraintTop_toTopOf="@+id/guideline25" />
+        app:layout_constraintTop_toTopOf="@+id/guideline25"
+        app:textAllCaps="false" />
 
-    <TextView
+    <com.example.anaplb.appalpha.config.AlphaTextView
         android:id="@+id/quarto_lugar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -465,15 +465,15 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="0.0"
-        android:textAllCaps="true"
         android:textSize="18sp"
         app:fontFamily="sans-serif"
         app:layout_constraintBottom_toTopOf="@+id/guideline27"
         app:layout_constraintEnd_toStartOf="@+id/guideline18"
         app:layout_constraintStart_toStartOf="@+id/guideline23"
-        app:layout_constraintTop_toTopOf="@+id/guideline26" />
+        app:layout_constraintTop_toTopOf="@+id/guideline26"
+        app:textAllCaps="false" />
 
-    <TextView
+    <com.example.anaplb.appalpha.config.AlphaTextView
         android:id="@+id/quinto_lugar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -484,12 +484,12 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="0.0"
-        android:textAllCaps="true"
         android:textSize="18sp"
         app:fontFamily="sans-serif"
         app:layout_constraintBottom_toTopOf="@+id/guideline28"
         app:layout_constraintEnd_toStartOf="@+id/guideline18"
         app:layout_constraintStart_toStartOf="@+id/guideline23"
-        app:layout_constraintTop_toTopOf="@+id/guideline27" />
+        app:layout_constraintTop_toTopOf="@+id/guideline27"
+        app:textAllCaps="false" />
 
 </android.support.constraint.ConstraintLayout>

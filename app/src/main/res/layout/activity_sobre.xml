@@ -27,11 +27,9 @@
                 android:background="@drawable/purple_right_rounded_backgroud"
                 android:onClick="voltandoAoMenu"
                 android:padding="4dp"
-                app:layout_constraintBottom_toTopOf="@+id/guideline8"
-                app:layout_constraintStart_toStartOf="@+id/guideline18"
                 app:srcCompat="@android:drawable/ic_menu_revert" />
 
-            <TextView
+            <com.example.anaplb.appalpha.config.AlphaTextView
                 android:id="@+id/textView19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -39,15 +37,13 @@
                 android:layout_marginRight="70dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="SOBRE"
-                android:textAllCaps="true"
+                android:text="Sobre"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                app:fontFamily="sans-serif" />
+                android:textStyle="bold" />
 
         </LinearLayout>
 
-        <TextView
+        <com.example.anaplb.appalpha.config.AlphaTextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -55,13 +51,7 @@
             android:background="@color/background_maincolor_dark"
             android:gravity="center"
             android:text="Criadores"
-            android:textAllCaps="true"
-            android:textSize="20sp"
-            app:fontFamily="sans-serif"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline22" />
+            android:textSize="20sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -86,12 +76,6 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginBottom="8dp"
-                    app:layout_constraintBottom_toTopOf="@+id/guideline17"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline7"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/guideline8"
-                    app:layout_constraintVertical_bias="0.407"
                     app:srcCompat="@drawable/dev_ana" />
 
                 <LinearLayout
@@ -99,31 +83,22 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <TextView
+                    <com.example.anaplb.appalpha.config.AlphaTextView
                         android:id="@+id/textView12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="Ana Paula Lima"
-                        android:textAllCaps="true"
                         android:textSize="18sp"
-                        android:textStyle="bold"
-                        app:fontFamily="sans-serif"
-                        app:layout_constraintEnd_toStartOf="@+id/guideline18"
-                        app:layout_constraintHorizontal_bias="0.473"
-                        app:layout_constraintStart_toStartOf="@+id/guideline7"
-                        app:layout_constraintTop_toTopOf="@+id/guideline8" />
+                        android:textStyle="bold" />
 
-                    <TextView
+                    <com.example.anaplb.appalpha.config.AlphaTextView
                         android:id="@+id/textView13"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Aluna voluntária"
-                        android:textAllCaps="true"
-                        app:fontFamily="sans-serif"
                         app:layout_constraintEnd_toStartOf="@+id/guideline18"
                         app:layout_constraintHorizontal_bias="0.471"
-                        app:layout_constraintStart_toStartOf="@+id/guideline7"
                         app:layout_constraintTop_toBottomOf="@+id/textView12" />
                 </LinearLayout>
             </LinearLayout>
@@ -156,11 +131,6 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginBottom="8dp"
-                    app:layout_constraintBottom_toTopOf="@+id/guideline9"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline7"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/guideline17"
                     app:srcCompat="@drawable/emerson" />
 
                 <LinearLayout
@@ -168,51 +138,32 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <TextView
+                    <com.example.anaplb.appalpha.config.AlphaTextView
                         android:id="@+id/textView14"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="Emerson Dantas"
-                        android:textAllCaps="true"
                         android:textSize="18sp"
-                        android:textStyle="bold"
-                        app:fontFamily="sans-serif"
-                        app:layout_constraintEnd_toStartOf="@+id/guideline18"
-                        app:layout_constraintHorizontal_bias="0.08"
-                        app:layout_constraintStart_toStartOf="@+id/guideline7"
-                        app:layout_constraintTop_toTopOf="@+id/guideline17" />
+                        android:textStyle="bold"/>
 
-                    <TextView
+                    <com.example.anaplb.appalpha.config.AlphaTextView
                         android:id="@+id/textView15"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Aluno voluntário"
-                        android:textAllCaps="true"
-                        app:fontFamily="sans-serif"
-                        app:layout_constraintEnd_toStartOf="@+id/guideline18"
-                        app:layout_constraintHorizontal_bias="0.634"
-                        app:layout_constraintStart_toEndOf="@+id/imageView3"
-                        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                        android:text="Aluno voluntário" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
-        <TextView
+        <com.example.anaplb.appalpha.config.AlphaTextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/background_maincolor_dark"
             android:gravity="center"
             android:text="Projeto"
-            android:textAllCaps="true"
-            android:textSize="20sp"
-            app:fontFamily="sans-serif"
-            app:layout_constraintBottom_toTopOf="@+id/guideline21"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline9"
-            app:layout_constraintVertical_bias="0.444" />
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -231,12 +182,6 @@
                     android:id="@+id/imageView4"
                     android:layout_width="100dp"
                     android:layout_height="150dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline7"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/guideline21"
-                    app:layout_constraintVertical_bias="0.0"
                     app:srcCompat="@drawable/logo_projeto" />
 
                 <LinearLayout
@@ -244,40 +189,27 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <TextView
+                    <com.example.anaplb.appalpha.config.AlphaTextView
                         android:id="@+id/textView16"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="4dp"
                         android:gravity="center"
                         android:text="O Apps4Society é um projeto de extensão desenvolvido pela UFPB-Campus IV e que visa construir aplicativos que venham a impactar positivamente a sociedade."
-                        android:textAllCaps="true"
                         android:textSize="14sp"
-                        android:textStyle="bold"
-                        app:fontFamily="sans-serif"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/guideline18"
-                        app:layout_constraintStart_toStartOf="@+id/guideline7"
-                        app:layout_constraintTop_toTopOf="@+id/guideline21" />
+                        android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
-        <TextView
+        <com.example.anaplb.appalpha.config.AlphaTextView
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/background_maincolor_dark"
             android:gravity="center"
             android:text="Créditos"
-            android:textAllCaps="true"
-            android:textSize="20sp"
-            app:fontFamily="sans-serif"
-            app:layout_constraintBottom_toTopOf="@+id/guideline21"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline9"
-            app:layout_constraintVertical_bias="0.444" />
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -296,12 +228,6 @@
                     android:id="@+id/imageView5"
                     android:layout_width="100dp"
                     android:layout_height="150dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline7"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/guideline21"
-                    app:layout_constraintVertical_bias="0.0"
                     app:srcCompat="@drawable/logo_free_images" />
 
                 <LinearLayout
@@ -309,23 +235,17 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <TextView
+                    <com.example.anaplb.appalpha.config.AlphaTextView
                         android:id="@+id/textView17"
                         android:layout_width="match_parent"
                         android:layout_height="65dp"
                         android:layout_margin="4dp"
                         android:gravity="center"
                         android:text="Todas as imagens usadas nos desafios foram tiradas do site freeimagens."
-                        android:textAllCaps="true"
                         android:textSize="14sp"
-                        android:textStyle="bold"
-                        app:fontFamily="sans-serif"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/guideline18"
-                        app:layout_constraintStart_toStartOf="@+id/guideline7"
-                        app:layout_constraintTop_toTopOf="@+id/guideline21" />
+                        android:textStyle="bold" />
 
-                    <TextView
+                    <com.example.anaplb.appalpha.config.AlphaTextView
                         android:id="@+id/tv_linkFreeImg"
                         android:layout_width="match_parent"
                         android:layout_height="65dp"
@@ -336,16 +256,10 @@
                         android:textAllCaps="true"
                         android:textColor="@android:color/holo_blue_bright"
                         android:textSize="14sp"
-                        android:textStyle="bold"
-                        app:fontFamily="sans-serif"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/guideline18"
-                        app:layout_constraintStart_toStartOf="@+id/guideline7"
-                        app:layout_constraintTop_toTopOf="@+id/guideline21" />
+                        android:textStyle="bold" />
 
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-
     </LinearLayout>
 </ScrollView>

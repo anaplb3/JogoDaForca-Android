@@ -72,25 +72,18 @@ public class ConfigActivity extends AppCompatActivity {
         switch(this.configurator.getCurrentLetterType()){
             case(AppConfig.CASUAL):
                 rgLetterType.check(rbCasual.getId());
-                Log.i("Json-Config","CASUAL");
             break;
 
             case(AppConfig.CURSIVA):
                 rgLetterType.check(rbCursiva.getId());
-
-                Log.i("Json-Config","CURSIVA");
             break;
 
             case(AppConfig.BASTAO):
                 rgLetterType.check(rbBastao.getId());
-
-                Log.i("Json-Config","BASTAO");
             break;
 
             case(AppConfig.IMPRENSA):
                 rgLetterType.check(rbImprensa.getId());
-
-                Log.i("Json-Config","IMPRENSA");
             break;
 
         }
@@ -98,14 +91,14 @@ public class ConfigActivity extends AppCompatActivity {
         switch(this.configurator.getCurrentLetterCase()){
             case(AppConfig.UPPER):
                 rgLetterCase.check(rbUpper.getId());
-                Log.i("Json-Config","UPPER");
             break;
 
             case(AppConfig.LOWER):
                 rgLetterCase.check(rbLower.getId());
-                Log.i("Json-Config","LOWER");
             break;
 
         }
     }
+
+
 }
