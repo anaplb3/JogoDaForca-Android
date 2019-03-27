@@ -39,6 +39,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="CONFIGURAÇÕES"
+                android:textAllCaps="true"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:fontFamily="casual" />
@@ -58,6 +59,7 @@
                 android:background="@color/background_maincolor_dark"
                 android:gravity="center"
                 android:text="Tipo de letra"
+                android:textAllCaps="true"
                 android:textColor="@android:color/white"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -77,31 +79,31 @@
 
                     <RadioButton
                         android:id="@+id/rb_casual"
-                        android:layout_width="100dp"
+                        android:layout_width="110dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Casual" />
+                        android:text="CASUAL" />
 
                     <RadioButton
                         android:id="@+id/rb_cursiva"
-                        android:layout_width="100dp"
+                        android:layout_width="110dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Cursiva" />
+                        android:text="CURSIVA" />
 
                     <RadioButton
                         android:id="@+id/rb_bastao"
-                        android:layout_width="100dp"
+                        android:layout_width="110dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Bastão" />
+                        android:text="BASTÃO" />
 
                     <RadioButton
                         android:id="@+id/rb_imprensa"
-                        android:layout_width="100dp"
+                        android:layout_width="110dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Imprensa" />
+                        android:text="IMPRENSA" />
 
                 </RadioGroup>
 
@@ -116,6 +118,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Visualização:"
+                        android:textAllCaps="true"
                         android:textSize="14sp" />
 
                     <TextView
@@ -126,6 +129,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+                        android:textAllCaps="true"
                         android:textSize="20sp"
                         app:fontFamily="casual" />
 
@@ -147,6 +151,7 @@
                 android:background="@color/background_maincolor_dark"
                 android:gravity="center"
                 android:text="Outros ajustes"
+                android:textAllCaps="true"
                 android:textColor="@android:color/white"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -165,6 +170,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="As letras devem ser:"
+                    android:textAllCaps="true"
                     android:textSize="18sp" />
 
                 <RadioGroup
@@ -180,14 +186,14 @@
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Maiúsculas" />
+                        android:text="MAIÚSCULA" />
 
                     <RadioButton
                         android:id="@+id/rb_lowercase"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Minúsculas" />
+                        android:text="MINÚSCULA" />
 
                 </RadioGroup>
 
