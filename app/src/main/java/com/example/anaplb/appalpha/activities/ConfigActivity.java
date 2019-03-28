@@ -17,7 +17,6 @@ public class ConfigActivity extends AppCompatActivity {
     private RadioButton rbCursiva;
     private RadioButton rbBastao;
     private RadioButton rbImprensa;
-
     private RadioGroup rgLetterCase;
     private RadioButton rbUpper;
     private RadioButton rbLower;
@@ -26,6 +25,7 @@ public class ConfigActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config);
+        this.configurator = AppConfig.getInstance(getApplicationContext());
 
         this.rgLetterType = findViewById(R.id.rgLetterType);
         this.rgLetterCase = findViewById(R.id.rgLetterCase);
@@ -36,7 +36,7 @@ public class ConfigActivity extends AppCompatActivity {
         this.rbUpper = findViewById(R.id.rb_uppercase);
         this.rbLower = findViewById(R.id.rb_lowercase);
 
-        this.configurator = AppConfig.getInstance(getApplicationContext());
+
 
 
     }

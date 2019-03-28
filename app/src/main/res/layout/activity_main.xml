@@ -94,14 +94,15 @@
             android:text="Recordes" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/btnConfigs"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="8dp"
             android:background="@drawable/yellow_rounded_backgroud"
             android:onClick="goToConfigScreen"
-            android:text="Configurações" />
+            android:text="Configurações"
+            android:visibility="visible" />
 
     </LinearLayout>
 
