@@ -2,7 +2,6 @@ package com.example.anaplb.appalpha.config;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.anaplb.appalpha.json.JsonManager;
 
@@ -73,7 +72,6 @@ public class AppConfig extends JsonManager {
             this.jsonObjConfig = newJsonObjConfig;
             super.writeJsonObject(appContext, this.jsonObjConfig);
             Log.i("Json - AppConfig", "All changes have been saved");
-            Toast.makeText(appContext, "Configurações salvas com sucesso!", Toast.LENGTH_LONG).show();
         } catch (JSONException e) {
             e.printStackTrace();
         }

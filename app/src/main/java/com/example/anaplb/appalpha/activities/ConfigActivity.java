@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.anaplb.appalpha.R;
 import com.example.anaplb.appalpha.config.AppConfig;
@@ -35,10 +36,6 @@ public class ConfigActivity extends AppCompatActivity {
         this.rbImprensa = findViewById(R.id.rb_imprensa);
         this.rbUpper = findViewById(R.id.rb_uppercase);
         this.rbLower = findViewById(R.id.rb_lowercase);
-
-
-
-
     }
 
     @Override
@@ -56,8 +53,12 @@ public class ConfigActivity extends AppCompatActivity {
         super.onPause();
         pushChanges();
         this.configurator.saveAllChange(getApplicationContext());
+        Toast.makeText(getApplicationContext(), "Configurações salvas com sucesso!", Toast.LENGTH_LONG).show();
     }
 
+    /**
+     * Muda as configurações no AppConfig de acordo com as opções selecionadas na tela de configurações
+     */
     private void pushChanges(){
         String rgSelectedLetterType =((RadioButton)findViewById(this.rgLetterType.getCheckedRadioButtonId())).getText().toString();
         String rgSelectedLetterCase =((RadioButton)findViewById(this.rgLetterCase.getCheckedRadioButtonId())).getText().toString();
@@ -65,6 +66,9 @@ public class ConfigActivity extends AppCompatActivity {
         this.configurator.setCurrentLetterCase(rgSelectedLetterCase);
     }
 
+    /**
+     * Marca as opções dos RadioButton de acordo com as configurações do AppConfig
+     */
     private void loadConfigsInView(){
         Log.i("Json-Config","Entrou em LoadConfigs");
         Log.i("Json-Config","CurrentLetterType: " + this.configurator.getCurrentLetterType());
@@ -98,6 +102,17 @@ public class ConfigActivity extends AppCompatActivity {
             break;
 
         }
+    }
+
+    /**
+     * Salva as configurações atuais da tela de configurações e recarrega a tela.
+     * @param view
+     */
+    public void saveChanges(View view){
+        pushChanges();
+        this.configurator.saveAllChange(getApplicationContext());
+        this.recreate();
+        Toast.makeText(getApplicationContext(), "Configurações salvas com sucesso!", Toast.LENGTH_LONG).show();
     }
 
 

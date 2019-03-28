@@ -21,7 +21,7 @@
             <ImageButton
                 android:id="@+id/btn_back"
                 android:layout_width="75dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/purple_right_rounded_backgroud"
                 android:onClick="backToMainScreen"
@@ -33,15 +33,27 @@
             <com.example.anaplb.appalpha.config.AlphaTextView
                 android:id="@+id/textView19"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
-                android:layout_marginRight="70dp"
-                android:layout_weight="1"
+                android:layout_weight="5"
                 android:gravity="center"
                 android:text="Configurações"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:fontFamily="casual" />
+
+            <ImageButton
+                android:id="@+id/btn_back2"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/purple_left_rounded_backgroud"
+                android:onClick="saveChanges"
+                android:padding="4dp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline8"
+                app:layout_constraintStart_toStartOf="@+id/guideline18"
+                app:srcCompat="@android:drawable/ic_menu_save" />
 
         </LinearLayout>
 
@@ -192,5 +204,6 @@
 
             </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
 </ScrollView>
