@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
+        //checkSdkVersionToShowConfigMenu(); Usar somente caso limite o app para android +7
         //getWriteExternalStoragePermission();
         //getReadExternalStoragePermission();
 
@@ -66,9 +67,7 @@ public class MainActivity extends AppCompatActivity {
                     Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
 
             } else {
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                        1);
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
             }
         }
     }
@@ -85,10 +84,19 @@ public class MainActivity extends AppCompatActivity {
                     Manifest.permission.READ_EXTERNAL_STORAGE)) {
 
             } else {
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                        1);
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
             }
+        }
+    }
+
+    /***
+     * Verifica a versão do SDK do dispositivo para decidir se será possível permitir a modificação de configurações que só são permitidas a partir da versão 23(Android 7) do SDK.
+     **/
+    public void checkSdkVersionToShowConfigMenu(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            findViewById(R.id.btnConfigs).setVisibility(View.VISIBLE);
+        }else{
+            findViewById(R.id.btnConfigs).setVisibility(View.GONE);
         }
     }
 }

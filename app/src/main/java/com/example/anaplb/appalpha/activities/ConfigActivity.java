@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.anaplb.appalpha.R;
 import com.example.anaplb.appalpha.config.AppConfig;
@@ -17,7 +18,6 @@ public class ConfigActivity extends AppCompatActivity {
     private RadioButton rbCursiva;
     private RadioButton rbBastao;
     private RadioButton rbImprensa;
-
     private RadioGroup rgLetterCase;
     private RadioButton rbUpper;
     private RadioButton rbLower;
@@ -26,6 +26,7 @@ public class ConfigActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config);
+        this.configurator = AppConfig.getInstance(getApplicationContext());
 
         this.rgLetterType = findViewById(R.id.rgLetterType);
         this.rgLetterCase = findViewById(R.id.rgLetterCase);
@@ -35,10 +36,6 @@ public class ConfigActivity extends AppCompatActivity {
         this.rbImprensa = findViewById(R.id.rb_imprensa);
         this.rbUpper = findViewById(R.id.rb_uppercase);
         this.rbLower = findViewById(R.id.rb_lowercase);
-
-        this.configurator = AppConfig.getInstance(getApplicationContext());
-
-
     }
 
     @Override
@@ -56,8 +53,12 @@ public class ConfigActivity extends AppCompatActivity {
         super.onPause();
         pushChanges();
         this.configurator.saveAllChange(getApplicationContext());
+        Toast.makeText(getApplicationContext(), "Configurações salvas com sucesso!", Toast.LENGTH_LONG).show();
     }
 
+    /**
+     * Muda as configurações no AppConfig de acordo com as opções selecionadas na tela de configurações
+     */
     private void pushChanges(){
         String rgSelectedLetterType =((RadioButton)findViewById(this.rgLetterType.getCheckedRadioButtonId())).getText().toString();
         String rgSelectedLetterCase =((RadioButton)findViewById(this.rgLetterCase.getCheckedRadioButtonId())).getText().toString();
@@ -65,6 +66,9 @@ public class ConfigActivity extends AppCompatActivity {
         this.configurator.setCurrentLetterCase(rgSelectedLetterCase);
     }
 
+    /**
+     * Marca as opções dos RadioButton de acordo com as configurações do AppConfig
+     */
     private void loadConfigsInView(){
         Log.i("Json-Config","Entrou em LoadConfigs");
         Log.i("Json-Config","CurrentLetterType: " + this.configurator.getCurrentLetterType());
@@ -72,25 +76,18 @@ public class ConfigActivity extends AppCompatActivity {
         switch(this.configurator.getCurrentLetterType()){
             case(AppConfig.CASUAL):
                 rgLetterType.check(rbCasual.getId());
-                Log.i("Json-Config","CASUAL");
             break;
 
             case(AppConfig.CURSIVA):
                 rgLetterType.check(rbCursiva.getId());
-
-                Log.i("Json-Config","CURSIVA");
             break;
 
             case(AppConfig.BASTAO):
                 rgLetterType.check(rbBastao.getId());
-
-                Log.i("Json-Config","BASTAO");
             break;
 
             case(AppConfig.IMPRENSA):
                 rgLetterType.check(rbImprensa.getId());
-
-                Log.i("Json-Config","IMPRENSA");
             break;
 
         }
@@ -98,14 +95,25 @@ public class ConfigActivity extends AppCompatActivity {
         switch(this.configurator.getCurrentLetterCase()){
             case(AppConfig.UPPER):
                 rgLetterCase.check(rbUpper.getId());
-                Log.i("Json-Config","UPPER");
             break;
 
             case(AppConfig.LOWER):
                 rgLetterCase.check(rbLower.getId());
-                Log.i("Json-Config","LOWER");
             break;
 
         }
     }
+
+    /**
+     * Salva as configurações atuais da tela de configurações e recarrega a tela.
+     * @param view
+     */
+    public void saveChanges(View view){
+        pushChanges();
+        this.configurator.saveAllChange(getApplicationContext());
+        this.recreate();
+        Toast.makeText(getApplicationContext(), "Configurações salvas com sucesso!", Toast.LENGTH_LONG).show();
+    }
+
+
 }

@@ -21,7 +21,7 @@
             <ImageButton
                 android:id="@+id/btn_back"
                 android:layout_width="75dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/purple_right_rounded_backgroud"
                 android:onClick="backToMainScreen"
@@ -30,19 +30,30 @@
                 app:layout_constraintStart_toStartOf="@+id/guideline18"
                 app:srcCompat="@android:drawable/ic_menu_revert" />
 
-            <TextView
+            <com.example.anaplb.appalpha.config.AlphaTextView
                 android:id="@+id/textView19"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
-                android:layout_marginRight="70dp"
-                android:layout_weight="1"
+                android:layout_weight="5"
                 android:gravity="center"
-                android:text="CONFIGURAÇÕES"
-                android:textAllCaps="true"
+                android:text="Configurações"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:fontFamily="casual" />
+
+            <ImageButton
+                android:id="@+id/btn_back2"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/purple_left_rounded_backgroud"
+                android:onClick="saveChanges"
+                android:padding="4dp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline8"
+                app:layout_constraintStart_toStartOf="@+id/guideline18"
+                app:srcCompat="@android:drawable/ic_menu_save" />
 
         </LinearLayout>
 
@@ -52,14 +63,13 @@
             android:background="@color/yellow_mustard"
             android:orientation="vertical">
 
-            <TextView
+            <com.example.anaplb.appalpha.config.AlphaTextView
                 android:id="@+id/textView30"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/background_maincolor_dark"
                 android:gravity="center"
                 android:text="Tipo de letra"
-                android:textAllCaps="true"
                 android:textColor="@android:color/white"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -112,26 +122,23 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <TextView
+                    <com.example.anaplb.appalpha.config.AlphaTextView
                         android:id="@+id/textView32"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Visualização:"
-                        android:textAllCaps="true"
                         android:textSize="14sp" />
 
-                    <TextView
+                    <com.example.anaplb.appalpha.config.AlphaTextView
                         android:id="@+id/textView31"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="4dp"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
-                        android:textAllCaps="true"
-                        android:textSize="20sp"
-                        app:fontFamily="casual" />
+                        android:text="a b c d e f g h i j k l m n o p q r s t u v w x y z"
+                        android:textSize="20sp"/>
 
                 </LinearLayout>
 
@@ -144,14 +151,13 @@
             android:background="@color/yellow_mustard"
             android:orientation="vertical">
 
-            <TextView
+            <com.example.anaplb.appalpha.config.AlphaTextView
                 android:id="@+id/otherConfigs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/background_maincolor_dark"
                 android:gravity="center"
                 android:text="Outros ajustes"
-                android:textAllCaps="true"
                 android:textColor="@android:color/white"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -163,14 +169,13 @@
                 android:orientation="vertical"
                 android:padding="4dp">
 
-                <TextView
+                <com.example.anaplb.appalpha.config.AlphaTextView
                     android:id="@+id/textView21"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="As letras devem ser:"
-                    android:textAllCaps="true"
                     android:textSize="18sp" />
 
                 <RadioGroup
@@ -193,11 +198,12 @@
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="MINÚSCULAS" />
+                        android:text="minúsculas" />
 
                 </RadioGroup>
 
             </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
 </ScrollView>

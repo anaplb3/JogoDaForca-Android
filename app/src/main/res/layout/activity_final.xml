@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_launcher" />
 
-    <TextView
+    <com.example.anaplb.appalpha.config.AlphaTextView
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="62dp"
@@ -34,7 +34,6 @@
         android:layout_marginRight="8dp"
         android:gravity="center"
         android:text="LOre Ipsom"
-        android:textAllCaps="true"
         android:textSize="24sp"
         android:textStyle="bold"
         app:fontFamily="sans-serif"
