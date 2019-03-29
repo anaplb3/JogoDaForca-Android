@@ -28,7 +28,7 @@ public class TratandoPalavra {
      * Deixa a palavra em underscore
      * @return a palavra em forma de underscore
      */
-    private String deixandoEmUnderscore() {
+    public String deixandoEmUnderscore() {
         StringBuilder s = new StringBuilder(palavra);
         StringBuilder newS = new StringBuilder("");
 
@@ -90,9 +90,10 @@ public class TratandoPalavra {
      * @param chute letra que o usuário chutou
      * @return o underscore modificado
      */
-    private String novaPalavra(char chute) {
+    public String novaPalavra(char chute) {
         char[] vetor = arrayDeChars(underscore);
 
+        Log.i("length da palavra ", palavra);
         for (int i = 0; i < palavra.length(); i++) {
             if (chute == palavra.charAt(i)) {
                 vetor[i] = palavra.charAt(i);
