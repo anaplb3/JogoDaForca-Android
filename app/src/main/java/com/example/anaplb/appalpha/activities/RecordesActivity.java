@@ -31,7 +31,7 @@ public class RecordesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recordes);
+        setContentView(R.layout.activity_recorde);
 
         pegandoTxt();
 
@@ -86,16 +86,16 @@ public class RecordesActivity extends AppCompatActivity {
     }
 
     public void pegandoTxt() {
-        primeiroNome = findViewById(R.id.primeiro_nome);
-        segundoNome = findViewById(R.id.segundo_nome);
-        terceiroNome = findViewById(R.id.terceiro_nome);
-        quartoNome = findViewById(R.id.quarto_nome);
-        quintoNome = findViewById(R.id.quinto_nome);
+        primeiroNome = findViewById(R.id.nome_um);
+        segundoNome = findViewById(R.id.nome_dois);
+        terceiroNome = findViewById(R.id.nome_tres);
+        quartoNome = findViewById(R.id.nome_quatro);
+        quintoNome = findViewById(R.id.nome_cinco);
 
-        primeiroLugar = findViewById(R.id.primeiro_lugar);
-        segundoLugar = findViewById(R.id.segundo_lugar);
-        terceiroLugar = findViewById(R.id.terceiro_lugar);
-        quartoLugar = findViewById(R.id.quarto_lugar);
-        quintoLugar = findViewById(R.id.quinto_lugar);
+        primeiroLugar = findViewById(R.id.pontuacao_um);
+        segundoLugar = findViewById(R.id.pontuacao_dois);
+        terceiroLugar = findViewById(R.id.pontuacao_tres);
+        quartoLugar = findViewById(R.id.pontuacao_quatro);
+        quintoLugar = findViewById(R.id.pontuacao_cinco);
     }
 }

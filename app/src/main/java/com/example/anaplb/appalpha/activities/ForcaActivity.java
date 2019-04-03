@@ -1,6 +1,8 @@
 package com.example.anaplb.appalpha.activities;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -50,6 +52,7 @@ public class ForcaActivity extends AppCompatActivity {
 
         //Pegando dados do Tema
         Intent it = getIntent();
+
         String underscore = it.getStringExtra("under");
         palavra = it.getStringExtra("palavra");
         idImagem = it.getIntExtra("img", 0);
@@ -223,6 +226,7 @@ public class ForcaActivity extends AppCompatActivity {
      * @param it Intent que será dado o start
      */
     private void startEmActivity(Intent it) {
+
         startActivity(it);
         finish();
     }

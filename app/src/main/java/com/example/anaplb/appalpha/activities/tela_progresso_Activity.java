@@ -1,6 +1,7 @@
 package com.example.anaplb.appalpha.activities;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,7 +11,6 @@ import android.widget.TextView;
 
 import com.example.anaplb.appalpha.CuidandoDeTudo;
 import com.example.anaplb.appalpha.R;
-import com.example.anaplb.appalpha.Som.Som;
 import com.example.anaplb.appalpha.desafios.Progresso;
 import com.example.anaplb.appalpha.model.Vocabulario;
 import com.example.anaplb.appalpha.tratamento.TratandoPalavra;
@@ -29,10 +29,14 @@ public class tela_progresso_Activity extends AppCompatActivity {
     private Vocabulario vocab;
     private double tempo;
     private int somaErros;
+    private TextView txt;
+    private MediaPlayer primeiroMediaPlayer = null;
+    private boolean mudouActivity;
+    private int millis = 1900;
 
     private char[] letras;
 
-    private void mainThread() {
+    private void thread_atualizando_letras() {
 
         final Thread atualizando = new Thread() {
 
@@ -40,22 +44,39 @@ public class tela_progresso_Activity extends AppCompatActivity {
             public void run() {
                 try {
 
-                    while(!isInterrupted()) {
+                    while (!isInterrupted()) {
 
-                        for(final char letra: letras) {
+
+                        for (final char letra : letras) {
+
+                            Log.i("mudou", "" + mudouActivity);
+                            Log.i("millis for", "" + millis);
+
                             try {
-                                Thread.sleep(1000);
+                                Log.i("o que vem primeiro", "thread sleep");
+                                Thread.sleep(millis);
                             } catch (InterruptedException e) {
-                                e.printStackTrace();
+                                Log.i("for try", "entrou no catch");
+                                break;
                             }
                             final Runnable update = new Runnable() {
                                 @Override
                                 public void run() {
+                                    tocando_som_da_letra(letra);
+
                                     atualizandoGeral(letra);
+
+                                    Log.i("millis depois", "" + millis);
+
                                 }
                             };
 
-                            runOnUiThread(update);
+                            if (mudouActivity) {
+                                Thread.currentThread().interrupt();
+                            } else {
+                                runOnUiThread(update);
+                            }
+
                         }
 
                         break;
@@ -67,6 +88,7 @@ public class tela_progresso_Activity extends AppCompatActivity {
         };
 
         atualizando.start();
+
     }
 
     @Override
@@ -77,38 +99,230 @@ public class tela_progresso_Activity extends AppCompatActivity {
         // Pegando informações do desafio anterior
         informacoesDesafioAnterior();
 
+        setandoUnderscore();
+
         setandoLetras();
 
         setandoImagem();
 
-        tocando_som_da_palavra();
+        mudouActivity = false;
 
-        setandoUnderscore();
+        tocando_som(idSom);
 
-        mainThread();
+        thread_atualizando_letras();
 
     }
 
-    public void atualizandoGeral(char letra) {
-        underscore = novaPalavra(letra);
-        setandoTXT(underscore);
-        atualizandoUnderscore();
+    /**
+     * Quando a activity é destruida também destroi o objeto do media player
+     */
+    protected void onDestroy() {
+        super.onDestroy();
+        parandoSom();
     }
 
+    // Metodos relacionados ao som :
 
+    /**
+     * Verifica se a instancia do media player já foi destruida, caso não ele o destroi
+     */
+    public void parandoSom() {
+        if (primeiroMediaPlayer != null) {
+            try {
+                primeiroMediaPlayer.stop();
+                primeiroMediaPlayer.release();
+                primeiroMediaPlayer = null;
+            } catch (IllegalStateException e) {
+                Log.e("illegal state", "provavelmente o media player não foi iniciado");
+            }
+
+        }
+
+    }
+
+    /**
+     * Procura o audio da letra com base na letra passada como parâmetro e toca esse audio
+     *
+     * @param letra Letra que será tocada
+     */
+    public void tocando_som_da_letra(char letra) {
+
+        int idSom = 0;
+
+        Log.i("tocando som", "" + letra);
+
+        switch (letra) {
+
+            case 'a':
+                Log.i("tocando som", "" + letra);
+                idSom = R.raw.letraa;
+                break;
+
+            case 'b':
+                Log.i("tocando som", "" + letra);
+                idSom = R.raw.letrab;
+                break;
+
+            case 'c':
+                Log.i("tocando som", "" + letra);
+                idSom = R.raw.letrac;
+                break;
+
+            case 'd':
+                Log.i("tocando som", "" + letra);
+                idSom = R.raw.letrad;
+                break;
+
+            case 'e':
+                Log.i("tocando som", "" + letra);
+                idSom = R.raw.letrae;
+                break;
+
+            case 'f':
+                idSom = R.raw.letraf;
+                break;
+
+            case 'g':
+                idSom = R.raw.letrag;
+                break;
+
+            case 'h':
+                idSom = R.raw.letrah;
+                break;
+
+            case 'i':
+                idSom = R.raw.letrai;
+                break;
+
+            case 'j':
+                idSom = R.raw.letraj;
+                break;
+
+            case 'k':
+                idSom = R.raw.letrak;
+                break;
+
+            case 'l':
+                idSom = R.raw.letral;
+                break;
+
+            case 'm':
+                idSom = R.raw.letram;
+                break;
+
+            case 'n':
+                idSom = R.raw.letran;
+                break;
+
+            case 'o':
+                idSom = R.raw.letrao;
+                break;
+
+            case 'p':
+                idSom = R.raw.letrap;
+                break;
+
+            case 'q':
+                idSom = R.raw.letraq;
+                break;
+
+            case 'r':
+                idSom = R.raw.letrar;
+                break;
+
+            case 's':
+                idSom = R.raw.letras;
+                break;
+
+            case 't':
+                idSom = R.raw.letrat;
+                break;
+
+            case 'u':
+                idSom = R.raw.letrau;
+                break;
+
+            case 'v':
+                idSom = R.raw.letrav;
+                break;
+
+            case 'w':
+                idSom = R.raw.letraw;
+                break;
+
+            case 'x':
+                idSom = R.raw.letrax;
+                break;
+
+            case 'y':
+                idSom = R.raw.letray;
+                break;
+
+            case 'z':
+                idSom = R.raw.letraz;
+                break;
+
+        }
+
+        tocando_som(idSom);
+    }
+
+    /**
+     * Usa a instância do media player para tocar o audio passado como parâmetro
+     *
+     * @param idSom id do audio que será tocado
+     */
+    public void tocando_som(int idSom) {
+
+        primeiroMediaPlayer = MediaPlayer.create(this, idSom);
+
+        primeiroMediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mediaPlayer) {
+                Log.i("on prepared", "entrou no on prepared");
+                primeiroMediaPlayer.start();
+            }
+        });
+
+    }
+
+    // Metodos relacionados ao underscore
+
+    /**
+     * Seta o textView com o underscore da palavra
+     */
     public void setandoUnderscore() {
         tratandoPalavra = new TratandoPalavra(palavra);
 
         underscore = tratandoPalavra.deixandoEmUnderscore();
     }
 
+    /**
+     * Atualiza o underscore atual com o novo
+     *
+     * @param letra letra que vai ser adicionada ao underscore
+     */
+    public void atualizandoGeral(char letra) {
+        underscore = novaPalavra(letra);
+        setandoTXT(underscore);
+        atualizandoUnderscore();
+    }
+
+    /**
+     * Seta o underscore no objeto tratando palavra para que
+     * na próxima vez que ele gerar o underscore novo ele tenha o mais atualizado
+     */
     public void atualizandoUnderscore() {
         tratandoPalavra.setUnderscore(underscore);
     }
 
+    /**
+     * Quebra a palavra do desafio em um array de char,
+     * para que ele possa adicionar um a um no underscore
+     */
     public void setandoLetras() {
         letras = new char[palavra.length()];
-        for(int i = 0; i < palavra.length(); i++) {
+        for (int i = 0; i < palavra.length(); i++) {
             letras[i] = palavra.charAt(i);
         }
     }
@@ -123,7 +337,6 @@ public class tela_progresso_Activity extends AppCompatActivity {
         return vetor;
     }
 
-
     public String novaPalavra(char letra) {
         char[] vetor = arrayDeChars(underscore);
 
@@ -133,7 +346,7 @@ public class tela_progresso_Activity extends AppCompatActivity {
         for (int i = 0; i < palavra.length(); i++) {
             if (palavra.charAt(i) == letra) {
 
-                if(underscore.charAt(i) == letra) {
+                if (underscore.charAt(i) == letra) {
                     continue;
                 }
                 vetor[i] = palavra.charAt(i);
@@ -142,10 +355,10 @@ public class tela_progresso_Activity extends AppCompatActivity {
 
         }
 
-        Log.i("novaPalavra depois", new String(vetor));
-
         return new String(vetor);
     }
+
+    // Metodos relacionados a Intent
 
     public void informacoesDesafioAnterior() {
         Intent it = getIntent();
@@ -161,26 +374,8 @@ public class tela_progresso_Activity extends AppCompatActivity {
 
     }
 
-    public void setandoImagem() {
-        ImageView img_desafio = findViewById(R.id.img_desafio);
-        img_desafio.setImageResource(idImagem);
-    }
-
-    public void tocando_som_da_palavra() {
-        Som som = Som.getInstance();
-
-        som.playSound(getApplicationContext(), idSom);
-    }
-
-    public void setandoTXT(String underscore) {
-        TextView txt = findViewById(R.id.txt_underscore);
-
-        txt.setText(underscore);
-
-        Log.i("set ", "setooou");
-    }
-
     public void voltandoParaDesafio() {
+        mudouActivity = true;
 
         Progresso progress = new Progresso(vocab, palavrasUsadas);
 
@@ -204,9 +399,11 @@ public class tela_progresso_Activity extends AppCompatActivity {
      */
     public void indoParaPontuacao() {
 
+        mudouActivity = true;
         Intent it = new Intent(getApplicationContext(), FinalActivity.class);
         it.putExtra("tempo", tempo);
         it.putExtra("somaErros", somaErros);
+
         startActivity(it);
 
     }
@@ -217,7 +414,6 @@ public class tela_progresso_Activity extends AppCompatActivity {
      * @param v View do botão
      */
     public void startAction(View v) {
-
         if (progresso == 5) {
             indoParaPontuacao();
         } else {
@@ -227,4 +423,21 @@ public class tela_progresso_Activity extends AppCompatActivity {
         finish();
 
     }
+
+    // Relacionados a sets
+
+    public void setandoImagem() {
+        ImageView img_desafio = findViewById(R.id.img_desafio);
+        img_desafio.setImageResource(idImagem);
+    }
+
+
+    public void setandoTXT(String underscore) {
+        txt = findViewById(R.id.txt_underscore);
+
+        txt.setText(underscore);
+
+        Log.i("set ", "setooou");
+    }
+
 }

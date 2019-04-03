@@ -1,6 +1,8 @@
 package com.example.anaplb.appalpha.activities;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +21,8 @@ import java.util.ArrayList;
 public class TemaActivity extends AppCompatActivity {
     Som som;
     CuidandoDeTudo facade;
+    int idSom;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +36,10 @@ public class TemaActivity extends AppCompatActivity {
 
 
     public void botaoEscolha(ImageView img_button) {
-        Intent intent = new Intent(TemaActivity.this, ForcaActivity.class);
+        final MediaPlayer md = MediaPlayer.create(getApplicationContext(), idSom);
+        md.start();
+
+        intent = new Intent(TemaActivity.this, ForcaActivity.class);
 
         Log.i("botao", "botaoEscolha");
 
@@ -49,51 +56,100 @@ public class TemaActivity extends AppCompatActivity {
         intent.putExtra("palavrasUsadas", palavrasUsadas);
         intent.putExtra("erros", 0);
         intent.putExtra("progresso", 0);
-        intent.putExtra("tempo", 0);
+        intent.putExtra("tempo", 0.0);
         intent.putExtra("objeto", p);
         intent.putExtra("somaErros", 0);
 
-        startActivity(intent);
 
+        Handler handler = new Handler();
 
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                md.stop();
+                md.release();
+                startActivity(intent);
+            }
+        }, 1500);
+
+    }
+
+    /*public void a(final MediaPlayer md) {
+        Handler handler = new Handler();
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                md.stop();
+                md.release();
+                startActivity(intent);
+            }
+        }, md.getDuration());
+    }*/
+
+    public void esperandoSomAcabar(MediaPlayer md, Intent it) {
+
+        if(!md.isPlaying()) {
+            Log.i("if", "entrou no if");
+
+            md.stop();
+            md.release();
+
+            startActivity(it);
+        } else {
+            Log.i("else", "entrou no else");
+            esperandoSomAcabar(md, it);
+        }
     }
 
     public void imageButtonCidade(View v) {
 
-        som.playSound(getApplicationContext(), R.raw.cidade);
+        idSom = R.raw.cidade;
+
+        //som.playSound(getApplicationContext(), R.raw.cidade);
         ImageView img = findViewById(R.id.img_cidade);
         botaoEscolha(img);
     }
 
     public void imageButtonNatureza(View v) {
-        som.playSound(getApplicationContext(), R.raw.natureza);
+
+        idSom = R.raw.natureza;
+        //som.playSound(getApplicationContext(), R.raw.natureza);
         ImageView img = findViewById(R.id.img_natureza);
         botaoEscolha(img);
     }
 
     public void imageButtonComida(View v) {
 
-        som.playSound(getApplicationContext(), R.raw.comida);
+        idSom = R.raw.comida;
+
+        //som.playSound(getApplicationContext(), R.raw.comida);
         ImageView img = findViewById(R.id.img_comida);
         botaoEscolha(img);
     }
 
     public void imageButtonCozinha(View v) {
-        som.playSound(getApplicationContext(), R.raw.cozinha);
+
+        idSom = R.raw.cozinha;
+        //som.playSound(getApplicationContext(), R.raw.cozinha);
         ImageView img = findViewById(R.id.img_cozinha);
         botaoEscolha(img);
     }
 
     public void imageButtonCor(View v) {
 
-        som.playSound(getApplicationContext(), R.raw.cores);
+        idSom = R.raw.cores;
+
+        //som.playSound(getApplicationContext(), R.raw.cores);
         ImageView img = findViewById(R.id.img_cores);
         botaoEscolha(img);
     }
 
     public void imageButtonFruta(View v) {
 
-        som.playSound(getApplicationContext(), R.raw.frutas);
+        idSom = R.raw.frutas;
+
+        //som.playSound(getApplicationContext(), R.raw.frutas);
         ImageView img = findViewById(R.id.img_frutas);
         botaoEscolha(img);
     }
