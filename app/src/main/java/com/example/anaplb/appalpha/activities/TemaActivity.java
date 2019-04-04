@@ -36,8 +36,8 @@ public class TemaActivity extends AppCompatActivity {
 
 
     public void botaoEscolha(ImageView img_button) {
-        final MediaPlayer md = MediaPlayer.create(getApplicationContext(), idSom);
-        md.start();
+
+        som.playSound(getApplicationContext(), idSom);
 
         intent = new Intent(TemaActivity.this, ForcaActivity.class);
 
@@ -66,47 +66,18 @@ public class TemaActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                md.stop();
-                md.release();
+                som.stopSound();
                 startActivity(intent);
             }
         }, 1500);
 
     }
 
-    /*public void a(final MediaPlayer md) {
-        Handler handler = new Handler();
-
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                md.stop();
-                md.release();
-                startActivity(intent);
-            }
-        }, md.getDuration());
-    }*/
-
-    public void esperandoSomAcabar(MediaPlayer md, Intent it) {
-
-        if(!md.isPlaying()) {
-            Log.i("if", "entrou no if");
-
-            md.stop();
-            md.release();
-
-            startActivity(it);
-        } else {
-            Log.i("else", "entrou no else");
-            esperandoSomAcabar(md, it);
-        }
-    }
-
     public void imageButtonCidade(View v) {
 
         idSom = R.raw.cidade;
 
-        //som.playSound(getApplicationContext(), R.raw.cidade);
+
         ImageView img = findViewById(R.id.img_cidade);
         botaoEscolha(img);
     }
@@ -114,7 +85,7 @@ public class TemaActivity extends AppCompatActivity {
     public void imageButtonNatureza(View v) {
 
         idSom = R.raw.natureza;
-        //som.playSound(getApplicationContext(), R.raw.natureza);
+
         ImageView img = findViewById(R.id.img_natureza);
         botaoEscolha(img);
     }
@@ -123,7 +94,6 @@ public class TemaActivity extends AppCompatActivity {
 
         idSom = R.raw.comida;
 
-        //som.playSound(getApplicationContext(), R.raw.comida);
         ImageView img = findViewById(R.id.img_comida);
         botaoEscolha(img);
     }
@@ -131,7 +101,7 @@ public class TemaActivity extends AppCompatActivity {
     public void imageButtonCozinha(View v) {
 
         idSom = R.raw.cozinha;
-        //som.playSound(getApplicationContext(), R.raw.cozinha);
+
         ImageView img = findViewById(R.id.img_cozinha);
         botaoEscolha(img);
     }
@@ -140,7 +110,6 @@ public class TemaActivity extends AppCompatActivity {
 
         idSom = R.raw.cores;
 
-        //som.playSound(getApplicationContext(), R.raw.cores);
         ImageView img = findViewById(R.id.img_cores);
         botaoEscolha(img);
     }
@@ -149,7 +118,6 @@ public class TemaActivity extends AppCompatActivity {
 
         idSom = R.raw.frutas;
 
-        //som.playSound(getApplicationContext(), R.raw.frutas);
         ImageView img = findViewById(R.id.img_frutas);
         botaoEscolha(img);
     }
