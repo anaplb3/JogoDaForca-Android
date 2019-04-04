@@ -88,6 +88,11 @@ public class ForcaActivity extends AppCompatActivity {
         Log.i("tempo inicial", ""+tempo);
     }
 
+    protected void onDestroy() {
+        super.onDestroy();
+        som.stopSound();
+    }
+
 
     public void feedbackColorButtonLeter(String letraClicada, Button btnClicado) {
         int resultado = tratandoPalavra.contandoErros(letraClicada);
