@@ -17,7 +17,6 @@ public class ConfigActivity extends AppCompatActivity {
     private RadioButton rbCasual;
     private RadioButton rbCursiva;
     private RadioButton rbBastao;
-    private RadioButton rbImprensa;
     private RadioGroup rgLetterCase;
     private RadioButton rbUpper;
     private RadioButton rbLower;
@@ -33,7 +32,6 @@ public class ConfigActivity extends AppCompatActivity {
         this.rbCasual = findViewById(R.id.rb_casual);
         this.rbCursiva = findViewById(R.id.rb_cursiva);
         this.rbBastao = findViewById(R.id.rb_bastao);
-        this.rbImprensa = findViewById(R.id.rb_imprensa);
         this.rbUpper = findViewById(R.id.rb_uppercase);
         this.rbLower = findViewById(R.id.rb_lowercase);
     }
@@ -51,9 +49,6 @@ public class ConfigActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        pushChanges();
-        this.configurator.saveAllChange(getApplicationContext());
-        Toast.makeText(getApplicationContext(), "Configurações salvas com sucesso!", Toast.LENGTH_LONG).show();
     }
 
     /**
@@ -86,10 +81,6 @@ public class ConfigActivity extends AppCompatActivity {
                 rgLetterType.check(rbBastao.getId());
             break;
 
-            case(AppConfig.IMPRENSA):
-                rgLetterType.check(rbImprensa.getId());
-            break;
-
         }
 
         switch(this.configurator.getCurrentLetterCase()){
@@ -112,8 +103,7 @@ public class ConfigActivity extends AppCompatActivity {
         pushChanges();
         this.configurator.saveAllChange(getApplicationContext());
         this.recreate();
-        Toast.makeText(getApplicationContext(), "Configurações salvas com sucesso!", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Configurações salvas com sucesso!", Toast.LENGTH_SHORT).show();
     }
-
 
 }

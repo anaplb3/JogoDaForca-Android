@@ -52,7 +52,7 @@
                 android:layout_weight="1"
                 android:background="@null"
                 android:onClick="saveChanges"
-                android:paddingLeft="60dp"
+                android:paddingLeft="55dp"
                 android:paddingTop="4dp"
                 android:paddingRight="1dp"
                 android:paddingBottom="4dp"
@@ -72,7 +72,8 @@
             <com.example.anaplb.appalpha.config.AlphaTextView
                 android:id="@+id/textView30"
                 android:layout_width="match_parent"
-                android:layout_height="81dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/white_rounded_backgroud"
                 android:gravity="center"
                 android:text="Tipo de letra"
                 android:textColor="@android:color/white"
@@ -113,13 +114,6 @@
                         android:layout_weight="1"
                         android:text="BASTÃO" />
 
-                    <RadioButton
-                        android:id="@+id/rb_imprensa"
-                        android:layout_width="110dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="IMPRENSA" />
-
                 </RadioGroup>
 
                 <LinearLayout
@@ -132,7 +126,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="52dp"
                         android:gravity="center"
-                        android:paddingRight="90dp"
                         android:text="Visualização:"
                         android:textSize="24sp" />
 
@@ -159,7 +152,8 @@
             <com.example.anaplb.appalpha.config.AlphaTextView
                 android:id="@+id/otherConfigs"
                 android:layout_width="match_parent"
-                android:layout_height="66dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/white_rounded_backgroud"
                 android:gravity="center"
                 android:text="Outros ajustes"
                 android:textColor="@android:color/white"
@@ -176,7 +170,7 @@
                 <com.example.anaplb.appalpha.config.AlphaTextView
                     android:id="@+id/textView21"
                     android:layout_width="match_parent"
-                    android:layout_height="64dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="As letras devem ser:"
