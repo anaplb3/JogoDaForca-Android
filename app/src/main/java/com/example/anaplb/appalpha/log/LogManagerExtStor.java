@@ -1,27 +1,28 @@
 package com.example.anaplb.appalpha.log;
 
 import android.content.Context;
-import android.util.Log;
 
-import com.example.anaplb.appalpha.json.JsonManager;
+import com.example.anaplb.appalpha.json.JsonWriter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class LogManager extends JsonManager {
+/**
+ * Classe responsável por gerenciar o objeto de log Json
+ */
+public class LogManagerExtStor extends JsonWriter{
     private JSONObject jsonObjLog;
     private JSONArray jsonErroArray;
     private int erroCount;
-    private Context appContext;
 
-    public LogManager(Context appContext){
-        this.appContext = appContext;
+    public LogManagerExtStor(Context appContext){
         this.jsonObjLog = super.getJsonObjectOfArchive(appContext);
-        Log.i("Json-Log", jsonObjLog.toString());
+
         try {
             this.erroCount = this.jsonObjLog.getInt("erro_count");
             this.jsonErroArray = this.jsonObjLog.getJSONArray("erros");
@@ -30,16 +31,11 @@ public class LogManager extends JsonManager {
         }
     }
 
-    @Override
-    protected String getDiretory() {
-        return "AppAlpha/logs/";
-    }
-
-    @Override
-    protected String getJsonFileName() {
-        return "erro_log.json";
-    }
-
+    /**
+     * Incrementa o contador de erros do objeto Json e salva o erro relatado em um novo objeto json para ser adicionado a jsonArray
+     * @param word
+     * @param letter
+     */
     public void addNewErro(String word, String letter){
         JSONObject newJsonObj = new JSONObject();
         try {
@@ -57,20 +53,36 @@ public class LogManager extends JsonManager {
         }
     }
 
+    /**
+     * Salva as modificações do objeto json no arquivo
+     */
     public void saveLogInFile(){
         try {
             this.jsonObjLog.put("erros", this.jsonErroArray);
-            super.writeJsonObject(appContext, this.jsonObjLog);
-            Log.i("Json - Log", "All logs have been saved : " + this.jsonObjLog.toString());
+            super.writeJsonObject(this.jsonObjLog);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Obtem a data e hora atuais do dispositivo
+     * @return String com data e hora atuais
+     */
     private String getTodayDateAndHour(){
         SimpleDateFormat dateFormatted = new SimpleDateFormat("dd-MM-yyyy-HH:mm:ss");
         Date date = new Date();
         String result = dateFormatted.format(date);
         return result;
+    }
+
+    @Override
+    protected String getDiretory() {
+        return "AppAlpha"+ File.separator+ "logs" +File.separator;
+    }
+
+    @Override
+    protected String getJsonFileName() {
+        return "erro_log.json";
     }
 }

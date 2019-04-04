@@ -1,8 +1,6 @@
 package com.example.anaplb.appalpha.activities;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,7 +14,7 @@ import com.example.anaplb.appalpha.CuidandoDaTela;
 import com.example.anaplb.appalpha.R;
 import com.example.anaplb.appalpha.Som.Som;
 import com.example.anaplb.appalpha.cronometro.Cronometro;
-import com.example.anaplb.appalpha.log.LogManager;
+import com.example.anaplb.appalpha.log.LogManagerExtStor;
 import com.example.anaplb.appalpha.model.Vocabulario;
 import com.example.anaplb.appalpha.tratamento.TratandoPalavra;
 
@@ -43,7 +41,7 @@ public class ForcaActivity extends AppCompatActivity {
     Cronometro cronometro;
     double tempo;
     int somaErros;
-    private LogManager logManager;
+    private LogManagerExtStor logManagerExt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +84,8 @@ public class ForcaActivity extends AppCompatActivity {
         cronometro = new Cronometro(findViewById(R.id.cronometro), getApplicationContext(), audio);
         cronometro.comecandoCronometro();
 
-        this.logManager = new LogManager(getApplicationContext());
+        //Iniciando o gerenciador de Logs para memória interna
+        this.logManagerExt = new LogManagerExtStor(getApplicationContext());
 
         Log.i("palavra da forca", palavra);
         Log.i("tempo inicial", ""+tempo);
@@ -100,9 +99,14 @@ public class ForcaActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        this.logManager.saveLogInFile();
+        this.logManagerExt.saveLogInFile();
     }
 
+    /**
+     * Verifica se a letra que o jogador clicou é a correta, caso sim, a cor do botão mudará para verde, caso não, mudará para vermelho.
+     * @param letraClicada
+     * @param btnClicado
+     */
     public void feedbackColorButtonLeter(String letraClicada, Button btnClicado) {
         int resultado = tratandoPalavra.contandoErros(letraClicada);
 
@@ -113,7 +117,7 @@ public class ForcaActivity extends AppCompatActivity {
         } else { // Chute errado
             btnClicado.setBackgroundResource(R.drawable.red_rounded_backgroud);
             Log.i("Json-Log", tratandoPalavra.getPalavra()+ " - " + letraClicada);
-            this.logManager.addNewErro(tratandoPalavra.getPalavra(), letraClicada);
+            this.logManagerExt.addNewErro(tratandoPalavra.getPalavra(), letraClicada); //Adicionando caso de erro ao arquivo JSON
         }
     }
 

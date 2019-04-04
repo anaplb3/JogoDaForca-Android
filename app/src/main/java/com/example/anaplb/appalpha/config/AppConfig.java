@@ -21,7 +21,7 @@ public class AppConfig extends JsonManager {
     private JSONObject jsonObjConfig;
 
     private AppConfig(Context appContext){
-        this.jsonObjConfig = super.getJsonOnjectOfArchive(appContext);
+        this.jsonObjConfig = super.getJsonObjectOfArchive(appContext);
         try {
             this.currentLetterType = (String) this.jsonObjConfig.get("letter_type");
             this.currentLetterCase = (String) this.jsonObjConfig.get("letter_case");
