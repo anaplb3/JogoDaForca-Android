@@ -1,6 +1,8 @@
 package com.example.anaplb.appalpha.activities;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -50,6 +52,7 @@ public class ForcaActivity extends AppCompatActivity {
 
         //Pegando dados do Tema
         Intent it = getIntent();
+
         String underscore = it.getStringExtra("under");
         palavra = it.getStringExtra("palavra");
         idImagem = it.getIntExtra("img", 0);
@@ -130,10 +133,10 @@ public class ForcaActivity extends AppCompatActivity {
      * Verifica se a quantidade máxima de erros foi atingida ou se o usuário já acertou a palavra
      */
     private void verificandoSeOJogoAcabou() {
-        Intent it = new Intent(this, ProgressoActivity.class);
+        Intent it = new Intent(this, tela_progresso_Activity.class);
 
 
-        if (this.erros == QTD_MAX_ERROS) {
+        if (this.erros == QTD_MAX_ERROS || verificandoSeJaAcertou()) {
             tempo += cronometro.parandoCronometroEPegandoTempo();
 
             Log.i("tempo do if", ""+tempo);
@@ -144,21 +147,13 @@ public class ForcaActivity extends AppCompatActivity {
             it.putExtra("objeto", vocabulario);
             it.putExtra("somaErros", somaErros+= erros);
             it.putExtra("tempo", tempo);
-            startEmActivity(it);
-        } else if (verificandoSeJaAcertou()) {
 
-            tempo += cronometro.parandoCronometroEPegandoTempo();
-
-            Log.i("tempo do if", ""+tempo);
-
-            palavrasUsadas.add(palavra);
-            it.putExtra("progresso", progresso += 1);
-            it.putExtra("palavrasUsadas", palavrasUsadas);
-            it.putExtra("objeto", vocabulario);
-            it.putExtra("somaErros", somaErros+= erros);
-            it.putExtra("tempo", tempo);
+            it.putExtra("ultimoSom", audio);
+            it.putExtra("ultimaPalavra", palavra);
+            it.putExtra("ultimaImg", idImagem);
             startEmActivity(it);
         }
+
     }
 
     /**
@@ -231,6 +226,7 @@ public class ForcaActivity extends AppCompatActivity {
      * @param it Intent que será dado o start
      */
     private void startEmActivity(Intent it) {
+
         startActivity(it);
         finish();
     }

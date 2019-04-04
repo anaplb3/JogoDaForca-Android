@@ -21,7 +21,10 @@ public class Som {
         mediaPlayer = MediaPlayer.create(context, songId );
         mediaPlayer.start();
 
-    }
+        if(!mediaPlayer.isPlaying()) {
+            mediaPlayer.release();
+        }
 
+    }
 
 }
