@@ -19,7 +19,7 @@ import java.io.OutputStreamWriter;
 
 public abstract class JsonManager {
 
-    public JSONObject getJsonOnjectOfArchive(Context appContext){
+    public JSONObject getJsonObjectOfArchive(Context appContext){
         FileInputStream inputStream = null;
         BufferedReader reader = null;
         JSONObject jsonObj = null;
