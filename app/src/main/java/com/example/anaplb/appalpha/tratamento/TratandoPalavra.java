@@ -142,4 +142,8 @@ public class TratandoPalavra {
     public String getUnderscore() {
         return underscore;
     }
+
+    public String getPalavra(){
+        return this.palavra;
+    }
 }

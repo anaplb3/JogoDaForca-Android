@@ -16,6 +16,7 @@ import com.example.anaplb.appalpha.CuidandoDaTela;
 import com.example.anaplb.appalpha.R;
 import com.example.anaplb.appalpha.Som.Som;
 import com.example.anaplb.appalpha.cronometro.Cronometro;
+import com.example.anaplb.appalpha.log.LogManager;
 import com.example.anaplb.appalpha.model.Vocabulario;
 import com.example.anaplb.appalpha.tratamento.TratandoPalavra;
 
@@ -42,6 +43,7 @@ public class ForcaActivity extends AppCompatActivity {
     Cronometro cronometro;
     double tempo;
     int somaErros;
+    private LogManager logManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +86,8 @@ public class ForcaActivity extends AppCompatActivity {
         cronometro = new Cronometro(findViewById(R.id.cronometro), getApplicationContext(), audio);
         cronometro.comecandoCronometro();
 
+        this.logManager = new LogManager(getApplicationContext());
+
         Log.i("palavra da forca", palavra);
         Log.i("tempo inicial", ""+tempo);
     }
@@ -93,6 +97,11 @@ public class ForcaActivity extends AppCompatActivity {
         som.stopSound();
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        this.logManager.saveLogInFile();
+    }
 
     public void feedbackColorButtonLeter(String letraClicada, Button btnClicado) {
         int resultado = tratandoPalavra.contandoErros(letraClicada);
@@ -101,8 +110,10 @@ public class ForcaActivity extends AppCompatActivity {
             btnClicado.setBackgroundResource(R.drawable.greem_rounded_backgroud);
         } else if (resultado == CHUTE_REPETIDO) {
             Toast.makeText(getApplicationContext(), "Você já chutou essa letra!", Toast.LENGTH_SHORT).show();
-        } else {
+        } else { // Chute errado
             btnClicado.setBackgroundResource(R.drawable.red_rounded_backgroud);
+            Log.i("Json-Log", tratandoPalavra.getPalavra()+ " - " + letraClicada);
+            this.logManager.addNewErro(tratandoPalavra.getPalavra(), letraClicada);
         }
     }
 
