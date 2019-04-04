@@ -3,9 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="background_maincolor">#b75fe7</color>
-    <color name="background_maincolor_dark">#7E36A5</color>
+    <color name="background_maincolor">#4390a5</color>
+    <color name="background_maincolor_dark">#0073d6</color>
     <color name="background_text_item_themes_menu_black_transparent">#af000000</color>
+    <color name="background_status_bar">#d38d40</color>
     <color name="yellow_mustard">#FBE99D</color>
+    <color name="background_botao_transparente">#647881</color>
 
 </resources>

@@ -4,23 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_maincolor"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="65dp"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
+        android:background="@color/background_maincolor_dark"
         android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/imageButton"
             android:layout_width="75dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/purple_right_rounded_backgroud"
+            android:layout_height="match_parent"
+            android:background="@null"
             android:onClick="voltandoAoMenu"
             android:padding="4dp"
+            android:scaleType="fitXY"
             app:srcCompat="@android:drawable/ic_menu_revert" />
 
         <com.example.anaplb.appalpha.config.AlphaTextView
@@ -31,31 +32,31 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Sobre"
-            android:textSize="24sp"
+            android:textSize="40sp"
             android:textStyle="bold" />
 
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/fundogeral">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/background_maincolor"
             android:orientation="vertical"
             tools:context=".activities.SobreActivity">
 
             <com.example.anaplb.appalpha.config.AlphaTextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="66dp"
                 android:background="@color/background_maincolor_dark"
                 android:gravity="center"
                 android:text="Criadores"
                 android:textColor="@android:color/white"
-                android:textSize="20sp" />
+                android:textSize="30sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -63,7 +64,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="8dp"
-                android:background="@drawable/yellow_rounded_backgroud"
+                android:background="@drawable/white_rounded_backgroud"
                 android:orientation="vertical"
                 android:padding="4dp">
 
@@ -85,6 +86,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@null"
                         android:orientation="vertical">
 
                         <com.example.anaplb.appalpha.config.AlphaTextView
@@ -93,7 +95,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:text="Ana Paula Lima"
-                            android:textSize="18sp"
+                            android:textSize="36sp"
                             android:textStyle="bold" />
 
                         <com.example.anaplb.appalpha.config.AlphaTextView
@@ -101,6 +103,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Aluna voluntária"
+                            android:textSize="30sp"
                             app:layout_constraintEnd_toStartOf="@+id/guideline18"
                             app:layout_constraintHorizontal_bias="0.471"
                             app:layout_constraintTop_toBottomOf="@+id/textView12" />
@@ -116,7 +119,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="8dp"
-                android:background="@drawable/yellow_rounded_backgroud"
+                android:background="@drawable/white_rounded_backgroud"
                 android:orientation="vertical"
                 android:padding="4dp">
 
@@ -148,14 +151,15 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:text="Emerson Dantas"
-                            android:textSize="18sp"
+                            android:textSize="36sp"
                             android:textStyle="bold" />
 
                         <com.example.anaplb.appalpha.config.AlphaTextView
                             android:id="@+id/textView15"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Aluno voluntário" />
+                            android:text="Aluno bolsista"
+                            android:textSize="30sp" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -174,7 +178,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:background="@drawable/yellow_rounded_backgroud"
+                android:background="@drawable/white_rounded_backgroud"
                 android:orientation="vertical"
                 android:padding="4dp">
 
@@ -201,7 +205,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:text="O Apps4Society é um projeto de extensão desenvolvido pela UFPB-Campus IV e que visa construir aplicativos que venham a impactar positivamente a sociedade."
-                            android:textSize="14sp"
+                            android:textSize="24sp"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
@@ -221,7 +225,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:background="@drawable/yellow_rounded_backgroud"
+                android:background="@drawable/white_rounded_backgroud"
                 android:orientation="vertical"
                 android:padding="4dp">
 
@@ -235,7 +239,7 @@
                         android:layout_width="85dp"
                         android:layout_height="123dp"
                         android:layout_margin="8dp"
-                        android:background="@drawable/purple_rounded_backgroud"
+                        android:background="@null"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         app:srcCompat="@drawable/logo_free_images" />
@@ -251,7 +255,7 @@
                             android:layout_height="65dp"
                             android:gravity="center"
                             android:text="Todas as imagens usadas nos desafios foram tiradas do site freeimagens."
-                            android:textSize="14sp"
+                            android:textSize="23sp"
                             android:textStyle="bold" />
 
                         <com.example.anaplb.appalpha.config.AlphaTextView

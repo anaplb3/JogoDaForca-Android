@@ -4,106 +4,154 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_maincolor"
+    android:background="@drawable/fundogeral"
     android:orientation="vertical"
     tools:context=".activities.MainActivity"
     tools:layout_editor_absoluteY="25dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/B"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/purple_right_rounded_backgroud"
-            android:drawableRight="@drawable/opened_door_aperture"
-            android:onClick="saindo"
-            android:paddingRight="5dp"
-            android:text="Sair"
-            android:textColor="@android:color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/purple_left_rounded_backgroud"
-            android:drawableLeft="@android:drawable/ic_menu_info_details"
-            android:onClick="indoParaSobre"
-            android:paddingLeft="5dp"
-            android:text="Sobre"
-            android:textColor="@android:color/white"
-            app:layout_constraintBottom_toTopOf="@+id/imageView7"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/button2"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
-    </LinearLayout>
-
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="wrap_content"
-        android:layout_height="325dp"
+        android:layout_width="match_parent"
+        android:layout_height="458dp"
+        android:paddingTop="90dp"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/button9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/B"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logoappalpha" />
 
-    <LinearLayout
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/button9"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/yellow_rounded_backgroud"
-            android:onClick="indoPraTema"
-            android:text="Jogar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/yellow_rounded_backgroud"
-            android:onClick="indoParaRecordes"
-            android:text="Recordes" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnConfigs"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/yellow_rounded_backgroud"
-            android:onClick="goToConfigScreen"
-            android:text="Configurações"
-            android:visibility="visible" />
+                <ImageButton
+                    android:id="@+id/imageButton12"
+                    android:layout_width="740dp"
+                    android:layout_height="227dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginLeft="44dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@null"
+                    android:onClick="indoPraTema"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="100dp"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline41"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline53"
+                    app:layout_constraintHorizontal_bias="0.479"
+                    app:layout_constraintStart_toStartOf="@+id/guideline40"
+                    app:layout_constraintTop_toTopOf="@+id/guideline49"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/botaoplay" />
+            </LinearLayout>
 
-    </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:layout_width="826dp"
+                android:layout_height="262dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btnConfigs"
+                    android:layout_width="366dp"
+                    android:layout_height="232dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@null"
+                    android:onClick="goToConfigScreen"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline43"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline40"
+                    app:layout_constraintStart_toStartOf="@+id/guideline52"
+                    app:layout_constraintTop_toTopOf="@+id/guideline42"
+                    app:srcCompat="@drawable/botaoconfig" />
+
+                <ImageButton
+                    android:id="@+id/imageButton15"
+                    android:layout_width="396dp"
+                    android:layout_height="278dp"
+                    android:layout_gravity="top"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@null"
+                    android:onClick="indoParaSobre"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="50dp"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline50"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline45"
+                    app:layout_constraintHorizontal_bias="0.204"
+                    app:layout_constraintStart_toStartOf="@+id/guideline46"
+                    app:layout_constraintTop_toTopOf="@+id/guideline44"
+                    app:layout_constraintVertical_bias="0.214"
+                    app:srcCompat="@drawable/botaoinfo" />
+
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="246dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="236dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/imageButton14"
+                    android:layout_width="485dp"
+                    android:layout_height="224dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@null"
+                    android:onClick="indoParaRecordes"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline47"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline53"
+                    app:layout_constraintHorizontal_bias="0.588"
+                    app:layout_constraintStart_toStartOf="@+id/guideline51"
+                    app:layout_constraintTop_toTopOf="@+id/guideline48"
+                    app:layout_constraintVertical_bias="0.812"
+                    app:srcCompat="@drawable/botaorecordes" />
+            </LinearLayout>
+
+        </TableRow>
+
+    </TableLayout>
 
 </LinearLayout>
