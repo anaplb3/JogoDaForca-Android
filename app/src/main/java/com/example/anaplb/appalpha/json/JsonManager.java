@@ -34,7 +34,7 @@ public abstract class JsonManager {
                 jsonObj = new JSONObject(json);
             }
 
-            Log.i("Json", "configs.json lido.");
+            Log.i("Json", getDiretory()+getJsonFileName()+" lido.");
             Log.i("Json", "Json Obj encontrado: " + json);
             reader.close();
         } catch (FileNotFoundException e) {
@@ -62,6 +62,7 @@ public abstract class JsonManager {
             is.read(buffer);
             is.close();
             jsonConf = new String(buffer);
+            Log.i("Json-Assets", jsonConf);
             jsonObg = new JSONObject(jsonConf);
 
         } catch (IOException | JSONException e) {
