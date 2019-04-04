@@ -9,17 +9,22 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.anaplb.appalpha.R;
 
 public class MainActivity extends AppCompatActivity {
+    private final int READ_PERMISSION_REQ_CODE = 100;
+    private final int WRITE_PERMISSION_REQ_CODE = 101;
+    private final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        getReadExternalStoragePermission();
+        getWriteExternalStoragePermission();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
     }
@@ -51,6 +56,25 @@ public class MainActivity extends AppCompatActivity {
         startActivity(it);
     }
 
+    /**
+     * Verifica se a permissão para gravar no armazenamento externo está ativa, caso não, pede permissão ao usuário.
+     */
+    public void getWriteExternalStoragePermission(){
+        Log.i(TAG, "Verificando permissão de escrita");
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            Log.i(TAG, "Permissão de escrita não existe");
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                Log.i(TAG, "Pedindo permissão WA");
+
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, WRITE_PERMISSION_REQ_CODE);
+                Log.i(TAG, "Pedindo permissão WB");
+            }
+        }
+        Log.i(TAG, "Permissão " + Manifest.permission.WRITE_EXTERNAL_STORAGE + " agora está " + (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED?"ativa":"desativa"));
+    }
 
     /**
      * Verifica se a permissão para ler do armazenamento externo está ativa, caso não, pede permissão ao usuário.
