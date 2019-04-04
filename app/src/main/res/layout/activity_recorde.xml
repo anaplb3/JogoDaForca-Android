@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_maincolor"
+    android:background="@drawable/fundogeral"
     tools:layout_editor_absoluteY="25dp">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="378dp"
+        android:layout_width="754dp"
         android:layout_height="85dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -22,143 +22,34 @@
 
         <ImageButton
             android:id="@+id/imageButton2"
-            android:layout_width="50dp"
-            android:layout_height="45dp"
+            android:layout_width="74dp"
+            android:layout_height="73dp"
             android:layout_marginBottom="1000dp"
-            android:background="@drawable/purple_right_rounded_backgroud"
+            android:background="@null"
             android:onClick="voltandoParaMenu"
+            android:scaleType="fitXY"
             app:srcCompat="@android:drawable/ic_menu_revert" />
 
         <TextView
             android:id="@+id/textView33"
-            android:layout_width="146dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
+            android:layout_width="219dp"
+            android:layout_height="69dp"
+            android:layout_marginLeft="200dp"
             android:gravity="center"
             android:text="Recordes"
             android:textColor="@android:color/white"
-            android:textSize="30sp" />
+            android:textSize="36sp" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout8"
-        android:layout_width="0dp"
-        android:layout_height="206dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <TextView
-            android:id="@+id/posicao_tres"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:gravity="center"
-            android:text="3º"
-            android:textSize="30sp" />
-
-        <TextView
-            android:id="@+id/posicao_quatro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:gravity="center"
-            android:text="4º"
-            android:textSize="30sp" />
-
-        <TextView
-            android:id="@+id/posicao_cinco"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:gravity="center"
-            android:text="5º"
-            android:textSize="30sp" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout9"
         android:layout_width="0dp"
-        android:layout_height="197dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_height="726dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout10"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout8">
+        tools:layout_editor_absoluteX="601dp">
 
-        <TextView
-            android:id="@+id/nome_tres"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:gravity="center"
-            android:text="TextView"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/nome_quatro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:gravity="center"
-            android:text="TextView"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/nome_cinco"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:gravity="center"
-            android:text="TextView"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout10"
-        android:layout_width="98dp"
-        android:layout_height="198dp"
-        android:layout_marginEnd="8dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:id="@+id/pontuacao_tres"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:gravity="center"
-            android:text="TextView"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/pontuacao_quatro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:gravity="center"
-            android:text="TextView"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/pontuacao_cinco"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="55dp"
-            android:gravity="center"
-            android:text="TextView"
-            android:textSize="18sp" />
     </LinearLayout>
 
     <android.support.constraint.Guideline
@@ -166,18 +57,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="111dp" />
+        app:layout_constraintGuide_percent="0.30375" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="104dp" />
+        app:layout_constraintGuide_end="206dp" />
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="0dp"
-        android:layout_height="23dp"
+        android:layout_height="71dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -191,29 +83,33 @@
         <TextView
             android:id="@+id/textView58"
             android:layout_width="98dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:text="Colocação"
-            android:textSize="18sp" />
+            android:textColor="@android:color/background_light"
+            android:textSize="36sp" />
 
         <TextView
             android:id="@+id/textView59"
             android:layout_width="109dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:text="Nome"
-            android:textSize="18sp" />
+            android:textColor="@android:color/background_light"
+            android:textSize="36sp" />
 
         <TextView
             android:id="@+id/textView60"
             android:layout_width="123dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
             android:layout_weight="1"
             android:gravity="center"
             android:text="Pontuação"
-            android:textSize="18sp" />
+            android:textColor="@android:color/background_light"
+            android:textSize="36sp" />
     </LinearLayout>
 
     <android.support.constraint.Guideline
@@ -223,76 +119,489 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="127dp" />
 
-    <LinearLayout
-        android:layout_width="373dp"
-        android:layout_height="51dp"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="153dp">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="227dp"
+        android:layout_height="1002dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        tools:layout_editor_absoluteX="8dp">
 
         <TextView
             android:id="@+id/posicao_um"
-            android:layout_width="68dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginBottom="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
             android:gravity="center"
             android:text="1º"
-            android:textSize="30sp" />
-
-        <TextView
-            android:id="@+id/nome_um"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="43dp"
-            android:layout_marginBottom="25dp"
-            android:gravity="center"
-            android:text="TextView"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/pontuacao_um"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:gravity="center"
-            android:text="TextView"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="370dp"
-        android:layout_height="56dp"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="232dp">
+            android:textSize="50sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline17"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/posicao_dois"
-            android:layout_width="86dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="182dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
             android:gravity="center"
             android:text="2º"
-            android:textSize="30sp" />
+            android:textSize="50sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline30"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline17" />
+
+        <TextView
+            android:id="@+id/posicao_tres"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="3º"
+            android:textSize="50sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline31"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline30" />
+
+        <TextView
+            android:id="@+id/posicao_quatro"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="4º"
+            android:textSize="50sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline32"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/posicao_tres" />
+
+        <TextView
+            android:id="@+id/posicao_cinco"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="5º"
+            android:textSize="50sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline33"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline32" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.42" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.64" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.82" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="1.0" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="322dp"
+        android:layout_height="1026dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <TextView
+            android:id="@+id/nome_um"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="Sem pontuação"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline35"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline34"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/nome_dois"
-            android:layout_width="128dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
+            android:layout_width="304dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
             android:gravity="center"
-            android:text="TextView"
-            android:textSize="18sp" />
+            android:text="Sem pontuação"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline37"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline36"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/nome_tres"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="Sem pontuação"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline39"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline38" />
+
+        <TextView
+            android:id="@+id/nome_cinco"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="Sem pontuação"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline41"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/nome_quatro"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="Sem pontuação"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline41"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline40" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.02" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.23" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline37"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.41" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline38"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.43" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline39"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.64" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.65" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline41"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.81" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="999dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <TextView
+            android:id="@+id/pontuacao_cinco"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="0.0"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline51"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline50" />
 
         <TextView
             android:id="@+id/pontuacao_dois"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
             android:gravity="center"
-            android:text="TextView"
-            android:textSize="18sp" />
-    </LinearLayout>
+            android:text="0.0"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline45"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline44" />
+
+        <TextView
+            android:id="@+id/pontuacao_um"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="0.0"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline43"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline42" />
+
+        <TextView
+            android:id="@+id/pontuacao_quatro"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="0.0"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline49"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline48" />
+
+        <TextView
+            android:id="@+id/pontuacao_tres"
+            android:layout_width="0dp"
+            android:layout_height="178dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="2dp"
+            android:gravity="center"
+            android:text="0.0"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline47"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline46" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline42"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.02" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline43"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.19" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline44"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.23" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline45"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline46"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.43" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline47"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.64" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline48"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.66"
+            app:layout_constraintTop_toTopOf="@+id/guideline43" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline49"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.82"
+            app:layout_constraintTop_toTopOf="@+id/guideline42" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline51"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.98" />
+
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>
