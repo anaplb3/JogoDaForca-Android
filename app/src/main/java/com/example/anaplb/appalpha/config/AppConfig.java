@@ -13,7 +13,6 @@ public class AppConfig extends JsonManager {
     public final static String CASUAL = "casual";
     public final static String CURSIVA = "cursiva";
     public final static String BASTAO = "bastão";
-    public final static String IMPRENSA = "imprensa";
     public final static String UPPER = "maiúsculas";
     public final static String LOWER = "minúsculas";
     private String currentLetterType;

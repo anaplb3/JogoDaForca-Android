@@ -62,14 +62,6 @@ public class AlphaTextView extends AppCompatTextView {
             case AppConfig.BASTAO: {
                 Typeface tf = Typeface.create("sans-serif", Typeface.NORMAL);
                 this.setTypeface(tf);
-                this.fontCase = AppConfig.UPPER;
-                //this.setTextAppearance(R.style.styleBastao);
-                break;
-            }
-
-            case AppConfig.IMPRENSA: {
-                Typeface tf = Typeface.create("sans-serif", Typeface.NORMAL);
-                this.setTypeface(tf);
                 //this.setTextAppearance(R.style.styleBastao);
                 break;
             }
@@ -83,10 +75,7 @@ public class AlphaTextView extends AppCompatTextView {
             }
 
             case AppConfig.LOWER:{
-                if(!this.fontFamily.equals(AppConfig.BASTAO)) {
-                    this.setAllCaps(false);
-                }
-                break;
+                this.setAllCaps(false);
             }
         }
     }
