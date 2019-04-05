@@ -85,7 +85,7 @@ public class ForcaActivity extends AppCompatActivity {
         cronometro.comecandoCronometro();
 
         //Iniciando o gerenciador de Logs para memória interna
-        this.logManagerExt = new LogManagerExtStor(getApplicationContext());
+        //this.logManagerExt = new LogManagerExtStor(getApplicationContext());
 
     }
 
@@ -115,7 +115,7 @@ public class ForcaActivity extends AppCompatActivity {
         } else { // Chute errado
             btnClicado.setBackgroundResource(R.drawable.red_rounded_backgroud);
             Log.i("Json-Log", tratandoPalavra.getPalavra()+ " - " + letraClicada);
-            this.logManagerExt.addNewErro(tratandoPalavra.getPalavra(), letraClicada); //Adicionando caso de erro ao arquivo JSON
+            //this.logManagerExt.addNewErro(tratandoPalavra.getPalavra(), letraClicada); //Adicionando caso de erro ao arquivo JSON
         }
     }
 
