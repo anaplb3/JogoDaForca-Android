@@ -12,8 +12,9 @@ public class CuidandoDaTela {
         this.forca = forca;
     }
 
-    public void mudandoForca(int erro) {
 
+
+    public void mudandoForca(int erro) {
         switch (erro) {
             case 0:
                 forca.setImageResource(R.drawable.erro0);

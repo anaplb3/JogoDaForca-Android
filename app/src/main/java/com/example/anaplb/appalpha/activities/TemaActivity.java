@@ -35,7 +35,6 @@ public class TemaActivity extends AppCompatActivity {
 
     }
 
-
     public void botaoEscolha(ImageView img_button) {
 
         som.playSound(getApplicationContext(), idSom);

@@ -42,6 +42,18 @@ public class ForcaActivity extends AppCompatActivity {
     double tempo;
     int somaErros;
     private LogManagerExtStor logManagerExt;
+    private ImageView imgPalavra;
+
+    public void liberandoMemoria() {
+
+        cuidandoDaForca = null;
+        som = null;
+        tratandoPalavra = null;
+        vocabulario = null;
+        palavrasUsadas = null;
+        cronometro = null;
+        imgPalavra.setImageDrawable(null);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +80,7 @@ public class ForcaActivity extends AppCompatActivity {
         tratandoPalavra = new TratandoPalavra(palavra);
         tratandoPalavra.setUnderscore(underscore);
 
+
         // Setando o underscore no TextView da tela
         TextView txtUnderscore = findViewById(R.id.txt_underscore);
         txtUnderscore.setText(dandoEspacos(underscore));
@@ -77,7 +90,8 @@ public class ForcaActivity extends AppCompatActivity {
         cuidandoDaForca = new CuidandoDaTela(img_forca);
 
         // Setando imagem da palavra
-        ImageView imgPalavra = findViewById(R.id.img_palavra);
+
+        imgPalavra = findViewById(R.id.img_palavra);
         imgPalavra.setImageResource(idImagem);
 
         // Iniciando cronômetro
@@ -92,6 +106,8 @@ public class ForcaActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         som.stopSound();
+
+        liberandoMemoria();
     }
 
     @Override
