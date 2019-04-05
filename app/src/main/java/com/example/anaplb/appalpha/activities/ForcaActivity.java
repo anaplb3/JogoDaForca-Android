@@ -97,7 +97,7 @@ public class ForcaActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        this.logManagerExt.saveLogInFile();
+        //this.logManagerExt.saveLogInFile();
     }
 
     /**
