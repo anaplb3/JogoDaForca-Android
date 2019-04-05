@@ -77,8 +77,6 @@ public class RecordesActivity extends AppCompatActivity {
     }
 
     public void voltandoParaMenu(View v) {
-        Intent it = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(it);
         finish();
     }
 

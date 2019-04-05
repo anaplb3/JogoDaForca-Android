@@ -120,8 +120,6 @@ public class FinalActivity extends AppCompatActivity {
     }
 
     public void sair() {
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent);
         finish();
     }
 }

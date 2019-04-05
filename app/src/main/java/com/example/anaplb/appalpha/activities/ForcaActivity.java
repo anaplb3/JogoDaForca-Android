@@ -246,7 +246,6 @@ public class ForcaActivity extends AppCompatActivity {
      * @param it Intent que será dado o start
      */
     private void startEmActivity(Intent it) {
-
         startActivity(it);
         finish();
     }
