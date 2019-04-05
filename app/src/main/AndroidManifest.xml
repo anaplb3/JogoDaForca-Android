@@ -45,7 +45,8 @@
         <activity
             android:name=".activities.ProgressoActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.RecordesActivity" />
+        <activity android:name=".activities.RecordesActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.tela_progresso_Activity"
             android:screenOrientation="portrait" />
