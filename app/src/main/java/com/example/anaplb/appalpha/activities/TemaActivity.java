@@ -39,7 +39,9 @@ public class TemaActivity extends AppCompatActivity {
     public void botaoEscolha(ImageView img_button) {
 
         som.playSound(getApplicationContext(), idSom);
-        int millis = som.pegandoDuracao();
+        int millis = som.getDuracao();
+
+        Log.i("millis tema", ""+millis);
 
         intent = new Intent(TemaActivity.this, ForcaActivity.class);
 

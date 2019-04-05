@@ -87,8 +87,6 @@ public class ForcaActivity extends AppCompatActivity {
         //Iniciando o gerenciador de Logs para memória interna
         this.logManagerExt = new LogManagerExtStor(getApplicationContext());
 
-        Log.i("palavra da forca", palavra);
-        Log.i("tempo inicial", ""+tempo);
     }
 
     protected void onDestroy() {
@@ -104,8 +102,8 @@ public class ForcaActivity extends AppCompatActivity {
 
     /**
      * Verifica se a letra que o jogador clicou é a correta, caso sim, a cor do botão mudará para verde, caso não, mudará para vermelho.
-     * @param letraClicada
-     * @param btnClicado
+     * @param letraClicada a letra que o usuário chutou
+     * @param btnClicado botão correspondente a essa letra
      */
     public void feedbackColorButtonLeter(String letraClicada, Button btnClicado) {
         int resultado = tratandoPalavra.contandoErros(letraClicada);
@@ -123,6 +121,8 @@ public class ForcaActivity extends AppCompatActivity {
 
     /**
      * Atualiza os dados da tela como a img da forca e o TextView com o underscore
+     * @param letraClicada letra que o usuário chutou
+     * @param btnClicado botão correspondente a letra
      */
     public void atualizandoInformacoes(String letraClicada, Button btnClicado) {
 

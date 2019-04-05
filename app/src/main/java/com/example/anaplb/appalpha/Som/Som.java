@@ -7,6 +7,7 @@ import android.util.Log;
 public class Som {
     private static Som som;
     private MediaPlayer mediaPlayer;
+    private int duracao;
 
     public static Som getInstance() {
         if(som == null) {
@@ -20,11 +21,14 @@ public class Som {
     public void playSound(Context context, int songId) {
 
         mediaPlayer = MediaPlayer.create(context, songId );
+        duracao = mediaPlayer.getDuration();
 
         mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mediaPlayer) {
+
                 mediaPlayer.start();
+
             }
         });
 
@@ -37,13 +41,8 @@ public class Som {
 
     }
 
-    public int pegandoDuracao() {
-
-        if(som != null) {
-            return mediaPlayer.getDuration();
-        } else {
-            return 0;
-        }
+    public int getDuracao() {
+        return duracao;
     }
 
     public void stopSound() {
