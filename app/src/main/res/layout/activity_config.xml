@@ -41,6 +41,7 @@
                 android:gravity="center"
                 android:paddingLeft="25dp"
                 android:text="Configurações"
+                android:textColor="@android:color/white"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 app:fontFamily="casual" />
