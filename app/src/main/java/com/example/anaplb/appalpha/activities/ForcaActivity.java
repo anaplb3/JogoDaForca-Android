@@ -1,6 +1,7 @@
 package com.example.anaplb.appalpha.activities;
 
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -42,6 +43,7 @@ public class ForcaActivity extends AppCompatActivity {
     double tempo;
     int somaErros;
     private LogManagerExtStor logManagerExt;
+    private ImageView imgPalavra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +79,12 @@ public class ForcaActivity extends AppCompatActivity {
         cuidandoDaForca = new CuidandoDaTela(img_forca);
 
         // Setando imagem da palavra
-        ImageView imgPalavra = findViewById(R.id.img_palavra);
+
+        if(imgPalavra != null) {
+            ((BitmapDrawable)imgPalavra.getDrawable()).getBitmap().recycle();
+        }
+
+        imgPalavra = findViewById(R.id.img_palavra);
         imgPalavra.setImageResource(idImagem);
 
         // Iniciando cronômetro
@@ -92,6 +99,8 @@ public class ForcaActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         som.stopSound();
+
+        imgPalavra.setImageDrawable(null);
     }
 
     @Override
