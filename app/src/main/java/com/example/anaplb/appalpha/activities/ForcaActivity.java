@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.anaplb.appalpha.CuidandoDaTela;
 import com.example.anaplb.appalpha.R;
 import com.example.anaplb.appalpha.Som.Som;
+import com.example.anaplb.appalpha.config.ImageDownsize;
 import com.example.anaplb.appalpha.cronometro.Cronometro;
 import com.example.anaplb.appalpha.log.LogManagerExtStor;
 import com.example.anaplb.appalpha.model.Vocabulario;
@@ -45,6 +46,17 @@ public class ForcaActivity extends AppCompatActivity {
     private LogManagerExtStor logManagerExt;
     private ImageView imgPalavra;
 
+    public void liberandoMemoria() {
+
+        cuidandoDaForca = null;
+        som = null;
+        tratandoPalavra = null;
+        vocabulario = null;
+        palavrasUsadas = null;
+        cronometro = null;
+        imgPalavra.setImageDrawable(null);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +82,7 @@ public class ForcaActivity extends AppCompatActivity {
         tratandoPalavra = new TratandoPalavra(palavra);
         tratandoPalavra.setUnderscore(underscore);
 
+
         // Setando o underscore no TextView da tela
         TextView txtUnderscore = findViewById(R.id.txt_underscore);
         txtUnderscore.setText(dandoEspacos(underscore));
@@ -79,10 +92,6 @@ public class ForcaActivity extends AppCompatActivity {
         cuidandoDaForca = new CuidandoDaTela(img_forca);
 
         // Setando imagem da palavra
-
-        if(imgPalavra != null) {
-            ((BitmapDrawable)imgPalavra.getDrawable()).getBitmap().recycle();
-        }
 
         imgPalavra = findViewById(R.id.img_palavra);
         imgPalavra.setImageResource(idImagem);
@@ -100,7 +109,7 @@ public class ForcaActivity extends AppCompatActivity {
         super.onDestroy();
         som.stopSound();
 
-        imgPalavra.setImageDrawable(null);
+        liberandoMemoria();
     }
 
     @Override

@@ -2,6 +2,8 @@ package com.example.anaplb.appalpha;
 
 import android.widget.ImageView;
 
+import com.example.anaplb.appalpha.config.ImageDownsize;
+
 /**
  * Responsável por ir atualizando a forca durante o jogo
  */
@@ -12,8 +14,9 @@ public class CuidandoDaTela {
         this.forca = forca;
     }
 
-    public void mudandoForca(int erro) {
 
+
+    public void mudandoForca(int erro) {
         switch (erro) {
             case 0:
                 forca.setImageResource(R.drawable.erro0);
