@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,148 +10,122 @@
     tools:layout_editor_absoluteY="25dp">
 
     <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="match_parent"
-        android:layout_height="458dp"
-        android:paddingTop="90dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/button9"
+        android:id="@+id/logo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/guideline53"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/B"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logoappalpha" />
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <ImageButton
+        android:id="@+id/btnConfigs"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="25dp"
+        android:background="@null"
+        android:onClick="goToConfigScreen"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/guideline55"
+        app:layout_constraintEnd_toStartOf="@+id/guideline57"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline53"
+        app:srcCompat="@drawable/botaoconfig_cropped" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+    <ImageButton
+        android:id="@+id/btnPlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@null"
+        android:onClick="indoPraTema"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/guideline55"
+        app:layout_constraintEnd_toStartOf="@+id/guideline56"
+        app:layout_constraintStart_toStartOf="@+id/guideline57"
+        app:layout_constraintTop_toTopOf="@+id/guideline53"
+        app:srcCompat="@drawable/botaoplay" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+    <ImageButton
+        android:id="@+id/btnRecords"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="25dp"
+        android:background="@null"
+        android:onClick="indoParaRecordes"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/guideline55"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline56"
+        app:layout_constraintTop_toTopOf="@+id/guideline53"
+        app:srcCompat="@drawable/botaorecordes_cropped" />
 
-                <ImageButton
-                    android:id="@+id/imageButton12"
-                    android:layout_width="740dp"
-                    android:layout_height="227dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginStart="44dp"
-                    android:layout_marginLeft="44dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@null"
-                    android:onClick="indoPraTema"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="100dp"
-                    android:scaleType="fitCenter"
-                    app:layout_constraintBottom_toTopOf="@+id/guideline41"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline53"
-                    app:layout_constraintHorizontal_bias="0.479"
-                    app:layout_constraintStart_toStartOf="@+id/guideline40"
-                    app:layout_constraintTop_toTopOf="@+id/guideline49"
-                    app:layout_constraintVertical_bias="1.0"
-                    app:srcCompat="@drawable/botaoplay" />
-            </LinearLayout>
+    <ImageButton
+        android:id="@+id/btnInfo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@null"
+        android:onClick="indoParaSobre"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline54"
+        app:layout_constraintStart_toStartOf="@+id/guideline57"
+        app:layout_constraintTop_toTopOf="@+id/guideline55"
+        app:srcCompat="@drawable/botaoinfo_cropped" />
 
-        </TableRow>
+    <ImageView
+        android:id="@+id/btnOut"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="saindo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline56"
+        app:layout_constraintStart_toStartOf="@+id/guideline54"
+        app:layout_constraintTop_toTopOf="@+id/guideline55"
+        app:srcCompat="@drawable/btn_close" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline53"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
 
-            <LinearLayout
-                android:layout_width="826dp"
-                android:layout_height="262dp"
-                android:orientation="horizontal">
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline54"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
-                <ImageButton
-                    android:id="@+id/btnConfigs"
-                    android:layout_width="366dp"
-                    android:layout_height="232dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@null"
-                    android:onClick="goToConfigScreen"
-                    android:scaleType="fitCenter"
-                    app:layout_constraintBottom_toTopOf="@+id/guideline43"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline40"
-                    app:layout_constraintStart_toStartOf="@+id/guideline52"
-                    app:layout_constraintTop_toTopOf="@+id/guideline42"
-                    app:srcCompat="@drawable/botaoconfig" />
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline55"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.70234376" />
 
-                <ImageButton
-                    android:id="@+id/imageButton15"
-                    android:layout_width="396dp"
-                    android:layout_height="278dp"
-                    android:layout_gravity="top"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@null"
-                    android:onClick="indoParaSobre"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="50dp"
-                    android:scaleType="fitCenter"
-                    app:layout_constraintBottom_toTopOf="@+id/guideline50"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline45"
-                    app:layout_constraintHorizontal_bias="0.204"
-                    app:layout_constraintStart_toStartOf="@+id/guideline46"
-                    app:layout_constraintTop_toTopOf="@+id/guideline44"
-                    app:layout_constraintVertical_bias="0.214"
-                    app:srcCompat="@drawable/botaoinfo" />
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline56"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7" />
 
-            </LinearLayout>
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline57"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3" />
 
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="246dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="236dp"
-                android:orientation="vertical">
-
-                <ImageButton
-                    android:id="@+id/imageButton14"
-                    android:layout_width="485dp"
-                    android:layout_height="224dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@null"
-                    android:onClick="indoParaRecordes"
-                    android:scaleType="fitCenter"
-                    app:layout_constraintBottom_toTopOf="@+id/guideline47"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline53"
-                    app:layout_constraintHorizontal_bias="0.588"
-                    app:layout_constraintStart_toStartOf="@+id/guideline51"
-                    app:layout_constraintTop_toTopOf="@+id/guideline48"
-                    app:layout_constraintVertical_bias="0.812"
-                    app:srcCompat="@drawable/botaorecordes" />
-            </LinearLayout>
-
-        </TableRow>
-
-    </TableLayout>
-
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

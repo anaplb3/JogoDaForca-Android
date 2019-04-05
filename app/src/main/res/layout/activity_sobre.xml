@@ -32,6 +32,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Sobre"
+            android:textColor="@android:color/white"
             android:textSize="40sp"
             android:textStyle="bold" />
 
@@ -266,7 +267,7 @@
                             android:onClick="redirecionarASite"
                             android:text="pt.freeimages.com"
                             android:textAllCaps="true"
-                            android:textColor="@android:color/holo_blue_bright"
+                            android:textColor="@android:color/black"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
