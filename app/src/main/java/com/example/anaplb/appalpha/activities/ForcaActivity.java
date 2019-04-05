@@ -1,7 +1,6 @@
 package com.example.anaplb.appalpha.activities;
 
 import android.content.Intent;
-import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,7 +13,6 @@ import android.widget.Toast;
 import com.example.anaplb.appalpha.CuidandoDaTela;
 import com.example.anaplb.appalpha.R;
 import com.example.anaplb.appalpha.Som.Som;
-import com.example.anaplb.appalpha.config.ImageDownsize;
 import com.example.anaplb.appalpha.cronometro.Cronometro;
 import com.example.anaplb.appalpha.log.LogManagerExtStor;
 import com.example.anaplb.appalpha.model.Vocabulario;
