@@ -13,6 +13,16 @@
     tools:layout_editor_absoluteY="25dp">
 
     <ImageView
+        android:id="@+id/imgTemas"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/temas" />
+
+    <ImageView
         android:id="@+id/img_cidade"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -209,23 +219,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/img_cidade"
         app:layout_constraintEnd_toEndOf="@+id/img_cidade"
         app:layout_constraintStart_toStartOf="@+id/img_cidade" />
-
-    <com.example.anaplb.appalpha.config.AlphaTextView
-        android:id="@+id/textView2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/white_rounded_backgroud"
-        android:gravity="center"
-        android:text="Temas"
-        android:textColor="@android:color/white"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline3"

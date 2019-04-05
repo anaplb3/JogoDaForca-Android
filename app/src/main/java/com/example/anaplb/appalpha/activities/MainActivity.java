@@ -42,10 +42,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void saindo(View v) {
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.addCategory(Intent.CATEGORY_HOME);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+        finish();
     }
 
     public void indoParaSobre(View v) {

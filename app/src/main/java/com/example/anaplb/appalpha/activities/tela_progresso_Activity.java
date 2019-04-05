@@ -392,6 +392,7 @@ public class tela_progresso_Activity extends AppCompatActivity {
         it.putExtra("somaErros", somaErros);
 
         startActivity(it);
+        finish();
     }
 
     /**

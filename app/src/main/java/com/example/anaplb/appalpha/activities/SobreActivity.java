@@ -18,8 +18,6 @@ public class SobreActivity extends AppCompatActivity {
     }
 
     public void voltandoAoMenu(View v) {
-        Intent it = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(it);
         finish();
     }
 
