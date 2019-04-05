@@ -28,46 +28,39 @@ public abstract class JsonWriter {
      * @param appContext
      * @return JsonObject
      */
-    public JSONObject getJsonObjectOfArchive(Context appContext){
+    public JSONObject getJsonObjectOfArchive(Context appContext) throws IOException, JSONException {
         JSONObject jsonObj = null;
         if(isExternalStorageReadable() && isExternalStorageWritable()){
-            File jsonLogFile = getErroLogFile();
-
+            File jsonLogFile = null;
             FileReader fr = null;
-            try {
-                fr = new FileReader(jsonLogFile);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-
-            BufferedReader br = new BufferedReader(fr);
-
+            BufferedReader br = null;
             String json = "";
             String line = "";
 
-            try{
-                while((line = br.readLine()) != null){
-                    json += line;
-                }
-            } catch(IOException ex){
-                ex.printStackTrace();
+            jsonLogFile = getErroLogFile();
+            Log.i(LOG_TAG,"Json File recuperado!");
+
+            fr = new FileReader(jsonLogFile);
+            Log.i(LOG_TAG,"FileReader com Json File criado!");
+
+            br = new BufferedReader(fr);
+            Log.i(LOG_TAG,"BufferedReader com FileReader criado!");
+
+            while((line = br.readLine()) != null){
+                json += line;
             }
+            Log.i(LOG_TAG,"Arquivo log.json lido e armazenado em buffer String!");
 
             if(json.isEmpty()){
                 jsonObj = fillUsingAssets(appContext);
+                Log.i(LOG_TAG,"Lendo Json File do Assets!");
             }else{
-                try {
-                    jsonObj = new JSONObject(json);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                jsonObj = new JSONObject(json);
+                Log.i(LOG_TAG,"Criando novo JsonObject com o buffer lido do arquivo log.json!");
             }
 
-            try {
-                br.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            br.close();
+            Log.i(LOG_TAG,"BufferReader fechado!");
 
         }
 
@@ -75,30 +68,19 @@ public abstract class JsonWriter {
     }
 
     /**
-     * Lẽ o arquivo JSON da pasta assets e retorna um objeto JSON
+     * Lẽ o arquivo JSON da pasta assets e retorna um objeto JSON, é usado na primeira iniciação do aplicativo ou quando não foi possivel achar o arquivo .json namemoria interna do dispositivo
      * @param appContext
      * @return JsonObject
      */
-    public JSONObject fillUsingAssets(Context appContext){
+    public JSONObject fillUsingAssets(Context appContext) throws IOException, JSONException {
         AssetManager assetManager = appContext.getAssets();
-        InputStream is = null;
-        String jsonConf = null;
-        JSONObject jsonObg = null;
-        try {
-            Log.i(LOG_TAG,getDiretory()+getJsonFileName());
-            is = assetManager.open(getDiretory()+getJsonFileName());
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            jsonConf = new String(buffer);
-            Log.i(LOG_TAG, "JSON DO ASSETS" + jsonConf);
-            jsonObg = new JSONObject(jsonConf);
-
-        } catch (IOException | JSONException e) {
-            Log.i(LOG_TAG,"Não foi possivel ler json do assets");
-            e.printStackTrace();
-        }
+        InputStream is = assetManager.open(getDiretory()+getJsonFileName());
+        int size = is.available();
+        byte[] buffer = new byte[size];
+        is.read(buffer);
+        is.close();
+        String jsonConf = new String(buffer);
+        JSONObject jsonObg = new JSONObject(jsonConf);
 
         return jsonObg;
     }
@@ -107,28 +89,14 @@ public abstract class JsonWriter {
      * Escreve o objeto JSON recebido no parâmetro na memoria interna do dispositivo.
      * @param jsonObject
      */
-    public void writeJsonObject(JSONObject jsonObject){
-        File jsonLogFile = getErroLogFile();
+    public void writeJsonObject(JSONObject jsonObject) throws IOException {
+        File jsonLogFile = getErroLogFile(); //Pega o File log.json
+        FileWriter fw = new FileWriter(jsonLogFile); //Cria um file write com o file log.json
+        BufferedWriter bw = new BufferedWriter(fw); //Cria um bufferedWrite com o fileWrite
+        bw.write(jsonObject.toString()); //Grava o file no arquivo log.json
 
-        FileWriter fw = null;
-        try {
-            fw = new FileWriter(jsonLogFile);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        BufferedWriter bw = new BufferedWriter(fw);
-
-        try {
-            bw.write(jsonObject.toString());
-            bw.flush();
-            bw.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        bw.flush();
+        bw.close();
     }
 
     /**
@@ -147,14 +115,10 @@ public abstract class JsonWriter {
      * Cria um arquivo do tipo File que contém o arquivo de log JSON
      * @return File com o arquivo de log JSON
      */
-    private File getErroLogFile() {
+    private File getErroLogFile() throws IOException {
         File file = new File(getDirectoryOfArchive().getPath(), getJsonFileName());
         if (!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            file.createNewFile();
         }
         return file;
     }
