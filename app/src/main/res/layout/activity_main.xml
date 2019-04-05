@@ -65,12 +65,11 @@
 
     <ImageButton
         android:id="@+id/btnInfo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@null"
         android:onClick="indoParaSobre"
+        android:padding="10dp"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline54"
@@ -80,13 +79,10 @@
 
     <ImageView
         android:id="@+id/btnOut"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:onClick="saindo"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline56"
         app:layout_constraintStart_toStartOf="@+id/guideline54"
