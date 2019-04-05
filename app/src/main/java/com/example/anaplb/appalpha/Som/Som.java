@@ -37,6 +37,15 @@ public class Som {
 
     }
 
+    public int pegandoDuracao() {
+
+        if(som != null) {
+            return mediaPlayer.getDuration();
+        } else {
+            return 0;
+        }
+    }
+
     public void stopSound() {
         if (mediaPlayer != null) {
             try {

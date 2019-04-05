@@ -13,6 +13,7 @@ import com.example.anaplb.appalpha.CuidandoDeTudo;
 import com.example.anaplb.appalpha.R;
 import com.example.anaplb.appalpha.Som.Som;
 import com.example.anaplb.appalpha.TemaFactory;
+import com.example.anaplb.appalpha.config.ButtonDelay;
 import com.example.anaplb.appalpha.model.Vocabulario;
 
 import java.util.ArrayList;
@@ -38,6 +39,7 @@ public class TemaActivity extends AppCompatActivity {
     public void botaoEscolha(ImageView img_button) {
 
         som.playSound(getApplicationContext(), idSom);
+        int millis = som.pegandoDuracao();
 
         intent = new Intent(TemaActivity.this, ForcaActivity.class);
 
@@ -67,9 +69,12 @@ public class TemaActivity extends AppCompatActivity {
             @Override
             public void run() {
                 som.stopSound();
-                startActivity(intent);
+                if(ButtonDelay.testClique(1000)) {
+                    startActivity(intent);
+                }
+
             }
-        }, 1500);
+        }, millis);
 
     }
 

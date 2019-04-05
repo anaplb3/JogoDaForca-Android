@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.anaplb.appalpha.CuidandoDeTudo;
 import com.example.anaplb.appalpha.R;
+import com.example.anaplb.appalpha.config.ButtonDelay;
 import com.example.anaplb.appalpha.desafios.Progresso;
 import com.example.anaplb.appalpha.model.Vocabulario;
 import com.example.anaplb.appalpha.tratamento.TratandoPalavra;
@@ -33,12 +34,13 @@ public class tela_progresso_Activity extends AppCompatActivity {
     private MediaPlayer primeiroMediaPlayer = null;
     private boolean mudouActivity;
     private int millis = 1900;
+    private Thread atualizando;
 
     private char[] letras;
 
     private void thread_atualizando_letras() {
 
-        final Thread atualizando = new Thread() {
+        atualizando = new Thread() {
 
             @Override
             public void run() {
@@ -91,6 +93,7 @@ public class tela_progresso_Activity extends AppCompatActivity {
 
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,7 +121,9 @@ public class tela_progresso_Activity extends AppCompatActivity {
      */
     protected void onDestroy() {
         super.onDestroy();
+        atualizando.interrupt();
         parandoSom();
+
     }
 
     // Metodos relacionados ao som :
@@ -415,12 +420,15 @@ public class tela_progresso_Activity extends AppCompatActivity {
      * @param v View do botão
      */
     public void startAction(View v) {
-        if (progresso == 5) {
-            indoParaPontuacao();
-        } else {
-            voltandoParaDesafio();
-        }
 
+        // Testa se o botão foi clicado mais de uma vez em um intervalo de 1 segundo
+        if(ButtonDelay.testClique(1000)) {
+            if (progresso == 5) {
+                indoParaPontuacao();
+            } else {
+                voltandoParaDesafio();
+            }
+        }
         finish();
 
     }
