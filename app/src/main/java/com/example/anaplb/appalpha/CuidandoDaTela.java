@@ -2,8 +2,6 @@ package com.example.anaplb.appalpha;
 
 import android.widget.ImageView;
 
-import com.example.anaplb.appalpha.config.ImageDownsize;
-
 /**
  * Responsável por ir atualizando a forca durante o jogo
  */
