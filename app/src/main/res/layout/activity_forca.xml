@@ -103,8 +103,9 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_margin="4dp"
+        android:layout_weight="1"
         android:background="@drawable/white_rounded_backgroud"
         android:orientation="vertical"
         android:padding="4dp"
@@ -118,12 +119,9 @@
             android:id="@+id/txt_underscore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_weight="0"
             android:background="@null"
-            android:gravity="center"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp"
+            android:gravity="center|top"
             android:text="Example"
             android:textColor="@android:color/black"
             android:textSize="30sp"
@@ -132,7 +130,8 @@
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline2" />
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            tools:text="Example" />
 
         <include
             android:id="@+id/teclado_alfabetico_pt"

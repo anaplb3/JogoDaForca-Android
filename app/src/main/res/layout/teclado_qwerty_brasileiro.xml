@@ -2,19 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
     android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/lb1"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_weight="1">
 
         <Button
             android:id="@+id/Q"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
             android:onClick="letterClick"
@@ -23,8 +25,8 @@
 
         <Button
             android:id="@+id/W"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -34,8 +36,8 @@
 
         <Button
             android:id="@+id/E"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -45,8 +47,8 @@
 
         <Button
             android:id="@+id/R"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -56,8 +58,8 @@
 
         <Button
             android:id="@+id/T"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -67,8 +69,8 @@
 
         <Button
             android:id="@+id/Y"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -78,8 +80,8 @@
 
         <Button
             android:id="@+id/U"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -89,8 +91,8 @@
 
         <Button
             android:id="@+id/I"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -100,8 +102,8 @@
 
         <Button
             android:id="@+id/O"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -111,8 +113,8 @@
 
         <Button
             android:id="@+id/P"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -124,15 +126,16 @@
 
     <LinearLayout
         android:id="@+id/lb2"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_weight="1">
 
         <Button
             android:id="@+id/A"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
             android:onClick="letterClick"
@@ -141,8 +144,8 @@
 
         <Button
             android:id="@+id/S"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -152,8 +155,8 @@
 
         <Button
             android:id="@+id/D"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -163,8 +166,8 @@
 
         <Button
             android:id="@+id/F"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -174,8 +177,8 @@
 
         <Button
             android:id="@+id/G"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -185,8 +188,8 @@
 
         <Button
             android:id="@+id/H"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -196,8 +199,8 @@
 
         <Button
             android:id="@+id/J"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -207,8 +210,8 @@
 
         <Button
             android:id="@+id/K"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -218,8 +221,8 @@
 
         <Button
             android:id="@+id/L"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -231,23 +234,24 @@
 
     <LinearLayout
         android:id="@+id/lb3"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_weight="1">
 
         <Button
             android:id="@+id/null1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/Z"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -257,8 +261,8 @@
 
         <Button
             android:id="@+id/X"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -268,8 +272,8 @@
 
         <Button
             android:id="@+id/C"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -279,8 +283,8 @@
 
         <Button
             android:id="@+id/V"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -290,8 +294,8 @@
 
         <Button
             android:id="@+id/B"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -301,8 +305,8 @@
 
         <Button
             android:id="@+id/N"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -312,8 +316,8 @@
 
         <Button
             android:id="@+id/M"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
@@ -323,8 +327,8 @@
 
         <Button
             android:id="@+id/null2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_weight="1"
             android:background="@drawable/yellow_rounded_backgroud"
