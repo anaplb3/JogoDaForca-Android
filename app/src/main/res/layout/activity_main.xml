@@ -17,8 +17,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline53"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logoappalpha" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/btnConfigs"
@@ -33,8 +32,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline57"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline55"
-        app:srcCompat="@drawable/botaoconfig_cropped" />
+        app:layout_constraintTop_toTopOf="@+id/guideline55" />
 
     <ImageButton
         android:id="@+id/btnPlay"
@@ -46,8 +44,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline55"
         app:layout_constraintEnd_toStartOf="@+id/guideline56"
         app:layout_constraintStart_toStartOf="@+id/guideline57"
-        app:layout_constraintTop_toTopOf="@+id/guideline53"
-        app:srcCompat="@drawable/botaoplay" />
+        app:layout_constraintTop_toTopOf="@+id/guideline53" />
 
     <ImageButton
         android:id="@+id/btnRecords"
@@ -62,8 +59,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline56"
-        app:layout_constraintTop_toTopOf="@+id/guideline55"
-        app:srcCompat="@drawable/trophy_white" />
+        app:layout_constraintTop_toTopOf="@+id/guideline55" />
 
     <ImageButton
         android:id="@+id/btnInfo"
@@ -79,8 +75,7 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/botaoinfo_cropped" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageView
         android:id="@+id/btnOut"
@@ -94,8 +89,7 @@
         android:padding="10dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/close_btn" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline53"

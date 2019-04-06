@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.anaplb.appalpha.R;
 import com.example.anaplb.appalpha.Som.Som;
+import com.example.anaplb.appalpha.config.VisualizadorImagem;
 import com.example.anaplb.appalpha.dbhelper.Recordes;
 
 
@@ -103,19 +104,24 @@ public class FinalActivity extends AppCompatActivity {
      * @param pontuacao pontuação do usuário
      */
     public void pontuacao(ImageView img, double pontuacao) {
+        VisualizadorImagem visu = new VisualizadorImagem();
 
-        if(pontuacao < 0) {
-            img.setImageResource(R.drawable.zero);
-        } else if(pontuacao <= 200.0) {
-            img.setImageResource(R.drawable.um);
+
+        if(pontuacao <= 200.0) {
+            visu.setandoImagem(img, R.drawable.um, getApplicationContext());
+            //img.setImageResource(R.drawable.um);
         } else if(pontuacao <= 400.0) {
-            img.setImageResource(R.drawable.dois);
+            visu.setandoImagem(img, R.drawable.dois, getApplicationContext());
+            //img.setImageResource(R.drawable.dois);
         } else if(pontuacao <= 600.0) {
-            img.setImageResource(R.drawable.tres);
+            visu.setandoImagem(img, R.drawable.tres, getApplicationContext());
+            //img.setImageResource(R.drawable.tres);
         } else if(pontuacao < 900.0) {
-            img.setImageResource(R.drawable.quatro);
+            visu.setandoImagem(img, R.drawable.quatro, getApplicationContext());
+            //img.setImageResource(R.drawable.quatro);
         } else {
-            img.setImageResource(R.drawable.cinco);
+            visu.setandoImagem(img, R.drawable.cinco, getApplicationContext());
+            //img.setImageResource(R.drawable.cinco);
         }
     }
 

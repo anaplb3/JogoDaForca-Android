@@ -12,8 +12,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.example.anaplb.appalpha.R;
+import com.example.anaplb.appalpha.config.VisualizadorImagem;
 
 public class MainActivity extends AppCompatActivity {
     private final int READ_PERMISSION_REQ_CODE = 100;
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        atualizandoTela();
         //checkSdkVersionToShowConfigMenu(); Usar somente caso limite o app para android +7
         getReadExternalStoragePermission();
         getWriteExternalStoragePermission();
@@ -53,6 +57,25 @@ public class MainActivity extends AppCompatActivity {
     public void goToConfigScreen(View view){
         Intent it = new Intent(getApplicationContext(), ConfigActivity.class);
         startActivity(it);
+    }
+
+    public void atualizandoTela() {
+        VisualizadorImagem visu = new VisualizadorImagem();
+
+        ImageView logo = findViewById(R.id.logo);
+        ImageView config = findViewById(R.id.btnConfigs);
+        ImageView play = findViewById(R.id.btnPlay);
+        ImageView recorde = findViewById(R.id.btnRecords);
+        ImageView info = findViewById(R.id.btnInfo);
+        ImageView sair = findViewById(R.id.btnOut);
+
+        visu.setandoImagem(logo, R.drawable.logoappalpha, getApplicationContext());
+        visu.setandoImagem(config, R.drawable.botaoconfig_cropped, getApplicationContext());
+        visu.setandoImagem(play, R.drawable.botaoplay, getApplicationContext());
+        visu.setandoImagem(logo, R.drawable.logoappalpha, getApplicationContext());
+        visu.setandoImagem(recorde, R.drawable.trophy_white, getApplicationContext());
+        visu.setandoImagem(info, R.drawable.botaoinfo_cropped, getApplicationContext());
+        visu.setandoImagem(sair, R.drawable.close_btn, getApplicationContext());
     }
 
     /**

@@ -7,17 +7,19 @@ import android.widget.Chronometer;
 
 import com.example.anaplb.appalpha.Som.Som;
 
+import java.lang.ref.WeakReference;
+
 /*
 Classe que implementa o cronômetro para a contagem de pontos
  */
 public class Cronometro {
     private Chronometer cronometro;
-    private Context context;
+    private WeakReference<Context> context;
     private int idSom;
 
     public Cronometro(View txt, Context context, int idSom) {
         this.cronometro = (Chronometer) txt;
-        this.context = context;
+        this.context = new WeakReference<>(context);
         this.idSom = idSom;
 
         cronometro.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
@@ -55,7 +57,7 @@ public class Cronometro {
 
     private void dandoDicaSonora() {
         Som som = Som.getInstance();
-        som.playSound(context, idSom);
+        som.playSound(context.get(), idSom);
     }
 
     /*

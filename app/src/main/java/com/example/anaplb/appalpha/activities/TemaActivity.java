@@ -14,6 +14,7 @@ import com.example.anaplb.appalpha.R;
 import com.example.anaplb.appalpha.Som.Som;
 import com.example.anaplb.appalpha.TemaFactory;
 import com.example.anaplb.appalpha.config.ButtonDelay;
+import com.example.anaplb.appalpha.config.VisualizadorImagem;
 import com.example.anaplb.appalpha.model.Vocabulario;
 
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ public class TemaActivity extends AppCompatActivity {
 
         getLayoutInflater().inflate(R.layout.activity_tema, null);
         som = new Som();
+        colocandoImagens();
 
     }
 
@@ -79,10 +81,29 @@ public class TemaActivity extends AppCompatActivity {
 
     }
 
+    public void colocandoImagens() {
+        VisualizadorImagem visu = new VisualizadorImagem();
+
+        ImageView imgCidade = findViewById(R.id.img_cidade);
+        ImageView imgNatureza = findViewById(R.id.img_natureza);
+        ImageView imgComida = findViewById(R.id.img_comida);
+        ImageView imgCozinha = findViewById(R.id.img_cozinha);
+        ImageView imgCores = findViewById(R.id.img_cores);
+        ImageView imgFrutas = findViewById(R.id.img_frutas);
+        ImageView imgTemas = findViewById(R.id.imgTemas);
+
+        visu.setandoImagem(imgCidade, R.drawable.cidade, getApplicationContext());
+        visu.setandoImagem(imgNatureza, R.drawable.natureza, getApplicationContext());
+        visu.setandoImagem(imgComida, R.drawable.comida, getApplicationContext());
+        visu.setandoImagem(imgCozinha, R.drawable.cozinha, getApplicationContext());
+        visu.setandoImagem(imgCores, R.drawable.cores, getApplicationContext());
+        visu.setandoImagem(imgFrutas, R.drawable.frutas, getApplicationContext());
+        visu.setandoImagem(imgTemas, R.drawable.temas, getApplicationContext());
+
+    }
+
     public void imageButtonCidade(View v) {
-
         idSom = R.raw.cidade;
-
 
         ImageView img = findViewById(R.id.img_cidade);
         botaoEscolha(img);

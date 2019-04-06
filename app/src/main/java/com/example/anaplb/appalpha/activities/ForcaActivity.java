@@ -1,5 +1,6 @@
 package com.example.anaplb.appalpha.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import com.example.anaplb.appalpha.CuidandoDaTela;
 import com.example.anaplb.appalpha.R;
 import com.example.anaplb.appalpha.Som.Som;
+import com.example.anaplb.appalpha.config.VisualizadorImagem;
 import com.example.anaplb.appalpha.cronometro.Cronometro;
 import com.example.anaplb.appalpha.log.LogManagerExtStor;
 import com.example.anaplb.appalpha.model.Vocabulario;
@@ -52,7 +54,6 @@ public class ForcaActivity extends AppCompatActivity {
         vocabulario = null;
         palavrasUsadas = null;
         cronometro = null;
-        imgPalavra.setImageDrawable(null);
     }
 
     @Override
@@ -86,13 +87,12 @@ public class ForcaActivity extends AppCompatActivity {
         txtUnderscore.setText(dandoEspacos(underscore));
 
         // Setando o ImageView da forca no objeto para modificação ao longo do jogo
-        ImageView img_forca = findViewById(R.id.img_forca);
-        cuidandoDaForca = new CuidandoDaTela(img_forca);
+        ImageView img = findViewById(R.id.img_forca);
+        cuidandoDaForca = new CuidandoDaTela(img, getApplicationContext());
 
         // Setando imagem da palavra
-
-        imgPalavra = findViewById(R.id.img_palavra);
-        imgPalavra.setImageResource(idImagem);
+        VisualizadorImagem visu = new VisualizadorImagem();
+        visu.setandoImagem(imgPalavra, idImagem, getApplicationContext());
 
         // Iniciando cronômetro
         cronometro = new Cronometro(findViewById(R.id.cronometro), getApplicationContext(), audio);

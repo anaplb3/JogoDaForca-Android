@@ -19,8 +19,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/temas" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageView
         android:id="@+id/img_cidade"
@@ -37,8 +36,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline6"
-        app:srcCompat="@drawable/cidade" />
+        app:layout_constraintTop_toTopOf="@+id/guideline6"/>
 
     <ImageView
         android:id="@+id/img_comida"
@@ -55,8 +53,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline6"
-        app:srcCompat="@drawable/comida" />
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
     <ImageView
         android:id="@+id/img_cores"
@@ -73,8 +70,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:srcCompat="@drawable/cores" />
+        app:layout_constraintTop_toTopOf="@+id/guideline3"/>
 
     <ImageView
         android:id="@+id/img_cozinha"
@@ -91,8 +87,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:srcCompat="@drawable/cozinha" />
+        app:layout_constraintTop_toTopOf="@+id/guideline3"/>
 
     <ImageView
         android:id="@+id/img_frutas"
@@ -109,8 +104,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:srcCompat="@drawable/frutas" />
+        app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
     <ImageView
         android:id="@+id/img_natureza"
@@ -127,8 +121,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:srcCompat="@drawable/natureza" />
+        app:layout_constraintTop_toTopOf="@+id/guideline4"/>
 
     <com.example.anaplb.appalpha.config.AlphaTextView
         android:id="@+id/textView7"
