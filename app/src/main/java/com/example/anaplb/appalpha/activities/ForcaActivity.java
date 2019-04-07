@@ -1,6 +1,5 @@
 package com.example.anaplb.appalpha.activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -92,6 +91,7 @@ public class ForcaActivity extends AppCompatActivity {
 
         // Setando imagem da palavra
         VisualizadorImagem visu = new VisualizadorImagem();
+        imgPalavra = findViewById(R.id.img_palavra);
         visu.setandoImagem(imgPalavra, idImagem, getApplicationContext());
 
         // Iniciando cronômetro

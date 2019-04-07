@@ -63,33 +63,41 @@
 
     <ImageButton
         android:id="@+id/btnInfo"
-        android:layout_width="100dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:adjustViewBounds="true"
         android:background="@null"
+        android:cropToPadding="false"
         android:onClick="indoParaSobre"
         android:padding="10dp"
-        android:scaleType="fitCenter"
+        android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintStart_toStartOf="@+id/guideline56"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/btnOut"
-        android:layout_width="100dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:adjustViewBounds="true"
         android:onClick="saindo"
         android:padding="10dp"
+        android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline57"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline53"
@@ -138,6 +146,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_percent="0.15" />
 
 </android.support.constraint.ConstraintLayout>
