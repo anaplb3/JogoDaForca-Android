@@ -1,9 +1,8 @@
 package br.ufpb.dcx.appalpha.control.api;
 
-import android.content.Context;
-
 import java.util.List;
 
+import br.ufpb.dcx.appalpha.model.bean.Theme;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
@@ -19,7 +18,7 @@ public interface ContextService{
     void delete(Long id);
 
     @GET("contexts")
-    Call<List<Context>> findAll();
+    Call<List<Theme>> findAll();
 
     void findPage(
         int page,

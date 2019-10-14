@@ -19,6 +19,7 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ViewHolder> 
 
         public ThemeAdapter(List<Theme> themes) {
                 this.themes = themes;
+
         }
 
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -32,23 +33,16 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ViewHolder> 
 
         public void onBindViewHolder(ViewHolder holder, int position) {
                 holder.themeNameLeft.setText(themes.get(position).getName());
-                if(position < themes.size()){
-                        holder.themeNameRight.setText(themes.get(position+1).getName());
-                }
         }
 
         class ViewHolder extends RecyclerView.ViewHolder{
                 ImageView themeImageLeft;
-                ImageView themeImageRight;
                 TextView themeNameLeft;
-                TextView themeNameRight;
 
                 public ViewHolder(View itemView) {
                         super(itemView);
                         themeImageLeft = itemView.findViewById(R.id.img_left);
-                        themeImageRight = itemView.findViewById(R.id.img_right);
                         themeNameLeft = itemView.findViewById(R.id.tv_theme_name_left);
-                        themeNameRight = itemView.findViewById(R.id.tv_theme_name_right);
                 }
 
         }

@@ -26,6 +26,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -37,6 +38,7 @@ public class ThemeActivity extends AppCompatActivity {
     Intent intent;
     private LinearLayoutManager layManager;
     private RecyclerView recyclerView;
+    private List<Theme> themes = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,20 +61,38 @@ public class ThemeActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        addDefaultThemes();
         getAllChallengesFromService();
+        fillRecycleView(themes);
+    }
+
+    public void addDefaultThemes(){
+        themes.add(new Theme("Comida", null, null, null));
+        themes.add(new Theme("Cidade", null, null, null));
+        themes.add(new Theme("Cores", null, null, null));
+        themes.add(new Theme("Cozinha", null, null, null));
+        themes.add(new Theme("Natureza", null, null, null));
+        themes.add(new Theme("Frutas", null, null, null));
     }
 
     public void getAllChallengesFromService(){
-        Call call = new RetrofitInitializer().challengeService().findAll();
-        call.enqueue(new Callback() {
+        Call call = new RetrofitInitializer().contextService().findAll();
+        call.enqueue(new Callback<List<Theme>>() {
             @Override
-            public void onResponse(Call call, Response response) {
-                fillRecycleView((List<Theme>) response.body());
+            public void onResponse(Call<List<Theme>> call, Response<List<Theme>> response) {
+                List<Theme> reponseBody = response.body();
+                themes = reponseBody;
+                for (Theme t:reponseBody){
+                    System.out.println(t);
+                }
+
+                addDefaultThemes();
+                fillRecycleView(themes);
             }
 
             @Override
-            public void onFailure(Call call, Throwable t) {
-                Log.e(TAG, "Erro ao recuperar temas");
+            public void onFailure(Call<List<Theme>> call, Throwable t) {
+                Log.e(TAG, "Erro ao recuperar temas: "+t.getMessage());
             }
         });
     }

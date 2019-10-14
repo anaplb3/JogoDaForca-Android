@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
     android:layout_marginBottom="8dp"
@@ -42,41 +42,6 @@
             app:layout_constraintEnd_toEndOf="@+id/img_left"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/img_left" />
-
-    </android.support.constraint.ConstraintLayout>
-
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
-
-        <ImageView
-            android:id="@+id/img_right"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:onClick="imageButtonComida"
-            android:scaleType="fitXY"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/comida" />
-
-        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
-            android:id="@+id/tv_theme_name_right"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@color/background_text_item_themes_menu_black_transparent"
-            android:gravity="center_horizontal|center_vertical"
-            android:padding="4dp"
-            android:text="Comida"
-            android:textColor="@android:color/white"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="@+id/img_right"
-            app:layout_constraintEnd_toEndOf="@+id/img_right"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/img_right" />
 
     </android.support.constraint.ConstraintLayout>
 
