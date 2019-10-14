@@ -1,9 +1,13 @@
 package br.dcx.appalpha.view.activities.theme;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,18 +16,28 @@ import br.dcx.appalpha.control.CuidandoDeTudo;
 import com.example.anaplb.appalpha.R;
 import br.dcx.appalpha.control.Som.Som;
 import br.dcx.appalpha.control.TemaFactory;
+import br.dcx.appalpha.control.api.RetrofitInitializer;
 import br.dcx.appalpha.control.config.ButtonDelay;
 import br.dcx.appalpha.model.Vocabulario;
+import br.dcx.appalpha.model.bean.Challenge;
+import br.dcx.appalpha.model.bean.Theme;
 import br.dcx.appalpha.view.activities.ForcaActivity;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class ThemeActivity extends AppCompatActivity {
+    private final String TAG = "ThemeActivity";
     Som som;
     CuidandoDeTudo facade;
     int idSom;
     Intent intent;
+    private LinearLayoutManager layManager;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +47,34 @@ public class ThemeActivity extends AppCompatActivity {
         getLayoutInflater().inflate(R.layout.activity_tema, null);
         som = new Som();
 
+    }
+
+    @Override
+    public View onCreateView(View parent, String name, Context context, AttributeSet attrs) {
+        View v = super.onCreateView(parent, name, context, attrs);
+        recyclerView = v.findViewById(R.id.rcThemes);
+        layManager = new LinearLayoutManager(getApplicationContext());
+        return v;
+    }
+
+    public void fillRecycleView(List<Theme> themes){
+        recyclerView.setLayoutManager(layManager);
+        recyclerView.setAdapter(new ThemeAdapter(themes));
+    }
+
+    public void getAllChallengesFromService(){
+        Call call = new RetrofitInitializer().challengeService().findAll();
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                fillRecycleView((List<Theme>) response.body());
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                Log.e(TAG, "Erro ao recuperar temas");
+            }
+        });
     }
 
     public void botaoEscolha(ImageView img_button) {
@@ -77,55 +119,6 @@ public class ThemeActivity extends AppCompatActivity {
             }
         }, millis);
 
-    }
-
-    public void imageButtonCidade(View v) {
-
-        idSom = R.raw.cidade;
-
-
-        ImageView img = findViewById(R.id.img_cidade);
-        botaoEscolha(img);
-    }
-
-    public void imageButtonNatureza(View v) {
-
-        idSom = R.raw.natureza;
-
-        ImageView img = findViewById(R.id.img_natureza);
-        botaoEscolha(img);
-    }
-
-    public void imageButtonComida(View v) {
-
-        idSom = R.raw.comida;
-
-        ImageView img = findViewById(R.id.img_comida);
-        botaoEscolha(img);
-    }
-
-    public void imageButtonCozinha(View v) {
-
-        idSom = R.raw.cozinha;
-
-        ImageView img = findViewById(R.id.img_cozinha);
-        botaoEscolha(img);
-    }
-
-    public void imageButtonCor(View v) {
-
-        idSom = R.raw.cores;
-
-        ImageView img = findViewById(R.id.img_cores);
-        botaoEscolha(img);
-    }
-
-    public void imageButtonFruta(View v) {
-
-        idSom = R.raw.frutas;
-
-        ImageView img = findViewById(R.id.img_frutas);
-        botaoEscolha(img);
     }
 
 }

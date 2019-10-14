@@ -17,6 +17,10 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ViewHolder> 
         private List<Theme> themes;
         private String  TAG = "ThemeListAdapter";
 
+        public ThemeAdapter(List<Theme> themes) {
+                this.themes = themes;
+        }
+
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
                 View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_theme, parent, false);
                 return new ViewHolder(v);
