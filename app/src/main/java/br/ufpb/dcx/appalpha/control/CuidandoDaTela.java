@@ -2,7 +2,7 @@ package br.ufpb.dcx.appalpha.control;
 
 import android.widget.ImageView;
 
-import com.example.anaplb.appalpha.R;
+import br.ufpb.dcx.appalpha.R;
 
 /**
  * Responsável por ir atualizando a forca durante o jogo

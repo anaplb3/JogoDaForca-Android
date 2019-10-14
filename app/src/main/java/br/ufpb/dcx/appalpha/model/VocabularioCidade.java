@@ -2,7 +2,7 @@ package br.ufpb.dcx.appalpha.model;
 
 
 
-import com.example.anaplb.appalpha.R;
+import br.ufpb.dcx.appalpha.R;
 
 import java.util.ArrayList;
 

@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import br.ufpb.dcx.appalpha.control.CuidandoDaTela;
-import com.example.anaplb.appalpha.R;
+import br.ufpb.dcx.appalpha.R;
 import br.ufpb.dcx.appalpha.control.Som.Som;
 import br.ufpb.dcx.appalpha.control.Cronometro;
 import br.ufpb.dcx.appalpha.control.log.LogManagerExtStor;

@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.anaplb.appalpha.R;
+import br.ufpb.dcx.appalpha.R;
 
 import java.util.List;
 

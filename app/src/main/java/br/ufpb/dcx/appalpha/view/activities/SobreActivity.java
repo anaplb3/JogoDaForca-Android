@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.anaplb.appalpha.R;
+import br.ufpb.dcx.appalpha.R;
 
 public class SobreActivity extends AppCompatActivity {
 

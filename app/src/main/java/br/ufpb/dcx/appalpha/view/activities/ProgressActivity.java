@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import br.ufpb.dcx.appalpha.control.CuidandoDeTudo;
-import com.example.anaplb.appalpha.R;
+import br.ufpb.dcx.appalpha.R;
 import br.ufpb.dcx.appalpha.control.config.ButtonDelay;
 import br.ufpb.dcx.appalpha.model.desafios.Progresso;
 import br.ufpb.dcx.appalpha.model.Vocabulario;

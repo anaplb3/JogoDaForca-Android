@@ -13,7 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.example.anaplb.appalpha.R;
+import br.ufpb.dcx.appalpha.R;
 
 import br.ufpb.dcx.appalpha.view.activities.theme.ThemeActivity;
 

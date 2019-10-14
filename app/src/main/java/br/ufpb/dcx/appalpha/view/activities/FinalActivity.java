@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.anaplb.appalpha.R;
+import br.ufpb.dcx.appalpha.R;
 import br.ufpb.dcx.appalpha.control.Som.Som;
 import br.ufpb.dcx.appalpha.control.dbhelper.Recordes;
 

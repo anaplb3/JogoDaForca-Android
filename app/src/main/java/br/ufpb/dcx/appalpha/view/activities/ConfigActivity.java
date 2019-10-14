@@ -8,7 +8,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.example.anaplb.appalpha.R;
+import br.ufpb.dcx.appalpha.R;
 import br.ufpb.dcx.appalpha.control.config.AppConfig;
 
 public class ConfigActivity extends AppCompatActivity {

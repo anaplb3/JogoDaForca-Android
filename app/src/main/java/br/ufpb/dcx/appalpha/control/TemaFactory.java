@@ -2,7 +2,7 @@ package br.ufpb.dcx.appalpha.control;
 
 import android.widget.ImageView;
 
-import com.example.anaplb.appalpha.R;
+import br.ufpb.dcx.appalpha.R;
 
 import br.ufpb.dcx.appalpha.model.Vocabulario;
 import br.ufpb.dcx.appalpha.model.VocabularioCidade;
@@ -21,7 +21,7 @@ public class TemaFactory {
      * A partir do id do image view que o usuário escolheu, retorna um objeto com o tema correspondente
      * @param img tema escolhido
      * @return um objeto Vocabulário do tema escolhido pelo jogador
-     */
+
     public Vocabulario pegandoPalavra(ImageView img) {
         Vocabulario p = null;
 
@@ -53,6 +53,6 @@ public class TemaFactory {
         }
 
         return p;
-    }
+    }*/
 
 }

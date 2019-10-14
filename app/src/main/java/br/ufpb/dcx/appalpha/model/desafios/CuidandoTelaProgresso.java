@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.anaplb.appalpha.R;
+import br.ufpb.dcx.appalpha.R;
 import br.ufpb.dcx.appalpha.control.Som.Som;
 
 public class CuidandoTelaProgresso {

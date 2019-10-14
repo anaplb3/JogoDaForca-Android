@@ -28,9 +28,9 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/comida" />
 
-        <com.example.anaplb.appalpha.config.AlphaTextView
+        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
             android:id="@+id/tv_theme_name_left"
-            android:layout_width="math_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@color/background_text_item_themes_menu_black_transparent"
             android:gravity="center_horizontal|center_vertical"
@@ -63,9 +63,9 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/comida" />
 
-        <com.example.anaplb.appalpha.config.AlphaTextView
+        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
             android:id="@+id/tv_theme_name_right"
-            android:layout_width="math_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@color/background_text_item_themes_menu_black_transparent"
             android:gravity="center_horizontal|center_vertical"

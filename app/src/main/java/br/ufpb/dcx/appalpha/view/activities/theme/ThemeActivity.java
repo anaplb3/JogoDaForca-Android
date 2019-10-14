@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import br.ufpb.dcx.appalpha.control.CuidandoDeTudo;
-import com.example.anaplb.appalpha.R;
+import br.ufpb.dcx.appalpha.R;
 import br.ufpb.dcx.appalpha.control.Som.Som;
 import br.ufpb.dcx.appalpha.control.TemaFactory;
 import br.ufpb.dcx.appalpha.control.api.RetrofitInitializer;
@@ -46,19 +46,20 @@ public class ThemeActivity extends AppCompatActivity {
         getLayoutInflater().inflate(R.layout.activity_tema, null);
         som = new Som();
 
-    }
-
-    @Override
-    public View onCreateView(View parent, String name, Context context, AttributeSet attrs) {
-        View v = super.onCreateView(parent, name, context, attrs);
-        recyclerView = v.findViewById(R.id.rcThemes);
+        recyclerView = findViewById(R.id.rcThemes);
         layManager = new LinearLayoutManager(getApplicationContext());
-        return v;
+
     }
 
     public void fillRecycleView(List<Theme> themes){
         recyclerView.setLayoutManager(layManager);
         recyclerView.setAdapter(new ThemeAdapter(themes));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getAllChallengesFromService();
     }
 
     public void getAllChallengesFromService(){
@@ -89,10 +90,10 @@ public class ThemeActivity extends AppCompatActivity {
 
         TemaFactory factory = new TemaFactory();
 
-        Vocabulario p = factory.pegandoPalavra(img_button);
+        //Vocabulario p = factory.pegandoPalavra(img_button);
 
-        facade = new CuidandoDeTudo(p.getPalavras(), p.getAudios(), p.getImgs());
-        Log.i("size", ""+p.retornandoNomes().size());
+        //facade = new CuidandoDeTudo(p.getPalavras(), p.getAudios(), p.getImgs());
+        //Log.i("size", ""+p.retornandoNomes().size());
 
         ArrayList<String> palavrasUsadas = new ArrayList<>();
 
@@ -101,7 +102,7 @@ public class ThemeActivity extends AppCompatActivity {
         intent.putExtra("erros", 0);
         intent.putExtra("progresso", 0);
         intent.putExtra("tempo", 0.0);
-        intent.putExtra("objeto", p);
+        //intent.putExtra("objeto", p);
         intent.putExtra("somaErros", 0);
 
 
