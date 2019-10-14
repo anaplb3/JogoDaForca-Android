@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fundogeral"
-    tools:context="br.dcx.appalpha.view.activities.ProgressActivity"
+    tools:context="br.ufpb.dcx.appalpha.view.activities.ProgressActivity"
     android:orientation="vertical">
 
     <ImageView
@@ -26,7 +26,7 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <br.dcx.appalpha.control.config.AlphaTextView
+        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
             android:id="@+id/txt_underscore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

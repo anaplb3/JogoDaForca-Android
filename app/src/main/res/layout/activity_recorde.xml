@@ -21,7 +21,7 @@
             android:scaleType="fitXY"
             app:srcCompat="@android:drawable/ic_menu_revert" />
 
-        <br.dcx.appalpha.control.config.AlphaTextView
+        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
             android:id="@+id/textView33"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -42,7 +42,7 @@
         android:background="@drawable/white_rounded_backgroud"
         android:orientation="horizontal">
 
-        <br.dcx.appalpha.control.config.AlphaTextView
+        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
             android:id="@+id/textView58"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -52,7 +52,7 @@
             android:textColor="@android:color/background_light"
             android:textSize="25sp" />
 
-        <br.dcx.appalpha.control.config.AlphaTextView
+        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
             android:id="@+id/textView59"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -62,7 +62,7 @@
             android:textColor="@android:color/background_light"
             android:textSize="25sp" />
 
-        <br.dcx.appalpha.control.config.AlphaTextView
+        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
             android:id="@+id/textView60"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -81,7 +81,7 @@
         android:orientation="horizontal"
         android:layout_weight="1">
 
-        <br.dcx.appalpha.control.config.AlphaTextView
+        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
             android:id="@+id/posicao_um"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -93,7 +93,7 @@
             android:textSize="60sp"
             android:textStyle="bold" />
 
-        <br.dcx.appalpha.control.config.AlphaTextView
+        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
             android:id="@+id/nome_um"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -105,7 +105,7 @@
             android:textSize="25sp"
             android:textStyle="bold" />
 
-        <br.dcx.appalpha.control.config.AlphaTextView
+        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
             android:id="@+id/pontuacao_um"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -124,7 +124,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1">
 
-        <br.dcx.appalpha.control.config.AlphaTextView
+        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
             android:id="@+id/posicao_dois"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -136,7 +136,7 @@
             android:textSize="60sp"
             android:textStyle="bold" />
 
-        <br.dcx.appalpha.control.config.AlphaTextView
+        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
             android:id="@+id/nome_dois"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -148,7 +148,7 @@
             android:textSize="25sp"
             android:textStyle="bold" />
 
-        <br.dcx.appalpha.control.config.AlphaTextView
+        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
             android:id="@+id/pontuacao_dois"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -166,7 +166,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1">
 
-        <br.dcx.appalpha.control.config.AlphaTextView
+        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
             android:id="@+id/posicao_tres"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -178,7 +178,7 @@
             android:textSize="60sp"
             android:textStyle="bold" />
 
-        <br.dcx.appalpha.control.config.AlphaTextView
+        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
             android:id="@+id/nome_tres"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -190,7 +190,7 @@
             android:textSize="25sp"
             android:textStyle="bold" />
 
-        <br.dcx.appalpha.control.config.AlphaTextView
+        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
             android:id="@+id/pontuacao_tres"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -208,7 +208,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1">
 
-        <br.dcx.appalpha.control.config.AlphaTextView
+        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
             android:id="@+id/posicao_quatro"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -220,7 +220,7 @@
             android:textSize="60sp"
             android:textStyle="bold" />
 
-        <br.dcx.appalpha.control.config.AlphaTextView
+        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
             android:id="@+id/nome_quatro"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -232,7 +232,7 @@
             android:textSize="25sp"
             android:textStyle="bold" />
 
-        <br.dcx.appalpha.control.config.AlphaTextView
+        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
             android:id="@+id/pontuacao_quatro"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -250,7 +250,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1">
 
-        <br.dcx.appalpha.control.config.AlphaTextView
+        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
             android:id="@+id/posicao_cinco"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -262,7 +262,7 @@
             android:textStyle="bold"
             android:textColor="@android:color/white" />
 
-        <br.dcx.appalpha.control.config.AlphaTextView
+        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
             android:id="@+id/nome_cinco"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -274,7 +274,7 @@
             android:textSize="25sp"
             android:textStyle="bold" />
 
-        <br.dcx.appalpha.control.config.AlphaTextView
+        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
             android:id="@+id/pontuacao_cinco"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

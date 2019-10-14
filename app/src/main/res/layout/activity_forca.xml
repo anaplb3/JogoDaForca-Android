@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fundogeral"
-    tools:context="br.dcx.appalpha.view.activities.ForcaActivity"
+    tools:context="br.ufpb.dcx.appalpha.view.activities.ForcaActivity"
     tools:layout_editor_absoluteY="25dp">
 
-    <br.dcx.appalpha.control.config.AlphaTextView
+    <br.ufpb.dcx.appalpha.control.config.AlphaTextView
         android:id="@+id/textView17"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
-        <br.dcx.appalpha.control.config.AlphaTextView
+        <br.ufpb.dcx.appalpha.control.config.AlphaTextView
             android:id="@+id/txt_underscore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -117,7 +117,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.35" />
 
-    <br.dcx.appalpha.control.config.AlphaTextView
+    <br.ufpb.dcx.appalpha.control.config.AlphaTextView
         android:id="@+id/textView18"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

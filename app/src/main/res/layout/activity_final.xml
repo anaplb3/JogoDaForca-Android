@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fundogeral"
-    tools:context="br.dcx.appalpha.view.activities.FinalActivity">
+    tools:context="br.ufpb.dcx.appalpha.view.activities.FinalActivity">
 
     <ImageView
         android:id="@+id/imageView9"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_launcher" />
 
-    <br.dcx.appalpha.control.config.AlphaTextView
+    <br.ufpb.dcx.appalpha.control.config.AlphaTextView
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="62dp"

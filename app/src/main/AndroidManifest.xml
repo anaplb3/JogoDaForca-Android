@@ -17,19 +17,19 @@
         tools:ignore="GoogleAppIndexingWarning"
         >
         <activity
-            android:name="br.dcx.appalpha.view.activities.ConfigActivity"
+            android:name="br.ufpb.dcx.appalpha.view.activities.ConfigActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="br.dcx.appalpha.view.activities.MainActivity"
+            android:name="br.ufpb.dcx.appalpha.view.activities.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="br.dcx.appalpha.view.activities.ForcaActivity"
+            android:name="br.ufpb.dcx.appalpha.view.activities.ForcaActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="br.dcx.appalpha.view.activities.theme.ThemeActivity"
+            android:name="br.ufpb.dcx.appalpha.view.activities.theme.ThemeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="br.dcx.appalpha.view.activities.SplashActivity"
+            android:name="br.ufpb.dcx.appalpha.view.activities.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,18 +38,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="br.dcx.appalpha.view.activities.FinalActivity"
+            android:name="br.ufpb.dcx.appalpha.view.activities.FinalActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="br.dcx.appalpha.view.activities.SobreActivity"
+            android:name="br.ufpb.dcx.appalpha.view.activities.SobreActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="br.dcx.appalpha.view.activities.ProgressoActivity"
+            android:name="br.ufpb.dcx.appalpha.view.activities.ProgressoActivity"
             android:screenOrientation="portrait" />
-        <activity android:name="br.dcx.appalpha.view.activities.RecordesActivity"
+        <activity android:name="br.ufpb.dcx.appalpha.view.activities.RecordesActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="br.dcx.appalpha.view.activities.ProgressActivity"
+            android:name="br.ufpb.dcx.appalpha.view.activities.ProgressActivity"
             android:screenOrientation="portrait" />
 
     </application>

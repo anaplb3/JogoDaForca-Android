@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fundogeral"
-    tools:context="br.dcx.appalpha.view.activities.SplashActivity"
+    tools:context="br.ufpb.dcx.appalpha.view.activities.SplashActivity"
     tools:layout_editor_absoluteY="25dp">
 
     <ImageView

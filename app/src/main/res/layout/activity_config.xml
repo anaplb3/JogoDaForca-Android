@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fundogeral"
-    tools:context="br.dcx.appalpha.view.activities.ConfigActivity">
+    tools:context="br.ufpb.dcx.appalpha.view.activities.ConfigActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,7 +32,7 @@
                 app:layout_constraintStart_toStartOf="@+id/guideline18"
                 app:srcCompat="@android:drawable/ic_menu_revert" />
 
-            <br.dcx.appalpha.control.config.AlphaTextView
+            <br.ufpb.dcx.appalpha.control.config.AlphaTextView
                 android:id="@+id/textView19"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -70,7 +70,7 @@
             android:background="@null"
             android:orientation="vertical">
 
-            <br.dcx.appalpha.control.config.AlphaTextView
+            <br.ufpb.dcx.appalpha.control.config.AlphaTextView
                 android:id="@+id/textView30"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -122,7 +122,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <br.dcx.appalpha.control.config.AlphaTextView
+                    <br.ufpb.dcx.appalpha.control.config.AlphaTextView
                         android:id="@+id/textView32"
                         android:layout_width="match_parent"
                         android:layout_height="52dp"
@@ -130,7 +130,7 @@
                         android:text="Visualização:"
                         android:textSize="24sp" />
 
-                    <br.dcx.appalpha.control.config.AlphaTextView
+                    <br.ufpb.dcx.appalpha.control.config.AlphaTextView
                         android:id="@+id/textView31"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
@@ -150,7 +150,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <br.dcx.appalpha.control.config.AlphaTextView
+            <br.ufpb.dcx.appalpha.control.config.AlphaTextView
                 android:id="@+id/otherConfigs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -168,7 +168,7 @@
                 android:orientation="vertical"
                 android:padding="4dp">
 
-                <br.dcx.appalpha.control.config.AlphaTextView
+                <br.ufpb.dcx.appalpha.control.config.AlphaTextView
                     android:id="@+id/textView21"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
