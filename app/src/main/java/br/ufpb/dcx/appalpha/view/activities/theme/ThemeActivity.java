@@ -1,15 +1,13 @@
 package br.ufpb.dcx.appalpha.view.activities.theme;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.AttributeSet;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
 
 import br.ufpb.dcx.appalpha.control.CuidandoDeTudo;
@@ -18,7 +16,6 @@ import br.ufpb.dcx.appalpha.control.Som.Som;
 import br.ufpb.dcx.appalpha.control.TemaFactory;
 import br.ufpb.dcx.appalpha.control.api.RetrofitInitializer;
 import br.ufpb.dcx.appalpha.control.config.ButtonDelay;
-import br.ufpb.dcx.appalpha.model.Vocabulario;
 import br.ufpb.dcx.appalpha.model.bean.Theme;
 import br.ufpb.dcx.appalpha.view.activities.ForcaActivity;
 import retrofit2.Call;
@@ -26,7 +23,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -55,7 +51,7 @@ public class ThemeActivity extends AppCompatActivity {
 
     public void fillRecycleView(List<Theme> themes){
         recyclerView.setLayoutManager(layManager);
-        recyclerView.setAdapter(new ThemeAdapter(themes));
+        recyclerView.setAdapter(new ThemeAdapter(themes, getApplicationContext()));
     }
 
     @Override
@@ -67,12 +63,12 @@ public class ThemeActivity extends AppCompatActivity {
     }
 
     public void addDefaultThemes(){
-        themes.add(new Theme("Comida", null, null, null));
-        themes.add(new Theme("Cidade", null, null, null));
-        themes.add(new Theme("Cores", null, null, null));
-        themes.add(new Theme("Cozinha", null, null, null));
-        themes.add(new Theme("Natureza", null, null, null));
-        themes.add(new Theme("Frutas", null, null, null));
+        themes.add(new Theme("Comida", R.drawable.comida, null, null));
+        themes.add(new Theme("Cidade", R.drawable.cidade, null, null));
+        themes.add(new Theme("Cores", R.drawable.cores, null, null));
+        themes.add(new Theme("Cozinha", R.drawable.cozinha, null, null));
+        themes.add(new Theme("Natureza", R.drawable.natureza, null, null));
+        themes.add(new Theme("Frutas", R.drawable.frutas, null, null));
     }
 
     public void getAllChallengesFromService(){
@@ -81,12 +77,9 @@ public class ThemeActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Theme>> call, Response<List<Theme>> response) {
                 List<Theme> reponseBody = response.body();
-                themes = reponseBody;
-                for (Theme t:reponseBody){
-                    System.out.println(t);
+                for(Theme t : reponseBody){
+                    themes.add(t);
                 }
-
-                addDefaultThemes();
                 fillRecycleView(themes);
             }
 

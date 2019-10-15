@@ -29,6 +29,13 @@ public class Theme {
         this.videoUrl = videoUrl;
     }
 
+    public Theme(String name, int drawableId, String soundUrl, String videoUrl) {
+        this.name = name;
+        this.imageUrl = Integer.toString(drawableId);
+        this.soundUrl = soundUrl;
+        this.videoUrl = videoUrl;
+    }
+
     public Long getId() {
         return id;
     }
