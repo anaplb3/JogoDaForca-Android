@@ -4,11 +4,19 @@ import android.content.Context;
 
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.EncodeStrategy;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.target.Target;
 
 import br.ufpb.dcx.appalpha.R;
 
@@ -37,24 +45,44 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ViewHolder> 
 
         public void onBindViewHolder(ViewHolder holder, int position) {
                 holder.themeNameLeft.setText(themes.get(position).getName());
-                holder.themeImageLeft.setImageDrawable(themes.get(position).getImageUrl() != null ? ContextCompat.getDrawable(activityContext, Integer.parseInt(themes.get(position).getImageUrl())) : null);
+                loadImage(themes.get(position).getImageUrl(), holder.themeImageLeft);
+        }
 
-//                Glide.with(activityContext)
-//                        .load(urlImages.get("SUA URL"))
-//                        .asBitmap()
-//                        .listener(new RequestListener<String, Bitmap>() {
-//                                @Override
-//                                public boolean onException(Exception e, String model, com.bumptech.glide.request.target.Target<Bitmap> target, boolean isFirstResource) {
-//                                        // AÇÕES A SE EXECUTAR CASO HOUVER ERRO
-//                                        return false;
-//                                }
-//
-//                                @Override
-//                                public boolean onResourceReady(Bitmap resource, String model, com.bumptech.glide.request.target.Target<Bitmap> target, boolean isFromMemoryCache, boolean isFirstResource) {
-//                                        // AÇÕES A SE EXECUTAR QUANDO FOR CARREGADA A IMAGEM
-//                                        return false;
-//                                }
-//                        }).into(SUA IMAGEVIEW);
+        private void loadImage(String imageUrl, ImageView themeImageLeft){
+            DiskCacheStrategy diskCacheStrategy = new DiskCacheStrategy() {
+                @Override
+                public boolean isDataCacheable(DataSource dataSource) {
+                    return false;
+                }
+
+                @Override
+                public boolean isResourceCacheable(boolean isFromAlternateCacheKey, DataSource dataSource, EncodeStrategy encodeStrategy) {
+                    return false;
+                }
+
+                @Override
+                public boolean decodeCachedResource() {
+                    return false;
+                }
+
+                @Override
+                public boolean decodeCachedData() {
+                    return false;
+                }
+            };
+
+            int erroImg = -1;
+            try{
+                erroImg = Integer.parseInt(imageUrl);
+            }catch(NumberFormatException e){
+                erroImg = R.drawable.no_image;
+            }
+
+            Glide.with(activityContext)
+                    .load(imageUrl)
+                    .error(erroImg)
+                    .diskCacheStrategy(diskCacheStrategy)
+                    .into(themeImageLeft);
         }
 
         class ViewHolder extends RecyclerView.ViewHolder{

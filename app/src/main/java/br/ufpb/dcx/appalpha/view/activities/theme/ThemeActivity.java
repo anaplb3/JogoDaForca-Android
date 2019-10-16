@@ -58,8 +58,8 @@ public class ThemeActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         addDefaultThemes();
-        getAllChallengesFromService();
         fillRecycleView(themes);
+        getAllChallengesFromService();
     }
 
     public void addDefaultThemes(){
@@ -77,10 +77,10 @@ public class ThemeActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Theme>> call, Response<List<Theme>> response) {
                 List<Theme> reponseBody = response.body();
+                Log.i(TAG, ""+reponseBody.size());
                 for(Theme t : reponseBody){
                     themes.add(t);
                 }
-                fillRecycleView(themes);
             }
 
             @Override
