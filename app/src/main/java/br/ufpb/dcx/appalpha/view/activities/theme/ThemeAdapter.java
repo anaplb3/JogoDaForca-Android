@@ -2,6 +2,7 @@ package br.ufpb.dcx.appalpha.view.activities.theme;
 
 import android.content.Context;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -46,6 +47,19 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ViewHolder> 
         public void onBindViewHolder(ViewHolder holder, int position) {
                 holder.themeNameLeft.setText(themes.get(position).getName());
                 loadImage(themes.get(position).getImageUrl(), holder.themeImageLeft);
+
+                holder.themeImageLeft.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ThemeActivity.OnClickListener(new ThemeActivity.OnClickListener() {
+                            @Override
+                            public Theme onItemClicked() {
+                                return themes.get(position);
+                            }
+                        });
+                    }
+                });
+
         }
 
         private void loadImage(String imageUrl, ImageView themeImageLeft){
@@ -85,11 +99,11 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ViewHolder> 
                     .into(themeImageLeft);
         }
 
-        class ViewHolder extends RecyclerView.ViewHolder{
+        class ViewHolder extends RecyclerView.ViewHolder {
                 ImageView themeImageLeft;
                 TextView themeNameLeft;
 
-                public ViewHolder(View itemView) {
+                private ViewHolder(View itemView) {
                         super(itemView);
                         themeImageLeft = itemView.findViewById(R.id.img_left);
                         themeNameLeft = itemView.findViewById(R.id.tv_theme_name_left);

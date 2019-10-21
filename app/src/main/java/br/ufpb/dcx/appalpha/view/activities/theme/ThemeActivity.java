@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,7 +34,7 @@ public class ThemeActivity extends AppCompatActivity {
     CuidandoDeTudo facade;
     int idSom;
     Intent intent;
-    private LinearLayoutManager layManager;
+    private GridLayoutManager layManager;
     private RecyclerView recyclerView;
     private List<Theme> themes = new ArrayList<>();
 
@@ -45,7 +47,7 @@ public class ThemeActivity extends AppCompatActivity {
         som = new Som();
 
         recyclerView = findViewById(R.id.rcThemes);
-        layManager = new LinearLayoutManager(getApplicationContext());
+        layManager = new GridLayoutManager(getApplicationContext(), 2);
 
     }
 
@@ -80,6 +82,7 @@ public class ThemeActivity extends AppCompatActivity {
                 Log.i(TAG, ""+reponseBody.size());
                 for(Theme t : reponseBody){
                     themes.add(t);
+                    fillRecycleView(themes);
                 }
             }
 
@@ -89,6 +92,15 @@ public class ThemeActivity extends AppCompatActivity {
             }
         });
     }
+
+    public static void OnClickListener(OnClickListener hook){
+        Theme selectedTheme = hook.onItemClicked();
+    }
+
+    interface OnClickListener{
+        Theme onItemClicked();
+    }
+
 
     public void botaoEscolha(ImageView img_button) {
 
