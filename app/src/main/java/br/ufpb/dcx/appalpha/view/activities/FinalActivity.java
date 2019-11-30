@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import br.ufpb.dcx.appalpha.R;
-import br.ufpb.dcx.appalpha.control.util.Som;
+import br.ufpb.dcx.appalpha.control.util.SomUtil;
 import br.ufpb.dcx.appalpha.control.dbhelper.Recordes;
 
 
@@ -25,7 +25,7 @@ public class FinalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final);
 
-        Som.getInstance().playSound(getApplicationContext(), R.raw.applause);
+        SomUtil.getInstance().playSound(getApplicationContext(), R.raw.applause);
 
         recorde = new Recordes(getApplicationContext());
 

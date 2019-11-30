@@ -4,20 +4,20 @@ import android.content.Context;
 import android.media.MediaPlayer;
 import android.util.Log;
 
-public class Som {
-    private static Som som;
+public class SomUtil {
+    private static SomUtil somUtil;
     private MediaPlayer mediaPlayer;
     private int duracao;
 
-    public static Som getInstance() {
-        if(som == null) {
-            som = new Som();
+    public static SomUtil getInstance() {
+        if(somUtil == null) {
+            somUtil = new SomUtil();
         }
 
-        return som;
+        return somUtil;
     }
 
-    private Som(){}
+    private SomUtil(){}
 
     public void playSound(Context context, int songId) {
 

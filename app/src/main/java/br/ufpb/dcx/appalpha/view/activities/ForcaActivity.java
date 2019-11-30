@@ -14,8 +14,8 @@ import br.ufpb.dcx.appalpha.control.ChallengeFacade;
 import br.ufpb.dcx.appalpha.control.ForcaController;
 import br.ufpb.dcx.appalpha.R;
 import br.ufpb.dcx.appalpha.control.util.ImageLoadUtil;
-import br.ufpb.dcx.appalpha.control.util.Som;
-import br.ufpb.dcx.appalpha.control.Cronometro;
+import br.ufpb.dcx.appalpha.control.util.SomUtil;
+import br.ufpb.dcx.appalpha.control.util.Cronometro;
 import br.ufpb.dcx.appalpha.control.log.LogManagerExtStor;
 
 
@@ -61,7 +61,7 @@ public class ForcaActivity extends AppCompatActivity {
 
     protected void onDestroy() {
         super.onDestroy();
-        Som.getInstance().stopSound();
+        SomUtil.getInstance().stopSound();
         liberandoMemoria();
     }
 
@@ -163,7 +163,7 @@ public class ForcaActivity extends AppCompatActivity {
      * @param v view
      */
     public void escutarPalavra(View v) {
-        Som.getInstance().playSound(getApplicationContext(), Integer.parseInt(ChallengeFacade.getInstance().getCurrentChallenge().getSoundUrl()));
+        SomUtil.getInstance().playSound(getApplicationContext(), Integer.parseInt(ChallengeFacade.getInstance().getCurrentChallenge().getSoundUrl()));
     }
 
     /***

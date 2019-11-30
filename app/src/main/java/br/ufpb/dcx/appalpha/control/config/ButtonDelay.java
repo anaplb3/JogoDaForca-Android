@@ -19,7 +19,7 @@ public class ButtonDelay {
      * @param ms milisegundos em que o botão foi clicado
      * @return true caso o botão tenha sido tocado mais de uma vez, e false caso não
      */
-    public static boolean testClique(int ms) {
+    public static synchronized boolean delay(int ms) {
 
         Handler handler = new Handler();
         Runnable r = new Runnable() {

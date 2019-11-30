@@ -97,13 +97,13 @@ public class Challenge {
         this.contexts = contexts;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Challenge challenge = (Challenge) o;
-        return id.equals(challenge.id);
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Challenge challenge = (Challenge) o;
+//        return id.equals(challenge.id);
+//    }
 
     @Override
     public String toString() {

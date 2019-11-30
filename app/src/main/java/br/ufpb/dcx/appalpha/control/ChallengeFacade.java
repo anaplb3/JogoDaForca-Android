@@ -4,10 +4,12 @@ import android.util.Log;
 
 import java.util.List;
 
+import br.ufpb.dcx.appalpha.control.util.TextUtil;
 import br.ufpb.dcx.appalpha.model.bean.Challenge;
 import br.ufpb.dcx.appalpha.model.bean.Theme;
 
 public class ChallengeFacade {
+    private final String TAG = "ChallengeFacade";
     public static final int ATTEMPT_ACEPTED = 0;
     public static int ATTEMPT_REJECTED = 1;
     public static int ATTEMPT_EXISTS = 2;
@@ -44,6 +46,7 @@ public class ChallengeFacade {
         this.progressCount = 0;
         this.time = 0.0;
         this.sumError = 0;
+        this.underscore = "";
         setUnderscore();
 
     }
@@ -58,12 +61,16 @@ public class ChallengeFacade {
 
     public void nextChallenge(){
         try{
+            Log.i(TAG, "TRY");
             this.currentChallenge = challenges.get(challenges.indexOf(currentChallenge) + 1);
+            Log.i(TAG, this.getCurrentChallenge().getWord());
             this.progressCount++;
             this.sumError += this.erroCount;
             this.erroCount = 0;
+            setUnderscore();
         }catch (IndexOutOfBoundsException e){
             this.currentChallenge = null;
+            Log.i(TAG, "CATCH");
         }
     }
 
@@ -79,14 +86,11 @@ public class ChallengeFacade {
      * Deixa a palavra em underscore
      */
     public void setUnderscore() {
-        StringBuilder s = new StringBuilder(currentChallenge.getWord());
-        StringBuilder newS = new StringBuilder("");
+        this.underscore = TextUtil.getInstance().getUnderscoreOfThis(this.currentChallenge.getWord());
+    }
 
-        for (int i = 0; i < s.length(); i++) {
-            newS.append("_");
-        }
-
-        this.underscore = newS.toString();
+    public void setUnderscore(String underscore) {
+        this.underscore = underscore;
     }
 
     /**
@@ -118,6 +122,10 @@ public class ChallengeFacade {
      */
     public String updateWordByAttemp(char letter) {
         char[] vetor = underscore.toCharArray();
+
+        Log.i(TAG, ""+letter);
+        Log.i(TAG, ""+this.underscore.length());
+        Log.i(TAG, ""+ new String(vetor));
 
         for (int i = 0; i < this.currentChallenge.getWord().length(); i++) {
             if (letter == this.currentChallenge.getWord().charAt(i)) {

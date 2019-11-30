@@ -1,11 +1,12 @@
-package br.ufpb.dcx.appalpha.control;
+package br.ufpb.dcx.appalpha.control.util;
 
 import android.content.Context;
 import android.os.SystemClock;
 import android.view.View;
 import android.widget.Chronometer;
 
-import br.ufpb.dcx.appalpha.control.util.Som;
+import br.ufpb.dcx.appalpha.control.ChallengeFacade;
+import br.ufpb.dcx.appalpha.control.util.SomUtil;
 
 /*
 Classe que implementa o cronômetro para a contagem de pontos
@@ -52,8 +53,8 @@ public class Cronometro {
     }
 
     private void darDicaSonora() {
-        Som som = Som.getInstance();
-        som.playSound(context, Integer.parseInt(ChallengeFacade.getInstance().getCurrentChallenge().getSoundUrl()));
+        SomUtil somUtil = SomUtil.getInstance();
+        somUtil.playSound(context, Integer.parseInt(ChallengeFacade.getInstance().getCurrentChallenge().getSoundUrl()));
     }
 
     /*

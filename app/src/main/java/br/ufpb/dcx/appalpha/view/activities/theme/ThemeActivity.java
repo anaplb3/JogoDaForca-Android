@@ -19,7 +19,7 @@ import java.util.List;
 import br.ufpb.dcx.appalpha.R;
 import br.ufpb.dcx.appalpha.control.ChallengeFacade;
 import br.ufpb.dcx.appalpha.control.util.ScreenUtils;
-import br.ufpb.dcx.appalpha.control.util.Som;
+import br.ufpb.dcx.appalpha.control.util.SomUtil;
 import br.ufpb.dcx.appalpha.control.api.RetrofitInitializer;
 import br.ufpb.dcx.appalpha.model.bean.Challenge;
 import br.ufpb.dcx.appalpha.model.bean.Theme;
@@ -182,12 +182,12 @@ public class ThemeActivity extends AppCompatActivity {
                 ThemeActivity.activity.startActivity(intent);
 
             }
-        }, Som.getInstance().getDuracao());
+        }, SomUtil.getInstance().getDuracao());
 
     }
 
     private static void playThemeSong(Theme selectedTheme){
-        Som.getInstance().playSound(ThemeActivity.activity, Integer.parseInt(selectedTheme.getSoundUrl()));
+        SomUtil.getInstance().playSound(ThemeActivity.activity, Integer.parseInt(selectedTheme.getSoundUrl()));
     }
 
     public void botaoEscolha(ImageView img_button) {

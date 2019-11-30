@@ -80,7 +80,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="28dp"
         android:background="@drawable/yellow_rounded_backgroud"
-        android:onClick="startAction"
+        android:onClick="goToTheNextActivityByCondiction"
         android:text="Próximo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline14"
