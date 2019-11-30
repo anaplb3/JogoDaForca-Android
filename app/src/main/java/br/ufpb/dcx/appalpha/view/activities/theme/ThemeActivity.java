@@ -18,7 +18,7 @@ import java.util.List;
 
 import br.ufpb.dcx.appalpha.R;
 import br.ufpb.dcx.appalpha.control.ChallengeFacade;
-import br.ufpb.dcx.appalpha.control.util.ScreenUtils;
+import br.ufpb.dcx.appalpha.control.util.ScreenUtil;
 import br.ufpb.dcx.appalpha.control.util.SomUtil;
 import br.ufpb.dcx.appalpha.control.api.RetrofitInitializer;
 import br.ufpb.dcx.appalpha.model.bean.Challenge;
@@ -57,6 +57,7 @@ public class ThemeActivity extends AppCompatActivity {
         addDefaultThemes();
         fillRecycleView(themes);
         getAllChallengesFromService();
+        ScreenUtil.getInstance().unlockScreenTouch(this);
         activity = this;
     }
 
@@ -146,7 +147,7 @@ public class ThemeActivity extends AppCompatActivity {
         Log.i(TAG, "Theme " + selectedTheme.getName() + " Clicked!");
         if(selectedTheme.getChallenges() != null && selectedTheme.getChallenges().size() > 0) {
             ThemeActivity.goToSelectedChallenge(selectedTheme);
-            ScreenUtils.getInstance().lockScreenTouch(ThemeActivity.activity);
+            ScreenUtil.getInstance().lockScreenTouch(ThemeActivity.activity);
         }else{
             Toast.makeText(ThemeActivity.activity, "O tema selecionado não possui desafios, tente outro tema.", Toast.LENGTH_LONG).show();
         }

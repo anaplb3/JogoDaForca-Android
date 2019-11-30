@@ -69,9 +69,7 @@ public class ProgressActivity extends AppCompatActivity {
                             } else {
                                 runOnUiThread(update);
                             }
-
                         }
-
                         break;
                     }
                 } catch (Exception e) {

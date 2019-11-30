@@ -1,4 +1,4 @@
-package br.ufpb.dcx.appalpha.control.util;
+package br.ufpb.dcx.appalpha.control;
 
 import android.Manifest;
 import android.app.Activity;

@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import br.ufpb.dcx.appalpha.R;
-import br.ufpb.dcx.appalpha.control.util.PermissionControll;
+import br.ufpb.dcx.appalpha.control.PermissionControll;
 import br.ufpb.dcx.appalpha.view.activities.theme.ThemeActivity;
 
 public class MainActivity extends AppCompatActivity {
