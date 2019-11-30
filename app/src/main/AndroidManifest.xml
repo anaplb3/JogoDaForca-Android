@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.anaplb.appalpha">
+    package="br.ufpb.dcx.appalpha">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -16,19 +17,19 @@
         tools:ignore="GoogleAppIndexingWarning"
         >
         <activity
-            android:name=".activities.ConfigActivity"
+            android:name="br.ufpb.dcx.appalpha.view.activities.ConfigActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.MainActivity"
+            android:name="br.ufpb.dcx.appalpha.view.activities.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.ForcaActivity"
+            android:name="br.ufpb.dcx.appalpha.view.activities.ForcaActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.TemaActivity"
+            android:name="br.ufpb.dcx.appalpha.view.activities.theme.ThemeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.SplashActivity"
+            android:name="br.ufpb.dcx.appalpha.view.activities.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,18 +38,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.FinalActivity"
+            android:name="br.ufpb.dcx.appalpha.view.activities.FinalActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.SobreActivity"
+            android:name="br.ufpb.dcx.appalpha.view.activities.SobreActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="br.ufpb.dcx.appalpha.view.activities.RecordesActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.ProgressoActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".activities.RecordesActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activities.tela_progresso_Activity"
+            android:name="br.ufpb.dcx.appalpha.view.activities.ProgressActivity"
             android:screenOrientation="portrait" />
 
     </application>
