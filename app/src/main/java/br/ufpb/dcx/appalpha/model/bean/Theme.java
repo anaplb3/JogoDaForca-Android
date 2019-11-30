@@ -1,6 +1,8 @@
 package br.ufpb.dcx.appalpha.model.bean;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Theme {
@@ -10,9 +12,9 @@ public class Theme {
     private String imageUrl;
     private String soundUrl;
     private String videoUrl;
-    private Set<Challenge> challenges = new HashSet<Challenge>();
+    private List<Challenge>  challenges = new ArrayList<>();
 
-    public Theme(Long id, String name, User creator, String imageUrl, String soundUrl, String videoUrl, Set<Challenge> challenges) {
+    public Theme(Long id, String name, User creator, String imageUrl, String soundUrl, String videoUrl, List<Challenge>  challenges) {
         this.id = id;
         this.name = name;
         this.creator = creator;
@@ -25,13 +27,6 @@ public class Theme {
     public Theme(String name, String imageUrl, String soundUrl, String videoUrl) {
         this.name = name;
         this.imageUrl = imageUrl;
-        this.soundUrl = soundUrl;
-        this.videoUrl = videoUrl;
-    }
-
-    public Theme(String name, int drawableId, String soundUrl, String videoUrl) {
-        this.name = name;
-        this.imageUrl = Integer.toString(drawableId);
         this.soundUrl = soundUrl;
         this.videoUrl = videoUrl;
     }
@@ -84,11 +79,11 @@ public class Theme {
         this.videoUrl = videoUrl;
     }
 
-    public Set<Challenge> getChallenges() {
+    public List<Challenge> getChallenges() {
         return challenges;
     }
 
-    public void setChallenges(Set<Challenge> challenges) {
+    public void setChallenges(List<Challenge> challenges) {
         this.challenges = challenges;
     }
 

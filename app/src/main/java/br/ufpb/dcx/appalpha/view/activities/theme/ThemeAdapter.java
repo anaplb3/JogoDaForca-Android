@@ -23,6 +23,7 @@ import br.ufpb.dcx.appalpha.R;
 
 import java.util.List;
 
+import br.ufpb.dcx.appalpha.control.util.ImageLoadUtil;
 import br.ufpb.dcx.appalpha.model.bean.Theme;
 
 public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ViewHolder> {
@@ -45,12 +46,13 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ViewHolder> 
         }
 
         public void onBindViewHolder(ViewHolder holder, int position) {
-                holder.themeNameLeft.setText(themes.get(position).getName());
-                loadImage(themes.get(position).getImageUrl(), holder.themeImageLeft);
+                holder.themeName.setText(themes.get(position).getName());
+                ImageLoadUtil.getInstance().loadImage(themes.get(position).getImageUrl(), holder.themeImage, activityContext);
 
-                holder.themeImageLeft.setOnClickListener(new View.OnClickListener() {
+                holder.themeImage.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        v.setClickable(false);
                         ThemeActivity.OnClickListener(new ThemeActivity.OnClickListener() {
                             @Override
                             public Theme onItemClicked() {
@@ -59,54 +61,16 @@ public class ThemeAdapter extends RecyclerView.Adapter<ThemeAdapter.ViewHolder> 
                         });
                     }
                 });
-
-        }
-
-        private void loadImage(String imageUrl, ImageView themeImageLeft){
-            DiskCacheStrategy diskCacheStrategy = new DiskCacheStrategy() {
-                @Override
-                public boolean isDataCacheable(DataSource dataSource) {
-                    return false;
-                }
-
-                @Override
-                public boolean isResourceCacheable(boolean isFromAlternateCacheKey, DataSource dataSource, EncodeStrategy encodeStrategy) {
-                    return false;
-                }
-
-                @Override
-                public boolean decodeCachedResource() {
-                    return false;
-                }
-
-                @Override
-                public boolean decodeCachedData() {
-                    return false;
-                }
-            };
-
-            int erroImg = -1;
-            try{
-                erroImg = Integer.parseInt(imageUrl);
-            }catch(NumberFormatException e){
-                erroImg = R.drawable.no_image;
-            }
-
-            Glide.with(activityContext)
-                    .load(imageUrl)
-                    .error(erroImg)
-                    .diskCacheStrategy(diskCacheStrategy)
-                    .into(themeImageLeft);
         }
 
         class ViewHolder extends RecyclerView.ViewHolder {
-                ImageView themeImageLeft;
-                TextView themeNameLeft;
+                ImageView themeImage;
+                TextView themeName;
 
                 private ViewHolder(View itemView) {
                         super(itemView);
-                        themeImageLeft = itemView.findViewById(R.id.img_left);
-                        themeNameLeft = itemView.findViewById(R.id.tv_theme_name_left);
+                        themeImage = itemView.findViewById(R.id.img_left);
+                        themeName = itemView.findViewById(R.id.tv_theme_name_left);
                 }
 
         }

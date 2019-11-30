@@ -1,4 +1,4 @@
-package br.ufpb.dcx.appalpha.control.Som;
+package br.ufpb.dcx.appalpha.control.util;
 
 import android.content.Context;
 import android.media.MediaPlayer;
@@ -17,18 +17,17 @@ public class Som {
         return som;
     }
 
+    private Som(){}
 
     public void playSound(Context context, int songId) {
 
-        mediaPlayer = MediaPlayer.create(context, songId );
-        duracao = mediaPlayer.getDuration();
+        this.mediaPlayer = MediaPlayer.create(context, songId);
+        this.duracao = mediaPlayer.getDuration();
 
-        mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+        this.mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mediaPlayer) {
-
                 mediaPlayer.start();
-
             }
         });
 
@@ -54,7 +53,6 @@ public class Som {
             } catch (IllegalStateException e) {
                 Log.e("illegal state", "provavelmente o media player não foi iniciado");
             }
-
         }
     }
 

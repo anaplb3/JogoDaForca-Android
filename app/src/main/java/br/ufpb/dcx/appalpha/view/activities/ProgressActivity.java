@@ -9,12 +9,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import br.ufpb.dcx.appalpha.control.CuidandoDeTudo;
 import br.ufpb.dcx.appalpha.R;
 import br.ufpb.dcx.appalpha.control.config.ButtonDelay;
-import br.ufpb.dcx.appalpha.model.desafios.Progresso;
-import br.ufpb.dcx.appalpha.model.Vocabulario;
-import br.ufpb.dcx.appalpha.control.tratamento.TratandoPalavra;
 
 import java.util.ArrayList;
 
@@ -24,10 +20,10 @@ public class ProgressActivity extends AppCompatActivity {
     private int idSom;
     private int idImagem;
     private int progresso;
-    private TratandoPalavra tratandoPalavra;
+    //private TratandoPalavra tratandoPalavra;
 
     private ArrayList<String> palavrasUsadas;
-    private Vocabulario vocab;
+    //private Vocabulario vocab;
     private double tempo;
     private int somaErros;
     private TextView txt;
@@ -297,9 +293,9 @@ public class ProgressActivity extends AppCompatActivity {
      * Seta o textView com o underscore da palavra
      */
     public void setandoUnderscore() {
-        tratandoPalavra = new TratandoPalavra(palavra);
+        //tratandoPalavra = new TratandoPalavra(palavra);
 
-        underscore = tratandoPalavra.deixandoEmUnderscore();
+        //underscore = tratandoPalavra.deixandoEmUnderscore();
     }
 
     /**
@@ -310,16 +306,16 @@ public class ProgressActivity extends AppCompatActivity {
     public void atualizandoGeral(char letra) {
         underscore = novaPalavra(letra);
         setandoTXT(underscore);
-        atualizandoUnderscore();
+        //atualizandoUnderscore();
     }
 
     /**
      * Seta o underscore no objeto tratando palavra para que
      * na próxima vez que ele gerar o underscore novo ele tenha o mais atualizado
      */
-    public void atualizandoUnderscore() {
-        tratandoPalavra.setUnderscore(underscore);
-    }
+    //public void atualizandoUnderscore() {
+    //    tratandoPalavra.setUnderscore(underscore);
+    //}
 
     /**
      * Quebra a palavra do desafio em um array de char,
@@ -372,7 +368,7 @@ public class ProgressActivity extends AppCompatActivity {
         idImagem = it.getIntExtra("ultimaImg", 0);
 
         palavrasUsadas = it.getStringArrayListExtra("palavrasUsadas");
-        vocab = (Vocabulario) it.getSerializableExtra("objeto");
+        //vocab = (Vocabulario) it.getSerializableExtra("objeto");
         tempo = it.getDoubleExtra("tempo", 0);
         somaErros = it.getIntExtra("somaErros", 0);
         progresso = it.getIntExtra("progresso", progresso);
@@ -382,17 +378,17 @@ public class ProgressActivity extends AppCompatActivity {
     public void voltandoParaDesafio() {
         mudouActivity = true;
 
-        Progresso progress = new Progresso(vocab, palavrasUsadas);
+        //Progresso progress = new Progresso(vocab, palavrasUsadas);
 
-        CuidandoDeTudo cdt = progress.procurandoNovaPalavra();
+        //CuidandoDeTudo cdt = progress.procurandoNovaPalavra();
 
         Intent it = new Intent(getApplicationContext(), ForcaActivity.class);
-        it = cdt.colocandoEmIntent(it);
+        //it = cdt.colocandoEmIntent(it);
 
         it.putExtra("erros", 0);
         it.putExtra("palavrasUsadas", palavrasUsadas);
         it.putExtra("progresso", progresso);
-        it.putExtra("objeto", vocab);
+        //it.putExtra("objeto", vocab);
         it.putExtra("tempo", tempo);
         it.putExtra("somaErros", somaErros);
 

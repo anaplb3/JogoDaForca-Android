@@ -7,16 +7,14 @@ import br.ufpb.dcx.appalpha.R;
 /**
  * Responsável por ir atualizando a forca durante o jogo
  */
-public class CuidandoDaTela {
+public class ForcaController {
     private ImageView forca;
 
-    public CuidandoDaTela(ImageView forca) {
+    public ForcaController(ImageView forca) {
         this.forca = forca;
     }
 
-
-
-    public void mudandoForca(int erro) {
+    public void mudaForca(int erro) {
         switch (erro) {
             case 0:
                 forca.setImageResource(R.drawable.erro0);

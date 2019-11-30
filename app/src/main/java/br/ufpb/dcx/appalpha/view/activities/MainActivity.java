@@ -1,20 +1,15 @@
 package br.ufpb.dcx.appalpha.view.activities;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
-import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import br.ufpb.dcx.appalpha.R;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
+import br.ufpb.dcx.appalpha.R;
 import br.ufpb.dcx.appalpha.control.util.PermissionControll;
 import br.ufpb.dcx.appalpha.view.activities.theme.ThemeActivity;
 

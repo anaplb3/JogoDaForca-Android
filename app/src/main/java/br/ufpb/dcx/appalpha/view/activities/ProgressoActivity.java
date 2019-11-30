@@ -8,18 +8,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import br.ufpb.dcx.appalpha.control.CuidandoDeTudo;
 import br.ufpb.dcx.appalpha.R;
 import br.ufpb.dcx.appalpha.model.desafios.CuidandoTelaProgresso;
-import br.ufpb.dcx.appalpha.model.desafios.Progresso;
-import br.ufpb.dcx.appalpha.model.Vocabulario;
 
 import java.util.ArrayList;
 
 public class ProgressoActivity extends AppCompatActivity {
     int progresso;
     ArrayList<String> palavrasUsadas;
-    Vocabulario vocab;
+    //Vocabulario vocab;
     double tempo;
     int somaErros;
 
@@ -34,7 +31,7 @@ public class ProgressoActivity extends AppCompatActivity {
         progresso = it.getIntExtra("progresso", 0);
         palavrasUsadas = it.getStringArrayListExtra("palavrasUsadas");
 
-        vocab = (Vocabulario) it.getSerializableExtra("objeto");
+        //vocab = (Vocabulario) it.getSerializableExtra("objeto");
 
         tempo = it.getDoubleExtra("tempo", 0);
         somaErros  = it.getIntExtra("somaErros", 0);
@@ -56,17 +53,17 @@ public class ProgressoActivity extends AppCompatActivity {
      */
     public void voltandoParaDesafio() {
 
-        Progresso progress = new Progresso(vocab, palavrasUsadas);
+        //Progresso progress = new Progresso(vocab, palavrasUsadas);
 
-        CuidandoDeTudo cdt = progress.procurandoNovaPalavra();
+       // CuidandoDeTudo cdt = progress.procurandoNovaPalavra();
 
         Intent it = new Intent(getApplicationContext(), ForcaActivity.class);
-        it = cdt.colocandoEmIntent(it);
+        //it = cdt.colocandoEmIntent(it);
 
         it.putExtra("erros", 0);
         it.putExtra("palavrasUsadas", palavrasUsadas);
         it.putExtra("progresso", progresso);
-        it.putExtra("objeto", vocab);
+       // it.putExtra("objeto", vocab);
         it.putExtra("tempo", tempo);
         it.putExtra("somaErros", somaErros);
 

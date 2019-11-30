@@ -10,47 +10,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import br.ufpb.dcx.appalpha.control.CuidandoDaTela;
+import br.ufpb.dcx.appalpha.control.ChallengeFacade;
+import br.ufpb.dcx.appalpha.control.ForcaController;
 import br.ufpb.dcx.appalpha.R;
-import br.ufpb.dcx.appalpha.control.Som.Som;
+import br.ufpb.dcx.appalpha.control.util.ImageLoadUtil;
+import br.ufpb.dcx.appalpha.control.util.Som;
 import br.ufpb.dcx.appalpha.control.Cronometro;
 import br.ufpb.dcx.appalpha.control.log.LogManagerExtStor;
-import br.ufpb.dcx.appalpha.model.Vocabulario;
-import br.ufpb.dcx.appalpha.control.tratamento.TratandoPalavra;
-
-import java.util.ArrayList;
 
 
 public class ForcaActivity extends AppCompatActivity {
-
-    final int CHUTE_CERTO = 0;
-    final int CHUTE_ERRADO = 1;
-    final int CHUTE_REPETIDO = -1;
     final int QTD_MAX_ERROS = 6;
-    CuidandoDaTela cuidandoDaForca;
-    Integer audio;
-    Integer idImagem;
-    Som som;
-    String chute;
-    TratandoPalavra tratandoPalavra;
-    int erros;
-    int progresso;
-    String palavra;
-    Vocabulario vocabulario;
-    ArrayList<String> palavrasUsadas;
+    ForcaController forcaController;
     Cronometro cronometro;
-    double tempo;
-    int somaErros;
     private LogManagerExtStor logManagerExt;
     private ImageView imgPalavra;
 
     public void liberandoMemoria() {
-
-        cuidandoDaForca = null;
-        som = null;
-        tratandoPalavra = null;
-        vocabulario = null;
-        palavrasUsadas = null;
+        forcaController = null;
         cronometro = null;
         imgPalavra.setImageDrawable(null);
     }
@@ -60,43 +37,22 @@ public class ForcaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forca);
 
-        som = new Som();
-
-        //Pegando dados do Tema
-        Intent it = getIntent();
-
-        String underscore = it.getStringExtra("under");
-        palavra = it.getStringExtra("palavra");
-        idImagem = it.getIntExtra("img", 0);
-        erros = it.getIntExtra("erros", 0);
-        somaErros = it.getIntExtra("somaErros", 0);
-        audio = it.getIntExtra("som", 0);
-        progresso = it.getIntExtra("progresso", 0);
-        vocabulario = (Vocabulario) it.getSerializableExtra("objeto");
-        palavrasUsadas = it.getStringArrayListExtra("palavrasUsadas");
-        tempo = it.getDoubleExtra("tempo", 0);
-
-        // Setando o underscore no objeto para que ele possa ser modificado ao longo do jogo
-        tratandoPalavra = new TratandoPalavra(palavra);
-        tratandoPalavra.setUnderscore(underscore);
-
-
         // Setando o underscore no TextView da tela
         TextView txtUnderscore = findViewById(R.id.txt_underscore);
-        txtUnderscore.setText(dandoEspacos(underscore));
+        txtUnderscore.setText(dandoEspacos(ChallengeFacade.getInstance().getUnderscore()));
 
         // Setando o ImageView da forca no objeto para modificação ao longo do jogo
         ImageView img_forca = findViewById(R.id.img_forca);
-        cuidandoDaForca = new CuidandoDaTela(img_forca);
+        forcaController = new ForcaController(img_forca);
 
         // Setando imagem da palavra
 
         imgPalavra = findViewById(R.id.img_palavra);
-        imgPalavra.setImageResource(idImagem);
+        ImageLoadUtil.getInstance().loadImage(ChallengeFacade.getInstance().getCurrentChallenge().getImageUrl(), imgPalavra, getApplicationContext());
 
         // Iniciando cronômetro
-        cronometro = new Cronometro(findViewById(R.id.cronometro), getApplicationContext(), audio);
-        cronometro.comecandoCronometro();
+        cronometro = new Cronometro(findViewById(R.id.cronometro), getApplicationContext());
+        cronometro.comecarCronometro();
 
         //Iniciando o gerenciador de Logs para memória interna
         this.logManagerExt = new LogManagerExtStor(getApplicationContext());
@@ -105,8 +61,7 @@ public class ForcaActivity extends AppCompatActivity {
 
     protected void onDestroy() {
         super.onDestroy();
-        som.stopSound();
-
+        Som.getInstance().stopSound();
         liberandoMemoria();
     }
 
@@ -117,21 +72,21 @@ public class ForcaActivity extends AppCompatActivity {
     }
 
     /**
-     * Verifica se a letra que o jogador clicou é a correta, caso sim, a cor do botão mudará para verde, caso não, mudará para vermelho.
+     * Muda a cor do botão clicado de acordo com o resultado do chute. A cor do botão mudará para verde caso acerte, caso não, mudará para vermelho.
      * @param letraClicada a letra que o usuário chutou
      * @param btnClicado botão correspondente a essa letra
      */
     public void feedbackColorButtonLeter(String letraClicada, Button btnClicado) {
-        int resultado = tratandoPalavra.contandoErros(letraClicada);
+        int resultado =  ChallengeFacade.getInstance().getAttempResult(letraClicada);
 
-        if (resultado == CHUTE_CERTO) {
+        if (resultado == ChallengeFacade.ATTEMPT_ACEPTED) {
             btnClicado.setBackgroundResource(R.drawable.greem_rounded_backgroud);
-        } else if (resultado == CHUTE_REPETIDO) {
+        } else if (resultado == ChallengeFacade.ATTEMPT_EXISTS) {
             Toast.makeText(getApplicationContext(), "Você já chutou essa letra!", Toast.LENGTH_SHORT).show();
-        } else { // Chute errado
+        } else { // ATTEMP_REJECTED
             btnClicado.setBackgroundResource(R.drawable.red_rounded_backgroud);
-            Log.i("Json-Log", tratandoPalavra.getPalavra()+ " - " + letraClicada);
-            this.logManagerExt.addNewErro(tratandoPalavra.getPalavra(), letraClicada); //Adicionando caso de erro ao arquivo JSON
+            Log.i("Json-Log", ChallengeFacade.getInstance().getCurrentChallenge().getWord() + " - " + letraClicada);
+            this.logManagerExt.addNewErro(ChallengeFacade.getInstance().getCurrentChallenge().getWord(), letraClicada); //Adicionando caso de erro ao arquivo JSON
         }
     }
 
@@ -145,49 +100,33 @@ public class ForcaActivity extends AppCompatActivity {
         // Mudando cor do botão
         feedbackColorButtonLeter(letraClicada, btnClicado);
 
-        // Pegando a resposta e verificando se houve erro
-        pegandoResposta(letraClicada);
-
         // Atualiza a imagem da forca de acordo com a quantidade de erros
         setandoAForca();
 
         // Setando o text view com o novo underscore
-        setandoTxtUnderscore(tratandoPalavra.getUnderscore());
+        setandoTxtUnderscore(ChallengeFacade.getInstance().getUnderscore());
 
 
-        verificandoSeOJogoAcabou();
+        verifyChallengeItsOver();
     }
 
     /**
      * Atualiza a imagem da forca
      */
     private void setandoAForca() {
-        cuidandoDaForca.mudandoForca(erros);
+        forcaController.mudaForca(ChallengeFacade.getInstance().getErroCount());
     }
 
     /**
      * Verifica se a quantidade máxima de erros foi atingida ou se o usuário já acertou a palavra
      */
-    private void verificandoSeOJogoAcabou() {
+    private void verifyChallengeItsOver() {
         Intent it = new Intent(this, ProgressActivity.class);
 
-
-        if (this.erros == QTD_MAX_ERROS || verificandoSeJaAcertou()) {
-            tempo += cronometro.parandoCronometroEPegandoTempo();
-
-            Log.i("tempo do if", ""+tempo);
-
-            palavrasUsadas.add(palavra);
-            it.putExtra("progresso", progresso += 1);
-            it.putExtra("palavrasUsadas", palavrasUsadas);
-            it.putExtra("objeto", vocabulario);
-            it.putExtra("somaErros", somaErros+= erros);
-            it.putExtra("tempo", tempo);
-
-            it.putExtra("ultimoSom", audio);
-            it.putExtra("ultimaPalavra", palavra);
-            it.putExtra("ultimaImg", idImagem);
-            startEmActivity(it);
+        if (ChallengeFacade.getInstance().getErroCount() == QTD_MAX_ERROS || ChallengeFacade.getInstance().checkWordAccepted()) {
+            ChallengeFacade.getInstance().increaseTime(cronometro.parandoCronometroEPegandoTempo());
+            startActivity(it);
+            finish();
         }
 
     }
@@ -223,47 +162,8 @@ public class ForcaActivity extends AppCompatActivity {
      *
      * @param v view
      */
-    public void escutandoPalavra(View v) {
-        som.playSound(getApplicationContext(), audio);
-    }
-
-    /**
-     * Pega a resposta do usuário e verifica se houve acerto, resposta nulo ou repetida. A partir disso contabiliza a quantidade de erros
-     */
-    public void pegandoResposta(String letraClicada) {
-        chute = letraClicada.toLowerCase();
-
-        int res = tratandoPalavra.contandoErros(chute);
-
-        Log.i("bug underscore", tratandoPalavra.getUnderscore());
-
-        Log.i("bug", "" + res);
-
-        // Verifica se o usuário errou o chute para poder adicionar nos erros e mudar a imagem da forca
-        if (res == CHUTE_ERRADO) {
-            this.erros += res;
-        }
-
-    }
-
-    /**
-     * Verifica se o usuário já acertou a palavra
-     *
-     * @return um boolean informando de se acertou ou não
-     */
-    private boolean verificandoSeJaAcertou() {
-
-        return tratandoPalavra.checandoSeAcertouPalavra();
-    }
-
-    /**
-     * Método que dá start em activities
-     *
-     * @param it Intent que será dado o start
-     */
-    private void startEmActivity(Intent it) {
-        startActivity(it);
-        finish();
+    public void escutarPalavra(View v) {
+        Som.getInstance().playSound(getApplicationContext(), Integer.parseInt(ChallengeFacade.getInstance().getCurrentChallenge().getSoundUrl()));
     }
 
     /***
