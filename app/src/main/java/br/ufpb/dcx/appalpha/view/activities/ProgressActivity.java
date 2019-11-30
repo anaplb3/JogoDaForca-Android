@@ -18,13 +18,31 @@ public class ProgressActivity extends AppCompatActivity {
     private final String TAG = "ProgressActivity";
     private TextView txt;
     private boolean mudouActivity;
-    private int millis = 1900;
-    private Thread atualizando;
-
+    private int millis = 2500;
     private char[] letras;
+    private Thread leitor;
 
-    private void thread_atualizando_letras() {
-        atualizando = new Thread() {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_tela_progresso_);
+
+        setUnderscore();
+
+        setLetters();
+
+        setChallengeImage();
+
+        mudouActivity = false;
+
+        SomUtil.getInstance().playSound(getApplicationContext(), Integer.parseInt(ChallengeFacade.getInstance().getCurrentChallenge().getSoundUrl()));
+
+        readLetterByLetter();
+
+    }
+
+    private void readLetterByLetter() {
+        leitor = new Thread() {
 
             @Override
             public void run() {
@@ -42,7 +60,7 @@ public class ProgressActivity extends AppCompatActivity {
                                 @Override
                                 public void run() {
                                     playLetterSong(letra);
-                                    atualizandoGeral(letra);
+                                    updateUnderscoreInTextViewAndFacade(letra);
                                 }
                             };
 
@@ -62,27 +80,7 @@ public class ProgressActivity extends AppCompatActivity {
             }
         };
 
-        atualizando.start();
-
-    }
-
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela_progresso_);
-
-        setUnderscore();
-
-        setandoLetras();
-
-        setChallengeImage();
-
-        mudouActivity = false;
-
-        SomUtil.getInstance().playSound(getApplicationContext(), Integer.parseInt(ChallengeFacade.getInstance().getCurrentChallenge().getSoundUrl()));
-
-        thread_atualizando_letras();
+        leitor.start();
 
     }
 
@@ -91,7 +89,7 @@ public class ProgressActivity extends AppCompatActivity {
      */
     protected void onDestroy() {
         super.onDestroy();
-        atualizando.interrupt();
+        leitor.interrupt();
         SomUtil.getInstance().stopSound();
 
     }
@@ -105,32 +103,25 @@ public class ProgressActivity extends AppCompatActivity {
 
         int idSom = 0;
 
-        Log.i("tocando som", "" + letra);
-
         switch (letra) {
 
             case 'a':
-                Log.i("tocando som", "" + letra);
                 idSom = R.raw.letraa;
                 break;
 
             case 'b':
-                Log.i("tocando som", "" + letra);
                 idSom = R.raw.letrab;
                 break;
 
             case 'c':
-                Log.i("tocando som", "" + letra);
                 idSom = R.raw.letrac;
                 break;
 
             case 'd':
-                Log.i("tocando som", "" + letra);
                 idSom = R.raw.letrad;
                 break;
 
             case 'e':
-                Log.i("tocando som", "" + letra);
                 idSom = R.raw.letrae;
                 break;
 
@@ -235,8 +226,8 @@ public class ProgressActivity extends AppCompatActivity {
      *
      * @param letra letra que vai ser adicionada ao underscore
      */
-    public void atualizandoGeral(char letra) {
-        String newUnderscore = novaPalavra(letra);
+    public void updateUnderscoreInTextViewAndFacade(char letra) {
+        String newUnderscore = updateUnderscore(letra);
         setTextViewWord(newUnderscore);
         atualizandoUnderscore(newUnderscore);
     }
@@ -253,14 +244,14 @@ public class ProgressActivity extends AppCompatActivity {
      * Quebra a palavra do desafio em um array de char,
      * para que ele possa adicionar um a um no underscore
      */
-    public void setandoLetras() {
+    public void setLetters() {
         letras = new char[ChallengeFacade.getInstance().getCurrentChallenge().getWord().length()];
         for (int i = 0; i < ChallengeFacade.getInstance().getCurrentChallenge().getWord().length(); i++) {
             letras[i] = ChallengeFacade.getInstance().getCurrentChallenge().getWord().charAt(i);
         }
     }
 
-    public String novaPalavra(char letra) {
+    public String updateUnderscore(char letra) {
         char[] vetor = ChallengeFacade.getInstance().getUnderscore().toCharArray();
 
         for (int i = 0; i < ChallengeFacade.getInstance().getCurrentChallenge().getWord().length(); i++) {
@@ -274,7 +265,6 @@ public class ProgressActivity extends AppCompatActivity {
             }
 
         }
-
         return new String(vetor);
     }
 
