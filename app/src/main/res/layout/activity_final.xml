@@ -96,7 +96,7 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/white_rounded_backgroud"
         android:gravity="center"
-        android:onClick="cadastrandoRecorde"
+        android:onClick="saveRecord"
         android:text="Salve seu recorde!"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"

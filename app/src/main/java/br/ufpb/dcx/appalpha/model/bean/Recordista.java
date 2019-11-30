@@ -1,4 +1,4 @@
-package br.ufpb.dcx.appalpha.model;
+package br.ufpb.dcx.appalpha.model.bean;
 
 
 public class Recordista implements Comparable<Recordista>{

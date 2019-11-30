@@ -43,9 +43,6 @@
         <activity
             android:name="br.ufpb.dcx.appalpha.view.activities.SobreActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name="br.ufpb.dcx.appalpha.view.activities.ProgressoActivity"
-            android:screenOrientation="portrait" />
         <activity android:name="br.ufpb.dcx.appalpha.view.activities.RecordesActivity"
             android:screenOrientation="portrait" />
         <activity

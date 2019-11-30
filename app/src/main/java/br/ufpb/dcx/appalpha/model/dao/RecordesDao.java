@@ -1,6 +1,6 @@
 package br.ufpb.dcx.appalpha.model.dao;
 
-import br.ufpb.dcx.appalpha.model.Recordista;
+import br.ufpb.dcx.appalpha.model.bean.Recordista;
 
 import java.util.ArrayList;
 

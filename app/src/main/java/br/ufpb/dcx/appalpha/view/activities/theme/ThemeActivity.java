@@ -156,22 +156,12 @@ public class ThemeActivity extends AppCompatActivity {
         Theme onItemClicked();
     }
 
-    private static void setChallenges(Theme selectedTheme){
-        List<Challenge> challenges = new ArrayList<>();
-
-        for(int i = 0; i < 5; i++) {
-            challenges.add(selectedTheme.getChallenges().get(i));
-        }
-
-        for(Challenge c : challenges){
-            Log.i(TAG, c.getWord());
-        }
-
-        ChallengeFacade.getInstance().init(challenges, selectedTheme);
+    private static void setChallengesInFacade(Theme selectedTheme){
+        ChallengeFacade.getInstance().init(selectedTheme.getChallenges(), selectedTheme);
     }
 
     private static void goToSelectedChallenge(Theme selectedTheme){
-        setChallenges(selectedTheme);
+        setChallengesInFacade(selectedTheme);
         playThemeSong(selectedTheme);
 
         Intent intent = new Intent(ThemeActivity.activity, ForcaActivity.class);

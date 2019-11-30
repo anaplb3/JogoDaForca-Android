@@ -1,4 +1,4 @@
-package br.ufpb.dcx.appalpha.control.dbhelper;
+package br.ufpb.dcx.appalpha.control.service;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,17 +6,18 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import br.ufpb.dcx.appalpha.model.Recordista;
+import br.ufpb.dcx.appalpha.control.dbhelper.DbHelper;
+import br.ufpb.dcx.appalpha.model.bean.Recordista;
 import br.ufpb.dcx.appalpha.model.dao.RecordesDao;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Recordes implements RecordesDao {
+public class RecordeService implements RecordesDao {
     private SQLiteDatabase escreve;
     private SQLiteDatabase ler;
 
-    public Recordes(Context context) {
+    public RecordeService(Context context) {
         DbHelper db = new DbHelper(context);
         escreve = db.getWritableDatabase();
         ler = db.getReadableDatabase();

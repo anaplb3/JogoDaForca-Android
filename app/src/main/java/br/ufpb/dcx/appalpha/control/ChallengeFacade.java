@@ -62,11 +62,11 @@ public class ChallengeFacade {
     public void nextChallenge(){
         try{
             Log.i(TAG, "TRY");
-            this.currentChallenge = challenges.get(challenges.indexOf(currentChallenge) + 1);
             Log.i(TAG, this.getCurrentChallenge().getWord());
-            this.progressCount++;
             this.sumError += this.erroCount;
             this.erroCount = 0;
+            this.progressCount++;
+            this.currentChallenge = challenges.get(challenges.indexOf(currentChallenge) + 1);
             setUnderscore();
         }catch (IndexOutOfBoundsException e){
             this.currentChallenge = null;
@@ -205,4 +205,7 @@ public class ChallengeFacade {
         return erroCount;
     }
 
+    public int getSumError() {
+        return sumError;
+    }
 }

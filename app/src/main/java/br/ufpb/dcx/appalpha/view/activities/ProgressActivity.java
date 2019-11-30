@@ -15,6 +15,7 @@ import br.ufpb.dcx.appalpha.control.config.ButtonDelay;
 import br.ufpb.dcx.appalpha.control.util.SomUtil;
 
 public class ProgressActivity extends AppCompatActivity {
+    private final String TAG = "ProgressActivity";
     private TextView txt;
     private boolean mudouActivity;
     private int millis = 1900;
@@ -303,7 +304,9 @@ public class ProgressActivity extends AppCompatActivity {
     public void goToTheNextActivityByCondiction(View v) {
         // Testa se o botão foi clicado mais de uma vez em um intervalo de 1 segundo
         if(ButtonDelay.delay(1000)) {
-            if (ChallengeFacade.getInstance().getProgressCount() == ChallengeFacade.getInstance().getChallenges().size()) {
+            Log.i(TAG,"pg"+ChallengeFacade.getInstance().getProgressCount());
+            Log.i(TAG,"size"+ChallengeFacade.getInstance().getChallenges().size());
+            if (ChallengeFacade.getInstance().getProgressCount() == ChallengeFacade.getInstance().getChallenges().size()-1) {
                 goToTheFinalActivity();
             } else {
                 goToTheNextChallenge();

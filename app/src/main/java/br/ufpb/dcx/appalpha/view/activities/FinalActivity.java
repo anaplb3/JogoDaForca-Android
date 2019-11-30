@@ -1,7 +1,5 @@
 package br.ufpb.dcx.appalpha.view.activities;
 
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,13 +9,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import br.ufpb.dcx.appalpha.R;
+import br.ufpb.dcx.appalpha.control.ChallengeFacade;
 import br.ufpb.dcx.appalpha.control.util.SomUtil;
-import br.ufpb.dcx.appalpha.control.dbhelper.Recordes;
+import br.ufpb.dcx.appalpha.control.service.RecordeService;
 
 
 public class FinalActivity extends AppCompatActivity {
     private static final int pontuacaoInicial = 1000;
-    Recordes recorde;
+    private RecordeService recordeService;
     double pontuacaoFinal;
 
     @Override
@@ -27,29 +26,24 @@ public class FinalActivity extends AppCompatActivity {
 
         SomUtil.getInstance().playSound(getApplicationContext(), R.raw.applause);
 
-        recorde = new Recordes(getApplicationContext());
+        recordeService = new RecordeService(getApplicationContext());
 
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
-        Intent it = getIntent();
-
-        TextView txt = findViewById(R.id.textView);
+        TextView txtPoints = findViewById(R.id.textView);
         ImageView img = findViewById(R.id.imageView9);
 
         // Pegando informações da activity anterior
-        double tempo = it.getDoubleExtra("tempo", 0);
-        pontuacaoFinal = retornaPontuacao(tempo, it.getIntExtra("somaErros", 0));
+        pontuacaoFinal = getPoints(ChallengeFacade.getInstance().getTime(), ChallengeFacade.getInstance().getSumError());
 
         pontuacao(img, pontuacaoFinal);
 
-        txt.setText(String.format("Sua pontuação final foi: %s", pontuacaoFinal));
+        txtPoints.setText(String.format("Sua pontuação final foi: %s", pontuacaoFinal));
 
     }
 
     /**
      * Pega o nome do jogador para colocar no recorde
      */
-    public void pegandoNome() {
+    public void savePlayerName() {
         EditText txt_nome = findViewById(R.id.edit_nome);
         String nome = txt_nome.getText().toString();
 
@@ -61,10 +55,9 @@ public class FinalActivity extends AppCompatActivity {
      * Através do botão no xml salva a pontuacao do jogador
      * @param v
      */
-    public void cadastrandoRecorde(View v) {
-        pegandoNome();
+    public void saveRecord(View v) {
+        savePlayerName();
         Toast.makeText(getApplicationContext(), "Recorde salvo com sucesso!", Toast.LENGTH_SHORT).show();
-
         sair();
     }
 
@@ -74,8 +67,7 @@ public class FinalActivity extends AppCompatActivity {
      * @param nome nome do jogador
      */
     public void inserindoNoBanco(double pontuacao, String nome) {
-
-        recorde.cadastrarNovoRecorde(pontuacao, nome);
+        recordeService.cadastrarNovoRecorde(pontuacao, nome);
     }
 
     /**
@@ -84,7 +76,7 @@ public class FinalActivity extends AppCompatActivity {
      * @param erros erros que o usuário cometeu durante os desafios
      * @return pontuação final do usuário
      */
-    public double retornaPontuacao(double tempo, int erros) {
+    public double getPoints(double tempo, int erros) {
 
         double pontuacao = pontuacaoInicial - ( (erros * 10) + (tempo * 100) );
 
