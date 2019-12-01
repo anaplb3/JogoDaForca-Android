@@ -61,7 +61,7 @@ public class AddThemeActivity extends AppCompatActivity implements View.OnClickL
                             finish();
 
                         }else{
-                            Toast.makeText(getApplicationContext(), "Erro ao recuperar tema, verifique se o id inserido é válido.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Erro ao recuperar tema, verifique se o id inserido é válido.", Toast.LENGTH_LONG).show();
                             Log.i(TAG, "Erro ao recuperar theme com id " + id);
                         }
                     }
