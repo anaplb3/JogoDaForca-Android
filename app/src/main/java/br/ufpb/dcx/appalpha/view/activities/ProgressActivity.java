@@ -93,7 +93,7 @@ public class ProgressActivity extends AppCompatActivity {
      */
     protected void onDestroy() {
         super.onDestroy();
-        leitor.interrupt();
+        //leitor.interrupt();
         SomUtil.getInstance().stopSound();
 
     }
