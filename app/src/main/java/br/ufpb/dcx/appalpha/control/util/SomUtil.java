@@ -19,7 +19,7 @@ public class SomUtil {
 
     private SomUtil(){}
 
-    public void playSound(Context context, int songId) {
+    public synchronized void playSound(Context context, int songId) {
 
         this.mediaPlayer = MediaPlayer.create(context, songId);
         this.duracao = mediaPlayer.getDuration();

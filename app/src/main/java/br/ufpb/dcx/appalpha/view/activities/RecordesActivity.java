@@ -6,13 +6,13 @@ import android.view.View;
 import android.widget.TextView;
 
 import br.ufpb.dcx.appalpha.R;
-import br.ufpb.dcx.appalpha.control.service.RecordeService;
-import br.ufpb.dcx.appalpha.model.bean.Recordista;
+import br.ufpb.dcx.appalpha.control.service.RecordsService;
+import br.ufpb.dcx.appalpha.model.bean.Record;
 
 import java.util.ArrayList;
 
 public class RecordesActivity extends AppCompatActivity {
-    RecordeService recorde;
+    RecordsService recorde;
 
     TextView primeiroNome;
     TextView segundoNome;
@@ -34,41 +34,41 @@ public class RecordesActivity extends AppCompatActivity {
 
         pegandoTxt();
 
-        recorde = new RecordeService(getApplicationContext());
+        recorde = RecordsService.getInstance(getApplicationContext());
 
         setandoDados();
     }
 
     public void setandoDados() {
-        ArrayList<Recordista> recordistas = recorde.getRecordistas();
+        ArrayList<Record> records = recorde.getRecordistas();
 
-        for(int i = 0; i < recordistas.size(); i++) {
+        for(int i = 0; i < records.size(); i++) {
 
             switch (i) {
 
                 case 0:
-                    gravandoDadosNoRecorde(primeiroNome, recordistas.get(i).getNome());
-                    gravandoDadosNoRecorde(primeiroLugar, ""+recordistas.get(i).getPontuacao());
+                    gravandoDadosNoRecorde(primeiroNome, records.get(i).getNome());
+                    gravandoDadosNoRecorde(primeiroLugar, ""+ records.get(i).getPontuacao());
                     break;
 
                 case 1:
-                    gravandoDadosNoRecorde(segundoNome, recordistas.get(i).getNome());
-                    gravandoDadosNoRecorde(segundoLugar, ""+recordistas.get(i).getPontuacao());
+                    gravandoDadosNoRecorde(segundoNome, records.get(i).getNome());
+                    gravandoDadosNoRecorde(segundoLugar, ""+ records.get(i).getPontuacao());
                     break;
 
                 case 2:
-                    gravandoDadosNoRecorde(terceiroNome, recordistas.get(i).getNome());
-                    gravandoDadosNoRecorde(terceiroLugar, ""+recordistas.get(i).getPontuacao());
+                    gravandoDadosNoRecorde(terceiroNome, records.get(i).getNome());
+                    gravandoDadosNoRecorde(terceiroLugar, ""+ records.get(i).getPontuacao());
                     break;
 
                 case 3:
-                    gravandoDadosNoRecorde(quartoNome, recordistas.get(i).getNome());
-                    gravandoDadosNoRecorde(quartoLugar, ""+recordistas.get(i).getPontuacao());
+                    gravandoDadosNoRecorde(quartoNome, records.get(i).getNome());
+                    gravandoDadosNoRecorde(quartoLugar, ""+ records.get(i).getPontuacao());
                     break;
 
                 case 4:
-                    gravandoDadosNoRecorde(quintoNome, recordistas.get(i).getNome());
-                    gravandoDadosNoRecorde(quintoLugar, ""+recordistas.get(i).getPontuacao());
+                    gravandoDadosNoRecorde(quintoNome, records.get(i).getNome());
+                    gravandoDadosNoRecorde(quintoLugar, ""+ records.get(i).getPontuacao());
                     break;
             }
 

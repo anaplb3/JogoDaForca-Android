@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import br.ufpb.dcx.appalpha.R;
 import br.ufpb.dcx.appalpha.control.PermissionControll;
+import br.ufpb.dcx.appalpha.control.service.MockThemes;
 import br.ufpb.dcx.appalpha.view.activities.theme.ThemeActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         pc.getReadExternalStoragePermission();
         pc.getWriteExternalStoragePermission();
 
+        //MockThemes mt = new MockThemes(getApplicationContext());
+        //mt.run();
     }
 
     public void goToRecords(View v) {

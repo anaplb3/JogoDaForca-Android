@@ -1,6 +1,5 @@
 package br.ufpb.dcx.appalpha.view.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -8,15 +7,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import br.ufpb.dcx.appalpha.R;
 import br.ufpb.dcx.appalpha.control.ChallengeFacade;
+import br.ufpb.dcx.appalpha.control.service.RecordsService;
 import br.ufpb.dcx.appalpha.control.util.SomUtil;
-import br.ufpb.dcx.appalpha.control.service.RecordeService;
 
 
 public class FinalActivity extends AppCompatActivity {
     private static final int pontuacaoInicial = 1000;
-    private RecordeService recordeService;
+    private RecordsService recordeService;
     double pontuacaoFinal;
 
     @Override
@@ -26,7 +27,7 @@ public class FinalActivity extends AppCompatActivity {
 
         SomUtil.getInstance().playSound(getApplicationContext(), R.raw.applause);
 
-        recordeService = new RecordeService(getApplicationContext());
+        recordeService = RecordsService.getInstance(getApplicationContext());
 
         TextView txtPoints = findViewById(R.id.textView);
         ImageView img = findViewById(R.id.imageView9);
