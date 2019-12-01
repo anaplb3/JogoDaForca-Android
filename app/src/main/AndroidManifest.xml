@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".view.activities.AddThemeActivity"></activity>
+        <activity android:name=".view.activities.AddThemeActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.activities.ConfigActivity"
             android:screenOrientation="portrait" />

@@ -53,7 +53,9 @@ public class ThemeSqlService {
             id = this.writableDb.insert(DbHelper.THEMES_TABLE, null, cv);
             Log.i(TAG, theme.getName() + " added in db!");
 
-            insertThemeRelatedChallenges(id, relatedChallenges);
+            if(relatedChallenges != null){
+                insertThemeRelatedChallenges(id, relatedChallenges);
+            }
         } catch(Exception e) {
             Log.e(TAG, e.getMessage());
         } finally {

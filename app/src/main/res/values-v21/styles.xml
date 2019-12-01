@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/background_maincolor</item>
         <item name="colorPrimaryDark">@color/background_maincolor_dark</item>
         <item name="colorAccent">@color/background_maincolor_dark</item>
-        <item name="android:navigationBarColor">@color/background_status_bar</item>
-        <item name="android:statusBarColor">@color/background_maincolor_dark</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
+
 </resources>

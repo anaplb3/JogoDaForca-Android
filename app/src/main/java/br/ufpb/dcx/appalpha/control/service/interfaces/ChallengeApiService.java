@@ -1,4 +1,4 @@
-package br.ufpb.dcx.appalpha.control.service;
+package br.ufpb.dcx.appalpha.control.service.interfaces;
 
 import java.util.List;
 
