@@ -1,11 +1,11 @@
 package br.ufpb.dcx.appalpha.model.bean;
 
 
-public class Recordista implements Comparable<Recordista>{
+public class Record implements Comparable<Record>{
     private String nome;
     private double pontuacao;
 
-    public Recordista(String nome, double pontuacao) {
+    public Record(String nome, double pontuacao) {
         this.nome = nome;
         this.pontuacao = pontuacao;
     }
@@ -19,12 +19,12 @@ public class Recordista implements Comparable<Recordista>{
     }
 
     @Override
-    public int compareTo(Recordista outroRecordista) {
-        if(this.pontuacao > outroRecordista.getPontuacao()) {
+    public int compareTo(Record outroRecord) {
+        if(this.pontuacao > outroRecord.getPontuacao()) {
             return -1;
         }
 
-        if(this.pontuacao < outroRecordista.getPontuacao()) {
+        if(this.pontuacao < outroRecord.getPontuacao()) {
             return 1;
         }
 

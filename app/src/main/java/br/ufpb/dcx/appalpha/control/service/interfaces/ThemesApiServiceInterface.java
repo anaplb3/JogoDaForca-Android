@@ -1,15 +1,18 @@
-package br.ufpb.dcx.appalpha.control.api;
+package br.ufpb.dcx.appalpha.control.service.interfaces;
 
 import java.util.List;
 
 import br.ufpb.dcx.appalpha.model.bean.Theme;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.PATCH;
+import retrofit2.http.Path;
 
 
-public interface ContextService{
+public interface ThemesApiServiceInterface {
 
-    void find(Long id);
+    @GET("contexts/{id}")
+    Call<Theme> find(@Path("id") Long id);
 
     void insert();
 

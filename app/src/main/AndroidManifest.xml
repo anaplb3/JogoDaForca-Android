@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="br.ufpb.dcx.appalpha">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,22 +14,23 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning"
-        >
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".view.activities.AddThemeActivity"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name="br.ufpb.dcx.appalpha.view.activities.ConfigActivity"
+            android:name=".view.activities.ConfigActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="br.ufpb.dcx.appalpha.view.activities.MainActivity"
+            android:name=".view.activities.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="br.ufpb.dcx.appalpha.view.activities.ForcaActivity"
+            android:name=".view.activities.ForcaActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="br.ufpb.dcx.appalpha.view.activities.theme.ThemeActivity"
+            android:name=".view.activities.theme.ThemeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="br.ufpb.dcx.appalpha.view.activities.SplashActivity"
+            android:name=".view.activities.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,17 +39,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="br.ufpb.dcx.appalpha.view.activities.FinalActivity"
+            android:name=".view.activities.FinalActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="br.ufpb.dcx.appalpha.view.activities.SobreActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name="br.ufpb.dcx.appalpha.view.activities.RecordesActivity"
+            android:name=".view.activities.SobreActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="br.ufpb.dcx.appalpha.view.activities.ProgressActivity"
+            android:name=".view.activities.RecordesActivity"
             android:screenOrientation="portrait" />
-
+        <activity
+            android:name=".view.activities.ProgressActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

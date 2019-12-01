@@ -1,21 +1,25 @@
 package br.ufpb.dcx.appalpha.view.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import br.ufpb.dcx.appalpha.R;
 import br.ufpb.dcx.appalpha.control.PermissionControll;
+import br.ufpb.dcx.appalpha.control.service.MockThemes;
 import br.ufpb.dcx.appalpha.view.activities.theme.ThemeActivity;
 
 public class MainActivity extends AppCompatActivity {
     private final String TAG = "MainActivity";
     private PermissionControll pc;
+    SharedPreferences sPreferences = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +29,20 @@ public class MainActivity extends AppCompatActivity {
         pc.getReadExternalStoragePermission();
         pc.getWriteExternalStoragePermission();
 
+        verifyFirstRunAndInjectDb();
+    }
+
+    public void verifyFirstRunAndInjectDb(){
+        sPreferences = getSharedPreferences("firstRun", MODE_PRIVATE);
+
+        if (sPreferences.getBoolean("firstRun", true)) {
+            sPreferences.edit().putBoolean("firstRun", false).apply();
+            MockThemes mt = new MockThemes(getApplicationContext());
+            mt.run();
+            Log.i(TAG, "First Run");
+        } else {
+            Log.i(TAG, "Don't is the first Run");
+        }
     }
 
     public void goToRecords(View v) {

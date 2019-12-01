@@ -1,4 +1,4 @@
-package br.ufpb.dcx.appalpha.control.api;
+package br.ufpb.dcx.appalpha.control.service.interfaces;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import br.ufpb.dcx.appalpha.model.bean.Challenge;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
-public interface ChallengeService{
+public interface ChallengeApiService {
     void find(Long id);
 
     void insert();

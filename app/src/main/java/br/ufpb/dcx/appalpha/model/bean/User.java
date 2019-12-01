@@ -3,7 +3,7 @@ package br.ufpb.dcx.appalpha.model.bean;
 import java.util.HashSet;
 import java.util.Set;
 
-class User {
+public class User {
     private Long id;
     private String name;
     private String email;

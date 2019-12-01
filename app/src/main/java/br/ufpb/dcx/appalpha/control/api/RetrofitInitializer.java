@@ -1,5 +1,7 @@
 package br.ufpb.dcx.appalpha.control.api;
 
+import br.ufpb.dcx.appalpha.control.service.interfaces.ChallengeApiService;
+import br.ufpb.dcx.appalpha.control.service.interfaces.ThemesApiServiceInterface;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -8,12 +10,12 @@ public class RetrofitInitializer {
 
     private Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
 
-    public ContextService contextService(){
-        return retrofit.create(ContextService.class);
+    public ThemesApiServiceInterface contextService(){
+        return retrofit.create(ThemesApiServiceInterface.class);
     }
 
-    public ChallengeService challengeService(){
-        return retrofit.create(ChallengeService.class);
+    public ChallengeApiService challengeService(){
+        return retrofit.create(ChallengeApiService.class);
     }
 
 }
