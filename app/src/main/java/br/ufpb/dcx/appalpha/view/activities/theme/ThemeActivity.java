@@ -13,16 +13,14 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import br.ufpb.dcx.appalpha.R;
 import br.ufpb.dcx.appalpha.control.ChallengeFacade;
-import br.ufpb.dcx.appalpha.control.service.ThemeService;
+import br.ufpb.dcx.appalpha.control.service.ThemeSqlService;
 import br.ufpb.dcx.appalpha.control.util.ScreenUtil;
 import br.ufpb.dcx.appalpha.control.util.SomUtil;
 import br.ufpb.dcx.appalpha.control.api.RetrofitInitializer;
-import br.ufpb.dcx.appalpha.model.bean.Challenge;
 import br.ufpb.dcx.appalpha.model.bean.Theme;
 import br.ufpb.dcx.appalpha.view.activities.ForcaActivity;
 import retrofit2.Call;
@@ -36,7 +34,7 @@ public class ThemeActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<Theme> themes = new ArrayList<>();
     protected static Activity activity;
-    private ThemeService themeService;
+    private ThemeSqlService themeSqlService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +44,7 @@ public class ThemeActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.rcThemes);
         layManager = new GridLayoutManager(getApplicationContext(), 2);
-        this.themeService = ThemeService.getInstance(getApplicationContext());
+        this.themeSqlService = ThemeSqlService.getInstance(getApplicationContext());
     }
 
     public void fillRecycleView(List<Theme> themes){
@@ -65,7 +63,7 @@ public class ThemeActivity extends AppCompatActivity {
     }
 
     public void addDefaultThemes(){
-        this.themes = this.themeService.getAll();
+        this.themes = this.themeSqlService.getAll();
     }
 
     public void getAllChallengesFromService(){

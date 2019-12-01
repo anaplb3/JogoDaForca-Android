@@ -13,20 +13,20 @@ import br.ufpb.dcx.appalpha.control.dbhelper.DbHelper;
 import br.ufpb.dcx.appalpha.model.bean.Record;
 import br.ufpb.dcx.appalpha.model.dao.RecordesDao;
 
-public class RecordsService implements RecordesDao {
-    private static RecordsService instance;
+public class RecordsSqlService implements RecordesDao {
+    private static RecordsSqlService instance;
     private SQLiteDatabase escreve;
     private SQLiteDatabase ler;
 
-    public static RecordsService getInstance(Context context){
+    public static RecordsSqlService getInstance(Context context){
         if(instance == null){
-            instance = new RecordsService(context);
+            instance = new RecordsSqlService(context);
         }
 
         return instance;
     }
 
-    private RecordsService(Context context) {
+    private RecordsSqlService(Context context) {
         DbHelper db = new DbHelper(context);
         escreve = db.getWritableDatabase();
         ler = db.getReadableDatabase();

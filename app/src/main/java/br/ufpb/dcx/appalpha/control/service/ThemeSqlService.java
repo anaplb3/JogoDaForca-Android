@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
@@ -17,28 +16,28 @@ import br.ufpb.dcx.appalpha.model.bean.Challenge;
 import br.ufpb.dcx.appalpha.model.bean.Theme;
 import br.ufpb.dcx.appalpha.model.bean.User;
 
-public class ThemeService {
-    private final String TAG = "ThemeService";
-    private static ThemeService instance;
+public class ThemeSqlService {
+    private final String TAG = "ThemeSqlService";
+    private static ThemeSqlService instance;
     private DbHelper db;
     private SQLiteDatabase writableDb;
     private SQLiteDatabase readableDb;
-    private ChallengeService challengeService;
-    private UsersService usersService;
+    private ChallengeSqlService challengeSqlService;
+    private UsersSqlService usersSqlService;
 
-    public static ThemeService getInstance(Context context){
+    public static ThemeSqlService getInstance(Context context){
         if(instance == null){
-            instance = new ThemeService(context);
+            instance = new ThemeSqlService(context);
         }
         return instance;
     }
 
-    private ThemeService(Context context) {
+    private ThemeSqlService(Context context) {
         this.db = new DbHelper(context);
         this.writableDb = db.getWritableDatabase();
         this.readableDb = db.getReadableDatabase();
-        this.challengeService = ChallengeService.getInstance(context);
-        this.usersService = UsersService.getInstance(context);
+        this.challengeSqlService = ChallengeSqlService.getInstance(context);
+        this.usersSqlService = UsersSqlService.getInstance(context);
     }
 
     public Long insert(Theme theme, @Nullable List<Challenge> relatedChallenges){
@@ -69,7 +68,7 @@ public class ThemeService {
 
         for(Challenge c : relatedChallenges){
             try {
-                cv.put("challenge_id", challengeService.insert(c));
+                cv.put("challenge_id", challengeSqlService.insert(c));
                 cv.put("theme_id", theme_id);
                 this.writableDb.insert(DbHelper.CHALLENGE_THEME_TABLE, null, cv);
 
@@ -133,8 +132,8 @@ public class ThemeService {
                 soundUrl = cursor.getString(3);
                 videoUrl = cursor.getString(4);
                 imageUrl = cursor.getString(5);
-                List<Challenge> relatedChallenges = challengeService.getRelatedChallenges(id);
-                User creator = usersService.get(user_creator);
+                List<Challenge> relatedChallenges = challengeSqlService.getRelatedChallenges(id);
+                User creator = usersSqlService.get(user_creator);
                 Theme t = new Theme(id, name, creator, imageUrl, soundUrl, videoUrl, relatedChallenges);
                 themes.add(t);
             } while (cursor.moveToNext());

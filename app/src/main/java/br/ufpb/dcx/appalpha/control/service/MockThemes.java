@@ -9,10 +9,10 @@ import br.ufpb.dcx.appalpha.model.bean.Challenge;
 import br.ufpb.dcx.appalpha.model.bean.Theme;
 
 public class MockThemes implements Runnable {
-    private ThemeService service;
+    private ThemeSqlService service;
 
     public MockThemes(Context context) {
-        service = ThemeService.getInstance(context);
+        service = ThemeSqlService.getInstance(context);
     }
 
     @Override

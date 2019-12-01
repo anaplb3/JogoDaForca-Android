@@ -1,17 +1,22 @@
 package br.ufpb.dcx.appalpha.control.util;
 
-import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.EncodeStrategy;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.engine.GlideException;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import br.ufpb.dcx.appalpha.R;
 
 public class ImageLoadUtil {
+    private final String TAG = "ImageLoadUtil";
     private static ImageLoadUtil instance;
 
     private ImageLoadUtil(){}

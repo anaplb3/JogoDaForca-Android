@@ -1,12 +1,14 @@
-package br.ufpb.dcx.appalpha.control.api;
+package br.ufpb.dcx.appalpha.control.service;
 
 import java.util.List;
 
-import br.ufpb.dcx.appalpha.model.bean.Challenge;
+import br.ufpb.dcx.appalpha.model.bean.Theme;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
-public interface ChallengeService{
+
+public interface ThemesApiService {
+
     void find(Long id);
 
     void insert();
@@ -15,8 +17,8 @@ public interface ChallengeService{
 
     void delete(Long id);
 
-    @GET("challenges")
-    Call<List<Challenge>> findAll();
+    @GET("contexts")
+    Call<List<Theme>> findAll();
 
     void findPage(
         int page,
@@ -24,4 +26,5 @@ public interface ChallengeService{
         String orderBy,
         String direction
     );
+    
 }

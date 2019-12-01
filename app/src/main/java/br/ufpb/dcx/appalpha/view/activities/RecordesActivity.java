@@ -6,13 +6,13 @@ import android.view.View;
 import android.widget.TextView;
 
 import br.ufpb.dcx.appalpha.R;
-import br.ufpb.dcx.appalpha.control.service.RecordsService;
+import br.ufpb.dcx.appalpha.control.service.RecordsSqlService;
 import br.ufpb.dcx.appalpha.model.bean.Record;
 
 import java.util.ArrayList;
 
 public class RecordesActivity extends AppCompatActivity {
-    RecordsService recorde;
+    RecordsSqlService recorde;
 
     TextView primeiroNome;
     TextView segundoNome;
@@ -34,7 +34,7 @@ public class RecordesActivity extends AppCompatActivity {
 
         pegandoTxt();
 
-        recorde = RecordsService.getInstance(getApplicationContext());
+        recorde = RecordsSqlService.getInstance(getApplicationContext());
 
         setandoDados();
     }

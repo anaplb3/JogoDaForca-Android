@@ -13,26 +13,26 @@ import br.ufpb.dcx.appalpha.control.dbhelper.DbHelper;
 import br.ufpb.dcx.appalpha.model.bean.Challenge;
 import br.ufpb.dcx.appalpha.model.bean.User;
 
-public class ChallengeService {
-    private final String TAG = "ChallengeService";
-    private static ChallengeService instance;
+public class ChallengeSqlService {
+    private final String TAG = "ChallengeApiService";
+    private static ChallengeSqlService instance;
     private DbHelper db;
     private SQLiteDatabase writableDb;
     private SQLiteDatabase readableDb;
-    private UsersService usersService;
+    private UsersSqlService usersSqlService;
 
-    public static ChallengeService getInstance(Context context){
+    public static ChallengeSqlService getInstance(Context context){
         if(instance == null){
-            instance = new ChallengeService(context);
+            instance = new ChallengeSqlService(context);
         }
         return instance;
     }
 
-    private ChallengeService(Context context) {
+    private ChallengeSqlService(Context context) {
         this.db = new DbHelper(context);
         this.writableDb = db.getWritableDatabase();
         this.readableDb = db.getReadableDatabase();
-        this.usersService = UsersService.getInstance(context);
+        this.usersSqlService = UsersSqlService.getInstance(context);
     }
 
     public Long insert(Challenge challenge){
@@ -100,7 +100,7 @@ public class ChallengeService {
                 videoUrl = cursor.getString(4);
                 imageUrl = cursor.getString(5);
 
-                User creator = usersService.get(user_creator);
+                User creator = usersSqlService.get(user_creator);
 
                 Challenge c = new Challenge(id,word, creator, soundUrl, videoUrl, imageUrl);
                 challenges.add(c);

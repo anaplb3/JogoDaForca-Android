@@ -11,13 +11,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import br.ufpb.dcx.appalpha.R;
 import br.ufpb.dcx.appalpha.control.ChallengeFacade;
-import br.ufpb.dcx.appalpha.control.service.RecordsService;
+import br.ufpb.dcx.appalpha.control.service.RecordsSqlService;
 import br.ufpb.dcx.appalpha.control.util.SomUtil;
 
 
 public class FinalActivity extends AppCompatActivity {
     private static final int pontuacaoInicial = 1000;
-    private RecordsService recordeService;
+    private RecordsSqlService recordeService;
     double pontuacaoFinal;
 
     @Override
@@ -27,7 +27,7 @@ public class FinalActivity extends AppCompatActivity {
 
         SomUtil.getInstance().playSound(getApplicationContext(), R.raw.applause);
 
-        recordeService = RecordsService.getInstance(getApplicationContext());
+        recordeService = RecordsSqlService.getInstance(getApplicationContext());
 
         TextView txtPoints = findViewById(R.id.textView);
         ImageView img = findViewById(R.id.imageView9);
