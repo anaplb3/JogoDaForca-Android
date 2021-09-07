@@ -19,7 +19,6 @@ public class TratandoPalavra {
 
     }
 
-    //setNovoUnderscore
     public void setUnderscoreAtual(String underscoreAtualizado) {
         this.underscoreAtual = underscoreAtualizado;
     }
