@@ -50,11 +50,37 @@ public class TratandoPalavraTest {
     }
 
     @Test
-    public void checandoSeAcertouPalavra() {
+    public void deveRetornarQueAcertouAPalavra() {
+        tratandoPalavra.setUnderscoreAtual("azul");
+        assertTrue(tratandoPalavra.checandoSeAcertouPalavra());
     }
 
     @Test
-    public void novaPalavra() {
+    public void deveRetornarQueNaoAcertouAPalavra() {
+        tratandoPalavra.setUnderscoreAtual("azu");
+        assertFalse(tratandoPalavra.checandoSeAcertouPalavra());
+    }
+
+    @Test
+    public void deveRetornarUnderscoreComChuteAdicionado() {
+        String underscoreAtual = "_z_l";
+        String underscoreEsperado = "az_l";
+        char chute = 'a';
+
+        tratandoPalavra.setUnderscoreAtual(underscoreAtual);
+        String resultadoUnderscoreAposOChute = tratandoPalavra.novoUnderscoreAposChute(chute);
+        assertEquals(underscoreEsperado, resultadoUnderscoreAposOChute);
+    }
+
+    @Test
+    public void deveRetornarUnderscoreSemChuteAdicionado() {
+        String underscoreAtual = "_z_l";
+        String underscoreEsperado = "_z_l";
+        char chute = 'k';
+
+        tratandoPalavra.setUnderscoreAtual(underscoreAtual);
+        String resultadoUnderscoreAposOChute = tratandoPalavra.novoUnderscoreAposChute(chute);
+        assertEquals(underscoreEsperado, resultadoUnderscoreAposOChute);
     }
 
     @Test

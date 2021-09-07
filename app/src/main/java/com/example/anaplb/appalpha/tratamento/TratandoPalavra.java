@@ -20,14 +20,10 @@ public class TratandoPalavra {
     }
 
     //setNovoUnderscore
-    public void setUnderscoreAtual(String under) {
-        this.underscoreAtual = under;
+    public void setUnderscoreAtual(String underscoreAtualizado) {
+        this.underscoreAtual = underscoreAtualizado;
     }
 
-    /**
-     * Deixa a palavra em underscore
-     * @return a palavra em forma de underscore
-     */
     public String deixandoEmUnderscore() {
         StringBuilder palavraEmUnderscore = new StringBuilder();
 
@@ -46,7 +42,7 @@ public class TratandoPalavra {
      */
     public int checandoSeAcertou(String chute) {
 
-        String underscoreAposOChute = novaPalavra(chute.charAt(0));
+        String underscoreAposOChute = novoUnderscoreAposChute(chute.charAt(0));
 
         if (underscoreAtual.equals(underscoreAposOChute)) {
             return CHUTE_ERRADO;
@@ -54,17 +50,6 @@ public class TratandoPalavra {
             underscoreAtual = underscoreAposOChute;
             return CHUTE_CERTO;
         }
-    }
-
-
-    private char[] arrayDeChars(String underscore) {
-        char[] vetor = new char[underscore.length()];
-
-        for (int i = 0; i < underscore.length(); i++) {
-            vetor[i] = underscore.charAt(i);
-        }
-
-        return vetor;
     }
 
     /**
@@ -82,16 +67,16 @@ public class TratandoPalavra {
      * @param chute letra que o usuário chutou
      * @return o underscore modificado
      */
-    public String novaPalavra(char chute) {
-        char[] vetor = arrayDeChars(underscoreAtual);
+    public String novoUnderscoreAposChute(char chute) {
+        StringBuilder novoUnderscore = new StringBuilder(underscoreAtual);
 
-        for (int i = 0; i < palavra.length(); i++) {
-            if (chute == palavra.charAt(i)) {
-                vetor[i] = palavra.charAt(i);
+        for (int indexNaPalavra = 0; indexNaPalavra < palavra.length(); indexNaPalavra++) {
+            if (chute == palavra.charAt(indexNaPalavra)) {
+                novoUnderscore.setCharAt(indexNaPalavra, palavra.charAt(indexNaPalavra));
             }
         }
 
-        return new String(vetor);
+        return novoUnderscore.toString();
     }
 
     /**
