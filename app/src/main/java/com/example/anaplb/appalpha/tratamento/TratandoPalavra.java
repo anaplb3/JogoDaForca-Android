@@ -84,10 +84,10 @@ public class TratandoPalavra {
      * @param chute letra que o usuário chutou
      * @return boolean indicando se já foi chutada antes
      */
-    private boolean checandoSeJaExiste(char chute) {
+    public boolean checandoSeJaExiste(char chute) {
 
-        for (int i = 0; i < underscoreAtual.length(); i++) {
-            if (chute == underscoreAtual.charAt(i)) {
+        for (int indexEmUnderscore = 0; indexEmUnderscore < underscoreAtual.length(); indexEmUnderscore++) {
+            if (chute == underscoreAtual.charAt(indexEmUnderscore)) {
                 return true;
             }
         }

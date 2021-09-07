@@ -64,8 +64,8 @@ public class TratandoPalavraTest {
     @Test
     public void deveRetornarUnderscoreComChuteAdicionado() {
         String underscoreAtual = "_z_l";
-        String underscoreEsperado = "az_l";
         char chute = 'a';
+        String underscoreEsperado = "az_l";
 
         tratandoPalavra.setUnderscoreAtual(underscoreAtual);
         String resultadoUnderscoreAposOChute = tratandoPalavra.novoUnderscoreAposChute(chute);
@@ -75,12 +75,32 @@ public class TratandoPalavraTest {
     @Test
     public void deveRetornarUnderscoreSemChuteAdicionado() {
         String underscoreAtual = "_z_l";
-        String underscoreEsperado = "_z_l";
         char chute = 'k';
+        String underscoreEsperado = "_z_l";
 
         tratandoPalavra.setUnderscoreAtual(underscoreAtual);
         String resultadoUnderscoreAposOChute = tratandoPalavra.novoUnderscoreAposChute(chute);
         assertEquals(underscoreEsperado, resultadoUnderscoreAposOChute);
+    }
+
+    @Test
+    public void deveRetornarQueLetraJaFoiChutada() {
+        String underscoreAtual = "_z_l";
+        char chute = 'z';
+
+        tratandoPalavra.setUnderscoreAtual(underscoreAtual);
+
+        assertTrue(tratandoPalavra.checandoSeJaExiste(chute));
+    }
+
+    @Test
+    public void deveRetornarQueLetraNaoFoiChutada() {
+        String underscoreAtual = "_z_l";
+        char chute = 'a';
+
+        tratandoPalavra.setUnderscoreAtual(underscoreAtual);
+
+        assertFalse(tratandoPalavra.checandoSeJaExiste(chute));
     }
 
     @Test
