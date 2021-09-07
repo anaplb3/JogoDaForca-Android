@@ -6,8 +6,8 @@ import android.util.Log;
  * Classe que faz as modificações no underscore e verifica acertos ou erros
  */
 public class TratandoPalavra {
-    private final int CHUTE_ERRADO = 0;
-    private final int CHUTE_CERTO = 1;
+    public final int CHUTE_ERRADO = 0;
+    public final int CHUTE_CERTO = 1;
     private String palavra;
     private String underscore;
 
@@ -29,14 +29,14 @@ public class TratandoPalavra {
      * @return a palavra em forma de underscore
      */
     public String deixandoEmUnderscore() {
-        StringBuilder s = new StringBuilder(palavra);
-        StringBuilder newS = new StringBuilder("");
+        StringBuilder palavraStringBuilder = new StringBuilder(palavra);
+        StringBuilder palavraEmUnderscore = new StringBuilder();
 
-        for (int i = 0; i < s.length(); i++) {
-            newS.append("_");
+        for (int i = 0; i < palavraStringBuilder.length(); i++) {
+            palavraEmUnderscore.append("_");
         }
 
-        return newS.toString();
+        return palavraEmUnderscore.toString();
     }
 
 
