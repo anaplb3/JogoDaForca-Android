@@ -34,7 +34,7 @@ public class CuidandoDeTudo {
     }
 
     private String getUnderscore() {
-        return tratando.getUnderscore();
+        return tratando.getUnderscoreAtual();
     }
 
     private Integer getImagem() {

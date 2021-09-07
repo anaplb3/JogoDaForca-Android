@@ -318,7 +318,7 @@ public class tela_progresso_Activity extends AppCompatActivity {
      * na próxima vez que ele gerar o underscore novo ele tenha o mais atualizado
      */
     public void atualizandoUnderscore() {
-        tratandoPalavra.setUnderscore(underscore);
+        tratandoPalavra.setUnderscoreAtual(underscore);
     }
 
     /**

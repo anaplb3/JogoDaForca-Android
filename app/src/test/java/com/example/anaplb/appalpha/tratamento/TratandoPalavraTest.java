@@ -22,14 +22,31 @@ public class TratandoPalavraTest {
     }
 
     @Test
-    public void checandoSeAcertou() {
-    }
-
-    @Test
     public void deveRetornarQueOChuteFoiCerto() {
         String chute = "a";
         int resultadoDoChute = tratandoPalavra.checandoSeAcertou(chute);
         assertEquals(tratandoPalavra.CHUTE_CERTO, resultadoDoChute);
+    }
+
+    @Test
+    public void deveRetornarQueOChuteFoiErrado() {
+        String chute = "h";
+        int resultadoDoChute = tratandoPalavra.checandoSeAcertou(chute);
+        assertEquals(tratandoPalavra.CHUTE_ERRADO, resultadoDoChute);
+    }
+
+    @Test
+    public void deveRetornarQueOChuteFoiCertoQuandoAPrimeiraLetraEhCerta() {
+        String chute = "ak";
+        int resultadoDoChute = tratandoPalavra.checandoSeAcertou(chute);
+        assertEquals(tratandoPalavra.CHUTE_CERTO, resultadoDoChute);
+    }
+
+    @Test
+    public void deveRetornarQueOChuteFoiErradoQuandoAPrimeiraLetraEhErrada() {
+        String chute = "ka";
+        int resultadoDoChute = tratandoPalavra.checandoSeAcertou(chute);
+        assertEquals(tratandoPalavra.CHUTE_ERRADO, resultadoDoChute);
     }
 
     @Test

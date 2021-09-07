@@ -1,7 +1,5 @@
 package com.example.anaplb.appalpha.tratamento;
 
-import android.util.Log;
-
 /**
  * Classe que faz as modificações no underscore e verifica acertos ou erros
  */
@@ -9,19 +7,21 @@ public class TratandoPalavra {
     public final int CHUTE_ERRADO = 0;
     public final int CHUTE_CERTO = 1;
     private String palavra;
-    private String underscore;
+    private String underscoreAtual;
 
     public TratandoPalavra(String palavra) {
         this.palavra = palavra;
+        this.underscoreAtual = deixandoEmUnderscore();
     }
 
     public void setUnderscore() {
-        this.underscore = deixandoEmUnderscore();
+        this.underscoreAtual = deixandoEmUnderscore();
 
     }
 
-    public void setUnderscore(String under) {
-        this.underscore = under;
+    //setNovoUnderscore
+    public void setUnderscoreAtual(String under) {
+        this.underscoreAtual = under;
     }
 
     /**
@@ -45,22 +45,15 @@ public class TratandoPalavra {
      * @return um int indicando se houve acerto ou erro
      */
     public int checandoSeAcertou(String chute) {
-        int resultado;
 
-        String under = novaPalavra(chute.charAt(0));
+        String underscoreAposOChute = novaPalavra(chute.charAt(0));
 
-        // Se o underscore atual for diferente do novo, significa que o usuário acertou
-        if (!underscore.equals(under)) {
-
-            Log.i("checando", "entrou");
-            underscore = under;
-            resultado = CHUTE_CERTO;
-
+        if (underscoreAtual.equals(underscoreAposOChute)) {
+            return CHUTE_ERRADO;
         } else {
-            resultado = CHUTE_ERRADO;
+            underscoreAtual = underscoreAposOChute;
+            return CHUTE_CERTO;
         }
-
-        return resultado;
     }
 
 
@@ -80,7 +73,7 @@ public class TratandoPalavra {
      */
     public boolean checandoSeAcertouPalavra() {
 
-        return palavra.equals(underscore);
+        return palavra.equals(underscoreAtual);
 
     }
 
@@ -90,9 +83,8 @@ public class TratandoPalavra {
      * @return o underscore modificado
      */
     public String novaPalavra(char chute) {
-        char[] vetor = arrayDeChars(underscore);
+        char[] vetor = arrayDeChars(underscoreAtual);
 
-        Log.i("length da palavra ", palavra);
         for (int i = 0; i < palavra.length(); i++) {
             if (chute == palavra.charAt(i)) {
                 vetor[i] = palavra.charAt(i);
@@ -109,8 +101,8 @@ public class TratandoPalavra {
      */
     private boolean checandoSeJaExiste(char chute) {
 
-        for (int i = 0; i < underscore.length(); i++) {
-            if (chute == underscore.charAt(i)) {
+        for (int i = 0; i < underscoreAtual.length(); i++) {
+            if (chute == underscoreAtual.charAt(i)) {
                 return true;
             }
         }
@@ -138,8 +130,8 @@ public class TratandoPalavra {
 
     }
 
-    public String getUnderscore() {
-        return underscore;
+    public String getUnderscoreAtual() {
+        return underscoreAtual;
     }
 
     public String getPalavra(){

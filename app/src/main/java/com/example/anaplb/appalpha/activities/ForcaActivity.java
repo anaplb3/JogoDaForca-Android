@@ -78,7 +78,7 @@ public class ForcaActivity extends AppCompatActivity {
 
         // Setando o underscore no objeto para que ele possa ser modificado ao longo do jogo
         tratandoPalavra = new TratandoPalavra(palavra);
-        tratandoPalavra.setUnderscore(underscore);
+        tratandoPalavra.setUnderscoreAtual(underscore);
 
 
         // Setando o underscore no TextView da tela
@@ -152,7 +152,7 @@ public class ForcaActivity extends AppCompatActivity {
         setandoAForca();
 
         // Setando o text view com o novo underscore
-        setandoTxtUnderscore(tratandoPalavra.getUnderscore());
+        setandoTxtUnderscore(tratandoPalavra.getUnderscoreAtual());
 
 
         verificandoSeOJogoAcabou();
@@ -235,7 +235,7 @@ public class ForcaActivity extends AppCompatActivity {
 
         int res = tratandoPalavra.contandoErros(chute);
 
-        Log.i("bug underscore", tratandoPalavra.getUnderscore());
+        Log.i("bug underscore", tratandoPalavra.getUnderscoreAtual());
 
         Log.i("bug", "" + res);
 
