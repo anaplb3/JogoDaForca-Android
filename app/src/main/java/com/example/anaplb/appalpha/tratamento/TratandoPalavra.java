@@ -29,10 +29,9 @@ public class TratandoPalavra {
      * @return a palavra em forma de underscore
      */
     public String deixandoEmUnderscore() {
-        StringBuilder palavraStringBuilder = new StringBuilder(palavra);
         StringBuilder palavraEmUnderscore = new StringBuilder();
 
-        for (int i = 0; i < palavraStringBuilder.length(); i++) {
+        for (int i = 0; i < palavra.length(); i++) {
             palavraEmUnderscore.append("_");
         }
 
